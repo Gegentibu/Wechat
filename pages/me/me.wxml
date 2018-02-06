@@ -1,10 +1,10 @@
 <view>
   <view class="data">
     <view class="data-head">
-      <image src="../image/1.jpg"></image>
+      <image src="../image/WechatIMG35.jpeg"></image>
     </view>
     <view class="data-text">
-      <text class="data-text-name">无敌</text>
+      <text class="data-text-name">白丽丽</text>
       <text class="data-text-verification">验证身份</text>
     </view>
     <view class="data-revise">

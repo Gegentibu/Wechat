@@ -1,7 +1,6 @@
 /**index.wxss**/
 page{
   background-color: #fafafa;
-  padding-bottom: 98rpx;
 }
 .userinfo {
   display: flex;

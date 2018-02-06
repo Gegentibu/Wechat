@@ -1,6 +1,5 @@
 page{
   background-color: #fafafa;
-  padding-bottom: 98rpx;
 }
 .data{
   display: flex;
@@ -22,8 +21,8 @@ page{
   margin-top: 50rpx;
 }
 .data-revise image{
-  width: 30rpx;
-  height: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 .data-text{
   width: 450rpx;
@@ -31,12 +30,12 @@ page{
 }
 .data-text-name{
   font-size: 34rpx;
-  margin: 30rpx 0;
+  margin: 20rpx 0 35rpx 0;
   display: block;
 }
 .data-text-verification{
   font-size: 26rpx;
-  padding: 5rpx 10rpx;
+  padding: 5rpx 20rpx;
   display: inline-block;
   border: 1rpx solid #d8d8d8;
 }
