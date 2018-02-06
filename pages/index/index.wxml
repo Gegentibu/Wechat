@@ -169,7 +169,7 @@
       </view> 
     </view>
   </view>
-  <view class="footer">
+  <!-- <view class="footer">
     <navigator>
       <image src="../image/O2O.svg"></image>
     </navigator>
@@ -179,8 +179,8 @@
     <navigator>
       <image src="../image/O2O.svg"></image>
     </navigator>
-    <navigator>
+    <navigator url="/pages/me/me" hover-stop-propagation="true">
       <image src="../image/O2O.svg"></image>
     </navigator>
-  </view>
+  </view> -->
 </view>

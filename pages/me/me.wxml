@@ -1,0 +1,46 @@
+<view>
+  <view class="data">
+    <view class="data-head">
+      <image src="../image/1.jpg"></image>
+    </view>
+    <view class="data-text">
+      <text class="data-text-name">无敌</text>
+      <text class="data-text-verification">验证身份</text>
+    </view>
+    <view class="data-revise">
+      <image src="../image/编辑.svg"></image>
+    </view> 
+  </view>
+
+  <view class="supplement">
+    <image src="../image/help.svg"></image>
+    <text>补充认证信息</text>
+  </view>
+
+  <view class="action">
+    <view class="action-item">
+      <image src="../image/help.svg"></image>
+      <text>财富牧场</text>
+    </view>
+    <view class="action-item">
+      <image src="../image/help.svg"></image>
+      <text>财富牧场</text>
+    </view>
+    <view class="action-item">
+      <image src="../image/help.svg"></image>
+      <text>财富牧场</text>
+    </view>
+    <view class="action-item">
+      <image src="../image/help.svg"></image>
+      <text>财富牧场</text>
+    </view>
+    <view class="action-item">
+      <image src="../image/help.svg"></image>
+      <text>财富牧场</text>
+    </view>
+    <view class="action-item">
+      <image src="../image/help.svg"></image>
+      <text>财富牧场</text>
+    </view> 
+  </view>
+</view>
