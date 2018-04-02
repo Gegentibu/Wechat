@@ -1,0 +1,30 @@
+/* pages/news/news.wxss */
+.news-header{
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #fafafa;
+}
+.news-header-text{
+  font-size: 30rpx;
+  float: left;
+}
+.list{
+  padding: 15rpx 30rpx;
+  border-top: 1rpx solid #fafafa;
+}
+.list-title{
+  color: #0090f7;
+  font-size: 36rpx;
+}
+.list-content{
+  font-size: 30rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.list-time{
+  font-size: 28rpx;
+  color: #b0b0b0;
+}

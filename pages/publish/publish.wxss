@@ -1,0 +1,67 @@
+/* pages/publish/publish.wxss */
+.data{
+    margin-top: 80rpx;
+}
+.year{
+  height: 60rxp;
+  line-height: 60rpx;
+  background-color: #fafafa;
+  color: #b5b5b5;
+  font-size: 26rpx;
+  padding-left: 30rpx;
+  margin: 20rpx 0;
+}
+.date{
+  width: 156rpx;
+  display: inline-block;
+  background-color: #fff;
+  vertical-align: top;
+  text-align: center;
+}
+.month{
+  font-size: 20rpx;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+.day{
+  font-size: 40rpx;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+.picture{
+  width: 150rpx;
+  height: 150rpx;
+  display: flex;
+  flex-wrap:wrap;  
+}
+.picture image{
+  width: 73rpx;
+  height: 73rpx;
+  margin: 1rpx;
+}
+.paragraph{
+  width: 404rpx;
+  font-size: 34rpx;
+  color: #252525;
+  padding: 0 20rpx;
+}
+.paragraph-text{
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  min-height: 90rpx;
+}
+.icon{
+  color:#b5b5b5;
+  font-size: 24rpx;
+  display: flex;
+  margin-top: 30rpx;
+}
+.icon text{
+  margin-right: 50rpx;
+}
+.icon image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}

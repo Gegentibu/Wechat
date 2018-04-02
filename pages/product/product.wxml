@@ -1,0 +1,131 @@
+<!--pages/product/product.wxml-->
+<view style='background-color:#fff;padding-bottom:30rpx;'>
+  <view class='classify'>
+    <text>产品</text>
+    <text>销售点</text>
+    <text>产品介绍</text>    
+  </view>
+  <view class='product-image'>
+    <image src='http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg'></image>
+  </view>
+  <view>
+    <view class='product-text'>
+        <view style='display:flex;justify-content:space-between;'>
+          <view style='display: flex;align-items:center;'>
+            <text class='product-recommend'>推荐</text>
+            <text class='product-name'>蒙高丽亚-脊骨切块</text>
+          </view>
+          <view>
+            <text class='product-price'>￥34/斤</text>
+          </view>
+        </view>
+        <view style='display: flex;margin:20rpx 0;'>
+          <text class='product-direct'>直营店</text>
+        </view>
+        <view style='font-size: 20rpx;color:#b0b0b0;display:flex;justify-content:space-between;'>
+          <view>
+            <text class='product-address'>呼和浩特海拉尔东路</text>
+            <text class='product-thesale'>售多地</text>
+          </view>
+          <view>
+            <text class='product-amount'>（共有12个产品）</text>
+          </view>
+        </view>
+    </view>
+  </view>
+</view>
+<view class="data">
+    <view class="data-head">
+      <image src="../image/0.jpeg"></image>
+    </view>
+    <view class="data-text">
+      <text class="data-text-name">蒙高丽亚</text>
+      <!-- <text class="data-text-date">锡林郭勒盟蒙高丽亚农牧业发展有限公司</text> -->
+      <view class='brand-text-sort'>
+        <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
+      </view>
+    </view>
+    <view style='display:flex;flex-direction:column;justify-content:center;'>
+      <text style='font-size:24rpx;color:#b0b0b0;'>></text>
+    </view>
+</view>
+<view class='pos'>
+  <view class="pos-header">
+    <text class="pos-header-text">丨销售点</text>
+    <navigator class="pos-header-navigator">所有推荐></navigator>
+  </view>
+  <view class='pos-shop'>
+    <view class='pos-shop-text'>
+      <view style='display: inline-flex;'>
+        <text class='pos-shop-recommend'>推荐</text>
+        <text class='pos-shop-name'>蒙高丽亚（展东路店）</text>
+      </view>
+      <view style='display: flex;margin:20rpx 0;'>
+        <text class='pos-shop-direct'>直营店</text>
+      </view>
+      <view style='font-size: 20rpx;color:#b0b0b0;display:flex;justify-content:space-between;'>
+        <view>
+          <text class='pos-shop-address'>呼和浩特海拉尔东路</text>
+          <text class='pos-shop-thesale'>售多地</text>
+        </view>
+        <view>
+          <text class='pos-shop-amount'>（共有12个产品）</text>
+        </view>
+      </view>
+    </view>
+    <view class='pos-shop-image'>
+      <image src='../image/0.jpeg'></image>
+    </view>    
+  </view>
+  <view class='pos-shop'>
+    <view class='pos-shop-text'>
+      <view style='display: inline-flex;'>
+        <text class='pos-shop-recommend'>推荐</text>
+        <text class='pos-shop-name'>蒙高丽亚（展东路店）</text>
+      </view>
+      <view style='display: flex;margin:20rpx 0;'>
+        <text class='pos-shop-direct'>直营店</text>
+      </view>
+      <view style='font-size: 20rpx;color:#b0b0b0;display:flex;justify-content:space-between;'>
+        <view>
+          <text class='pos-shop-address'>呼和浩特海拉尔东路</text>
+          <text class='pos-shop-thesale'>售多地</text>
+        </view>
+        <view>
+          <text class='pos-shop-amount'>（共有12个产品）</text>
+        </view>
+      </view>
+    </view>
+    <view class='pos-shop-image'>
+      <image src='../image/1.jpg'></image>
+    </view>    
+  </view>
+</view>
+<view class='introduce'>
+  <view class="introduce-header">
+    <text class="introduce-header-text">丨产品介绍</text>
+    <!-- <navigator class="introduce-header-navigator">所有推荐></navigator> -->
+  </view>
+  <view>
+  
+  </view>
+  <view>
+    <image src='http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg'></image>
+  </view>
+  <view>
+    <image src='http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg'></image>
+  </view>
+  <view>
+    <image src='http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg'></image>
+  </view>
+</view>
+<view class="contact" style='display:flex;justify-content:space-between;height:98rpx;padding:10rpx 0;'>
+  <view bindtap='calling'>
+    <image src='../image/all.png'></image>
+    <text>电话</text>
+  </view>
+  <view>
+    <image src='../image/all.png'></image>
+    <text>收藏</text>
+  </view>
+</view>

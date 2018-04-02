@@ -1,0 +1,55 @@
+<!--pages/discover/discover.wxml-->
+<view>
+  <view class="data">
+    <view class="data-head">
+      <image src="../image/WechatIMG35.jpeg"></image>
+    </view>
+    <view class="data-text">
+      <text class="data-text-name">肉之家</text>
+      <text class="data-text-date">2月24号</text>
+    </view>
+  </view>
+  <view class="data-talk">  <text>谦卑(Humility)、诚实(Honesty)、怜悯(Compassion)、英勇(Valor)、公正(Justice)、牺牲(Sacrifice)、荣誉(Honor)、灵魂(Spirituality)</text>
+  </view>
+  <view class="data-image">
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+  </view>
+  <view class="data">
+    <view class="data-head">
+      <image src="../image/WechatIMG35.jpeg"></image>
+    </view>
+    <view class="data-text">
+      <text class="data-text-name">肉之家</text>
+      <text class="data-text-date">2月24号</text>
+    </view>
+  </view>
+  <view class="data-talk">  <text>谦卑(Humility)、诚实(Honesty)、怜悯(Compassion)、英勇(Valor)、公正(Justice)、牺牲(Sacrifice)、荣誉(Honor)、灵魂(Spirituality)</text>
+  </view>
+  <view class="data-image">
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+     <image src="../image/1.jpg"></image>
+  </view>   
+</view>
+
+<view class='release'>
+  <view class="release-button">+</view>
+  <view class='release-options'>
+    <view class='release-supply'>发布供应</view>
+    <view class='release-need'>发布需求</view>
+  </view>
+</view>

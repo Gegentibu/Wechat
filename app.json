@@ -1,8 +1,18 @@
 {
   "pages":[
+    "pages/discover/comment/comment",
+    "pages/information/information",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/me/me"
+    "pages/informationList/informationList",
+    "pages/brand/brand",
+    "pages/news/news",
+    "pages/publish/publish",
+    "pages/findmeat/findmeat",
+    "pages/product/product",
+    "pages/discover/discover",
+    "pages/discover/need/need",
+    "pages/discover/supply/supply",
+    "pages/me/me"    
     ],
   "window":{
     "backgroundTextStyle":"light",
@@ -25,13 +35,13 @@
       {
         "selectedIconPath": "pages/image/all.png",
         "iconPath": "pages/image/scanning.png",
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/findmeat/findmeat",
         "text": ""
       },
       {
         "selectedIconPath": "pages/image/all.png",
         "iconPath": "pages/image/scanning.png",
-        "pagePath": "pages/me/me",
+        "pagePath": "pages/discover/discover",
         "text": ""
       },
       {

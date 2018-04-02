@@ -1,0 +1,156 @@
+<!--pages/publish/publish.wxml-->
+<view class='data'>
+  <view class='year'>2018年</view>
+  <view class='date'>
+    <text class='day'>18</text>
+    <text class='month'>2月</text>
+  </view>
+  <view  style='display:inline-flex;flex-wrap:wrap;width:594rpx;'>
+    <view style='width:594rpx;display:inline-flex;'>
+      <view class='picture'>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+      </view>
+      <view class='paragraph'>
+        <text class='paragraph-text'>这是一段心情文字这是一段心情文字这是一段心情文字一段心情文字</text>
+        <view class='icon'>
+          <image src='../image/O2O.svg'></image><text>234</text>
+          <image src='../image/O2O.svg'></image><text>1235</text>       
+        </view>
+      </view>
+    </view>
+    <view style='width:594rpx;display:inline-flex;'>
+      <view class='picture'>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+      </view>
+      <view class='paragraph'>
+        <text class='paragraph-text'>这是一段心情文字</text>
+        <view class='icon'>
+          <image src='../image/O2O.svg'></image><text>234</text>
+          <image src='../image/O2O.svg'></image><text>1235</text>       
+        </view>
+      </view>
+    </view>
+  </view>  
+</view>
+<view class='data'>
+  <view class='date'>
+    <text class='day'>13</text>
+    <text class='month'>1月</text>
+  </view>
+  <view  style='display:inline-flex;flex-wrap:wrap;width:594rpx;'>
+    <view style='width:594rpx;display:inline-flex;'>
+      <view class='picture'>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+      </view>
+      <view class='paragraph'>
+        <text class='paragraph-text'>这是一段心情文字这是一段心情文字这是一段心情文字一段心情文字</text>
+        <view class='icon'>
+          <image src='../image/O2O.svg'></image><text>234</text>
+          <image src='../image/O2O.svg'></image><text>1235</text>       
+        </view>
+      </view>
+    </view>
+    <view style='width:594rpx;display:inline-flex;'>
+      <view class='picture'>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+      </view>
+      <view class='paragraph'>
+        <text class='paragraph-text'>这是一段心情文字</text>
+        <view class='icon'>
+          <image src='../image/O2O.svg'></image><text>234</text>
+          <image src='../image/O2O.svg'></image><text>1235</text>       
+        </view>
+      </view>
+    </view>
+  </view>  
+</view>
+<view class='data'>
+  <view class='year'>2017年</view>
+  <view class='date'>
+    <text class='day'>18</text>
+    <text class='month'>2月</text>
+  </view>
+  <view  style='display:inline-flex;flex-wrap:wrap;width:594rpx;'>
+    <view style='width:594rpx;display:inline-flex;'>
+      <view class='picture'>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+      </view>
+      <view class='paragraph'>
+        <text class='paragraph-text'>这是一段心情文字这是一段心情文字这是一段心情文字一段心情文字</text>
+        <view class='icon'>
+          <image src='../image/O2O.svg'></image><text>234</text>
+          <image src='../image/O2O.svg'></image><text>1235</text>       
+        </view>
+      </view>
+    </view>
+    <view style='width:594rpx;display:inline-flex;'>
+      <view class='picture'>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+      </view>
+      <view class='paragraph'>
+        <text class='paragraph-text'>这是一段心情文字</text>
+        <view class='icon'>
+          <image src='../image/O2O.svg'></image><text>234</text>
+          <image src='../image/O2O.svg'></image><text>1235</text>       
+        </view>
+      </view>
+    </view>
+  </view>  
+</view>
+<view class='data'>
+  <view class='date'>
+    <text class='day'>13</text>
+    <text class='month'>1月</text>
+  </view>
+  <view  style='display:inline-flex;flex-wrap:wrap;width:594rpx;'>
+    <view style='width:594rpx;display:inline-flex;'>
+      <view class='picture'>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+      </view>
+      <view class='paragraph'>
+        <text class='paragraph-text'>这是一段心情文字这是一段心情文字这是一段心情文字一段心情文字</text>
+        <view class='icon'>
+          <image src='../image/O2O.svg'></image><text>234</text>
+          <image src='../image/O2O.svg'></image><text>1235</text>       
+        </view>
+      </view>
+    </view>
+    <view style='width:594rpx;display:inline-flex;'>
+      <view class='picture'>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+        <image src="../image/1.jpg"></image>
+      </view>
+      <view class='paragraph'>
+        <text class='paragraph-text'>这是一段心情文字</text>
+        <view class='icon'>
+          <image src='../image/O2O.svg'></image><text>234</text>
+          <image src='../image/O2O.svg'></image><text>1235</text>       
+        </view>
+      </view>
+    </view>
+  </view>  
+</view>
+

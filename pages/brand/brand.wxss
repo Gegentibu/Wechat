@@ -1,0 +1,250 @@
+/* pages/brand/brand.wxss */
+page{
+  background-color: #fafafa;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+.swiper {
+ height: 430rpx;
+ width: 100%;
+}
+.swiper image {
+ height: 100%;
+ width: 100%;
+}
+.banner {
+  width: 100%;
+}
+page{
+  background-color: #fafafa;
+}
+.data{
+  display: flex;
+  flex-direction: row;
+  /* align-items: center;  */
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex-wrap:center; 
+  background-color: #fff;
+  padding: 30rpx 0;
+}
+.data-head{
+  margin: 0 20rpx;
+}
+.data-head image{
+  width: 148rpx;
+  height: 148rpx;
+}
+.data-revise{
+  margin-top: 50rpx;
+}
+.data-revise image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.data-text-name{
+  font-size: 34rpx;
+  display: block;
+}
+.data-text-date{
+  color: #b0b0b0;
+  font-size: 30rpx;
+  display: inline-block;
+}
+.brand-text-sort,.product-text-sort{
+  min-height: 26rpx;
+  margin: 5rpx 0;
+  margin-left: -7rpx;
+  display: flex;
+  align-items: center;
+}
+.brand-text-sort text{
+  border: 1rpx solid #ffab00;
+  padding: 0 10rpx;
+  margin: 0rpx 10rpx; 
+  font-size: 20rpx;
+  color: #ffab00;
+  border-radius: 10rpx;
+}
+.recommend,.pos,.introduce{
+  width: 100%;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.recommend-header,.pos-header,.introduce-header {
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #fafafa;
+}
+.recommend-header-text,.pos-header-text,.introduce-header-text {
+  font-size: 30rpx;
+  float: left;
+}
+.recommend-header-navigator,.pos-header-navigator,.introduce-header-navigator{
+  font-size: 24rpx;
+  margin-right: 30rpx;
+  float: right;
+  color:#b0b0b0;
+}
+
+.product{
+  display: flex;
+  flex-direction: row;
+  /* align-items: center;  */
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex-wrap:center; 
+  background-color: #fff;
+  padding: 10rpx 30rpx;
+}
+.product-head image{
+  width: 250rpx;
+  height: 250rpx;
+}
+.product-text{
+  width: 420rpx;
+  padding: 0 10rpx;
+}
+.product-text-recommend{
+  display: inline-block; 
+   width: 120rpx; 
+  text-align: center;
+  /* height: 35rpx; */
+  font-size: 24rpx;
+  color: #fff;
+  background-color: red;
+  margin: auto;
+  margin-right: 5rpx;
+  border: 1rpx solid red;
+  border-radius: 8rpx;
+
+}
+.product-text-name{
+  font-size: 36rpx;
+  /* display: inline-block; */
+  /* width: 500rpx;  */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.product-text-date{
+  /* width: 500rpx; */
+  min-height: 60rpx; 
+  margin: 6rpx 0;
+  color: #b0b0b0;
+  font-size: 26rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.product-text-sort text{
+  border: 1rpx solid #ffab00;
+  padding: 0 10rpx;
+  margin: 0rpx 10rpx; 
+  font-size: 20rpx;
+  color: #ffab00;
+  border-radius: 10rpx;
+}
+.product-text-price{
+  display: flex;
+  align-items: center;
+  font-size: 34rpx;
+  color:red;
+}
+.product-text-address{
+  font-size: 22rpx;
+  color: #b0b0b0;
+}
+.product-text-thesale{
+  border: 1rpx solid #b0b0b0;
+  padding: 0 10rpx;
+  margin: 0rpx 10rpx; 
+  font-size: 22rpx;
+  color: #b0b0b0;
+  border-radius: 10rpx;
+}
+.pos-shop-recommend{
+  padding: 0 5rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background-color: red;
+  margin: auto;
+  margin-right: 10rpx;
+  border: 1rpx solid red;
+  border-radius: 8rpx;
+}
+.pos-shop{
+  display: flex;
+  flex-direction: row;
+  /* align-items: center;  */
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex-wrap:center; 
+  background-color: #fff;
+  padding: 10rpx 30rpx;
+}
+.pos-shop-name{
+  font-size:30rpx;
+}
+.pos-shop-direct{
+  color: #2581ff;
+  border: 1rpx solid #2581ff;
+  padding: 0 10rpx;
+  font-size: 20rpx;
+  border-radius: 6rpx;
+
+}
+.pos-shop-text{
+  width: 540rpx;
+}
+.pos-shop-image image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.pos-shop-thesale{
+  border: 1rpx solid #b0b0b0;
+  padding: 0 10rpx;
+  border-radius: 6rpx;
+  margin: 0 10rpx;
+}
+.introduce view{
+  margin: 0 30rpx;
+}
+.introduce image{
+  width: 690rpx;
+  height: 388rpx;
+}
+.contact view{
+  width: 375rpx;
+  text-align: center;
+  font-size:26rpx; 
+  background-color: #fff;
+}
+.contact  text{
+  display: block;
+}
+.contact image{
+  width: 50rpx;
+  height: 50rpx;
+}

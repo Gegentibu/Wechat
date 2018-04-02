@@ -1,0 +1,23 @@
+<!--pages/information/information.wxml-->
+<view style='padding:30rpx;'>
+  <view class='title'>
+    <text>为什么内蒙古呼伦贝尔的羊这么好吃</text>
+  </view>
+  <view style='display:flex;align-items:center'>
+    <text class='company'>蒙高丽亚</text>
+    <text class='date'>2018年2月28日</text>
+    <image class='count-image' src='../image/O2O.svg'></image>
+    <text class='count-text'>2028</text>
+  </view>
+</view>
+<view style='padding:30rpx;font-size:30rpx;'>
+  <text>“呼伦贝尔羊肉”系无污染的呼伦贝尔大草原自然放牧，用 “呼伦贝尔羊肉”开发和加工成的系列产品，远销欧亚及阿拉伯国家。悠久的草原游牧文化，使呼伦贝尔羊肉具有很高的营养价值和文化内涵。 “呼伦贝尔羊”年出栏达到500万只，年产“呼伦贝尔羊肉”8万吨。 不能说是中国最好吃的,只能说是相当好吃.
+</text>
+  <image class='illustration' src='../image/timg.jpeg'></image>
+  <text>“呼伦贝尔羊肉”系无污染的呼伦贝尔大草原自然放牧，“吃的是中草药、喝的是矿泉水”，“呼伦贝尔羊肉”是纯天然绿色食品。羊肉色泽鲜艳、高蛋白、无膻味，品质极佳。用 “呼伦贝尔羊肉”开发和加工成的系列产品，远销欧亚及阿拉伯国家。悠久的草原游牧文化，使呼伦贝尔羊肉具有很高的营养价值和文化内涵。 “呼伦贝尔羊”年出栏达到500万只，年产“呼伦贝尔羊肉”8万吨。 不能说是中国最好吃的,只能说是相当好吃.
+</text>
+  <image class='illustration' src='../image/timg.jpeg'></image>
+  <text>“呼伦贝尔羊肉”系无污染的呼伦贝尔大草原自然放牧，“吃的是中草药、喝的是矿泉水”， “呼伦贝尔羊”年出栏达到500万只，年产“呼伦贝尔羊肉”8万吨。 不能说是中国最好吃的,只能说是相当好吃.
+</text>
+  <image class='illustration' src='../image/timg.jpeg'></image>
+</view>

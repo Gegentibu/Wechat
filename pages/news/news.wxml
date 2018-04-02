@@ -1,0 +1,28 @@
+<!--pages/news/news.wxml-->
+<view>
+  <view class="news-header">
+    <text class="news-header-text">丨消息列表</text>
+  </view>
+  <view class='newslist'>
+    <view class='list'>
+      <text class='list-title'>帮你找肉</text>
+      <text class='list-content'>我需要件东西需要三件东西</text>
+      <text class='list-time'>2018年2月28日 下午7：22</text>
+    </view>
+    <view class='list'>
+      <text class='list-title'>帮你找肉</text>
+      <text class='list-content'>我需要件东西需要三件需要件东西需要三件需要件东西需要三件需要件东西需要三件需要件东西需要三件需要件东西需要三件东西</text>
+      <text class='list-time'>2018年2月28日 下午7：22</text>
+    </view>
+    <view class='list'>
+      <text class='list-title'>帮你找肉</text>
+      <text class='list-content'>我需要件东西需要三件东西</text>
+      <text class='list-time'>2018年2月28日 下午7：22</text>
+    </view>
+    <view class='list'>
+      <text class='list-title'>帮你找肉</text>
+      <text class='list-content'>我需要件东西需要件东西需要三件需要件东西需要三件需要件东西需要三件需要件东西需要三件需要三件东西</text>
+      <text class='list-time'>2018年2月28日 下午7：22</text>
+    </view>
+  </view>
+</view>
