@@ -1,1 +1,39 @@
 /* pages/discover/comment/comment.wxss */
+.data{
+  display: inline-flex;
+  padding: 30rpx 30rpx 20rpx 30rpx;
+  border-bottom: 1rpx solid #fafafa;
+}
+.data-head {
+  display: inline-flex;
+  width: 70rpx;
+}
+.data-head image{
+  width: 70rpx;
+  height: 70rpx;
+}
+.data-content{
+  display: inline-flex;
+  flex-direction:column;
+  width: 410rpx;
+  padding: 0 20rpx;
+}
+.data-content-name{
+  font-size: 34rpx;
+  color: #0090f7;
+}
+.data-content-text{
+  font-size: 30rpx;
+}
+.data-content-time{
+  font-size: 20rpx;
+  color: #b0b0b0;
+}
+.data-image{
+  width: 170rpx;
+}
+.data-image image{
+  display: inline-flex;
+  width: 170rpx;
+  height: 170rpx;
+}

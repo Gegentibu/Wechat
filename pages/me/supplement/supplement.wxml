@@ -1,0 +1,34 @@
+<!--pages/me/supplement/supplement.wxml-->
+<view class="supplement">
+    <image src="../../image/help.svg"></image>
+    <text>选择身份</text>
+</view>
+<view style='padding:0 30rpx;'>
+    <view>
+      <block wx:for="{{add_img}}" wx:key="{{index}}">
+        <view class='have_img'>
+          <image src='{{item}}' class='sug_picture' data-num="{{index}}" catchtap='preview_img'></image>
+          <image src='../../image/delete_img.jpg' style='width:24rpx;height:24rpx;' data-num="{{index}}" class='delete_img' catchtap='delete_th'></image>
+        </view> 
+      </block>
+    </view>
+    <view style='font-size:30rpx;margin:20rpx 0;'>
+      <text>丨上传营业执照</text>
+    </view>
+    <view class='img_box'>
+
+    <view class='no_img' bindtap="gotoShow">
+      <image src='../../image/+.png'></image>
+    </view>
+  </view>
+<input placeholder="请输入手机号码" placeholder-style="color:#b0b0b0;" type='number' style='background-color:#fff;padding:30rpx 30rpx;margin:20rpx 0;'></input>
+<view style='display:inline-flex;align-items: center;margin-bottom:50rpx;'>
+  <input placeholder="请输入验证码" placeholder-style="color:#b0b0b0;" type='number' style='background-color:#fff;padding:30rpx 30rpx;margin:20rpx 0;width:400rpx;display:inline-block;'></input>
+  <button class='CAPTCHA' disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode">
+{{time}}
+  </button>
+</view>
+<view style='text-align:center;'> 
+  <button class="submit" hover-class="other-button-hover" >确定</button>
+</view>
+</view>

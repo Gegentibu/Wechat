@@ -2,8 +2,8 @@
 <view style='background-color:#fff;padding-bottom:30rpx;'>
   <view class='classify'>
     <text>产品</text>
-    <text>销售点</text>
-    <text>产品介绍</text>    
+    <text bindtap='pos_scrolltop'>销售点</text>
+    <text bindtap='introduce_scrolltop'>产品介绍</text>    
   </view>
   <view class='product-image'>
     <image src='http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg'></image>

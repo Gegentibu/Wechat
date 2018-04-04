@@ -1,2 +1,27 @@
 <!--pages/discover/comment/comment.wxml-->
-<text>pages/discover/comment/comment.wxml</text>
+<view class='data'>
+  <view class='data-head'>
+    <image src='../../image/1.jpg'></image>
+  </view>
+  <view class='data-content'>
+    <text class='data-content-name'>这是名字</text>
+    <text class='data-content-text'>这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容</text>
+    <text class='data-content-time'>2018年2月24号 14:30</text>
+  </view>
+  <view class='data-image'>
+    <image src='../../image/timg.jpeg'></image>
+  </view>
+</view>
+<view class='data'>
+  <view class='data-head'>
+    <image src='../../image/1.jpg'></image>
+  </view>
+  <view class='data-content'>
+    <text class='data-content-name'>这是名字</text>
+    <text class='data-content-text'>这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容</text>
+    <text class='data-content-time'>2018年2月24号 14:30</text>
+  </view>
+  <view class='data-image'>
+    <image src='../../image/timg.jpeg'></image>
+  </view>
+</view>

@@ -1,0 +1,70 @@
+<!--pages/pos/pos.wxml-->
+  <view class='pos-shop'>
+    <view class='pos-shop-text'>
+      <view style='display: inline-flex;'>
+        <text class='pos-shop-recommend'>推荐</text>
+        <text class='pos-shop-name'>蒙高丽亚（展东路店）</text>
+      </view>
+      <view style='display: flex;margin:20rpx 0;'>
+        <text class='pos-shop-direct'>直营店</text>
+      </view>
+      <view style='font-size: 20rpx;color:#b0b0b0;display:flex;justify-content:space-between;'>
+        <view>
+          <text class='pos-shop-address'>呼和浩特海拉尔东路</text>
+          <text class='pos-shop-thesale'>售多地</text>
+        </view>
+        <view>
+          <text class='pos-shop-amount'>（共有12个产品）</text>
+        </view>
+      </view>
+    </view>
+    <view class='pos-shop-image'>
+      <image src='../image/1.jpg'></image>
+    </view>  
+  </view>
+  <view class='recommend'>
+    <view class="recommend-header">
+      <text class="recommend-header-text">丨相关推荐</text>
+      <navigator class="recommend-header-navigator">所有推荐></navigator>
+    </view>
+    <view class="product">
+      <view class="product-head">
+        <image src="../image/1.jpg"></image>
+      </view>
+      <view class="product-text">
+        <view style='display: flex;'>
+          <text class="product-text-recommend">推荐</text>
+          <text class="product-text-name">这是标题这是标题这是标题这是标题这是标题</text>
+        </view>
+        <text class="product-text-date">这是内容这是内容这是内容是内容这是内容是内容这是内容是内容这是内容是内容这是内容这是内容这是内容这是内容</text>
+        <view class='product-text-sort'>
+          <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
+        </view>
+        <text class="product-text-price">￥34斤</text>
+        <view style=' display: flex;align-items: center;'>
+          <text class="product-text-address">呼和浩特</text>
+          <text class="product-text-thesale">售多地</text>
+        </view>
+      </view>
+    </view>
+    <view class="product">
+      <view class="product-head">
+        <image src="../image/1.jpg"></image>
+      </view>
+      <view class="product-text">
+        <view style='display: flex;'>
+          <!-- <text class="product-text-recommend">推荐</text> -->
+          <text class="product-text-name">这是标题这是标题这是标题这是标题这是标题</text>
+        </view>
+        <text class="product-text-date">这是内容</text>
+        <view class='product-text-sort'>
+          
+        </view>
+        <text class="product-text-price">￥34斤</text>
+        <view style=' display: flex;align-items: center;'>
+          <text class="product-text-address">呼和浩特</text>
+          <text class="product-text-thesale">仅售本地</text>
+        </view>
+      </view>
+    </view>
+</view>

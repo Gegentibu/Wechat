@@ -1,4 +1,4 @@
-// pages/product/product.js
+// pages/pos/pos.js
 Page({
 
   /**
@@ -12,20 +12,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
- 
+  
   },
-  pos_scrolltop: function() {
-    wx.pageScrollTo({
-      scrollTop: 520,
-      duration: 300
-    })
-  },
-  introduce_scrolltop: function () {
-    wx.pageScrollTo({
-      scrollTop: 770,
-      duration: 300
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
