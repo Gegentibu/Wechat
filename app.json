@@ -1,9 +1,10 @@
 {
   "pages":[
-    "pages/me/identity/identity",
+    "pages/discover/supply/supply",
+    "pages/discover/need/need",
+    "pages/me/supplement/supplement",
     "pages/brand/brand",
     "pages/pos/pos",
-    "pages/me/supplement/supplement",
     "pages/product/product",        
     "pages/discover/comment/comment",
     "pages/information/information",
@@ -13,8 +14,8 @@
     "pages/publish/publish",
     "pages/findmeat/findmeat",
     "pages/discover/discover",
-    "pages/discover/need/need",
-    "pages/discover/supply/supply",
+    
+    
     "pages/me/me"    
     ],
   "window":{

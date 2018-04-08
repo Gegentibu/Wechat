@@ -1,5 +1,5 @@
-page{
-  /* padding: 0 30rpx; */
+ page{
+  width:100%;overflow: hidden;
   background-color:#fafafa;  
 }
 .img_box{
@@ -30,4 +30,4 @@ image{
 }
 .other-button-hover{
   background-color: skyblue;
-}
+} 
