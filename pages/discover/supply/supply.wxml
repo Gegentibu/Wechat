@@ -15,7 +15,7 @@
     </view>
   </view>
 <input placeholder="请输入联系电话" bindblur="bindInputBlur" placeholder-style="color:#b0b0b0;"  value="{{input}}" type='number' style='background-color:#fff;padding:30rpx 30rpx;margin:20rpx 0;'></input>
-<view style='color:#b0b0b0;padding: 0 30rpx 300rpx 30rpx;'>发布即视为同意<text style='color:#2581ff;'>《相关条款》</text>
+<view style='color:#b0b0b0;padding: 0 30rpx 200rpx 30rpx;'>发布即视为同意<text style='color:#2581ff;'>《相关条款》</text>
 <!-- <radio-group style="display:inline-block" class="radio-group" bindchange="radioChange"><radio checked="{{checked}}"></radio></radio-group> -->
 </view>
 <view style='text-align:center;'>

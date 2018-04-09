@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/index/index",
     "pages/discover/supply/supply",
     "pages/discover/need/need",
     "pages/me/supplement/supplement",
@@ -8,7 +9,6 @@
     "pages/product/product",        
     "pages/discover/comment/comment",
     "pages/information/information",
-    "pages/index/index",
     "pages/informationList/informationList",
     "pages/news/news",
     "pages/publish/publish",

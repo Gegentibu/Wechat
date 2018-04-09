@@ -5,7 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    display:"none"
+  },
+  bindChage:function(){
+    if(this.data.display == "none"){
+      this.setData({
+        display: "block"
+      })
+    }else{
+      this.setData({
+        display: "none"
+      })
+    }
+
   },
 
   /**

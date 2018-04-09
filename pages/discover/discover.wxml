@@ -47,9 +47,9 @@
 </view>
 
 <view class='release'>
-  <view class="release-button">+</view>
-  <view class='release-options'>
-    <view class='release-supply'>发布供应</view>
-    <view class='release-need'>发布需求</view>
+  <view class="release-button" bindtap='bindChage'>+</view>
+  <view class='release-options' style='display:{{display}}'>
+    <navigator url="../discover/supply/supply" hover-class="navigator-hover" class='release-supply'>发布供应</navigator>
+    <navigator url="../discover/supply/supply" hover-class="navigator-hover" class='release-need'>发布需求</navigator>
   </view>
 </view>
