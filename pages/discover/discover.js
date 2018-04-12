@@ -5,16 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    display:"none"
+    display:"none",
+    change:"+"
+
   },
   bindChage:function(){
     if(this.data.display == "none"){
       this.setData({
-        display: "block"
+        display: "block",
+        change: "x"
       })
     }else{
       this.setData({
-        display: "none"
+        display: "none",
+        change: "+"
       })
     }
 

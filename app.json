@@ -1,6 +1,8 @@
 {
   "pages":[
-    "pages/index/index",
+    "pages/index/index",  
+    "pages/login/login",
+    "pages/search/search", 
     "pages/discover/supply/supply",
     "pages/discover/need/need",
     "pages/me/supplement/supplement",
@@ -14,7 +16,7 @@
     "pages/publish/publish",
     "pages/findmeat/findmeat",
     "pages/discover/discover",
-    
+
     
     "pages/me/me"    
     ],

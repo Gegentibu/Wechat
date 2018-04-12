@@ -1,4 +1,5 @@
 /**index.wxss**/
+@import "/wxSearch/wxSearch.wxss";
 page{
   background-color: #fafafa;
 }
@@ -237,7 +238,7 @@ page{
 }
 .cooperate-item-list{
   width: 130rpx;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;

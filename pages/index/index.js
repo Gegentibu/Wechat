@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+var WxSearch = require('../../wxSearch/wxSearch.js')
 const app = getApp()
 
 Page({
@@ -9,10 +10,37 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     movies: [
-      { url: 'http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg' },
-      { url: 'http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg' },
-      { url: 'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg' }
-    ]
+      { url: '../image/timg.jpeg' },
+      { url: '../image/timg.jpeg' },
+      { url: '../image/timg.jpeg' }
+    ],
+    what:'',
+    toView: 'red',
+    scrollTop: 100
+  },
+  upper: function (e) {
+    console.log(e)
+  },
+  lower: function (e) {
+    console.log(e)
+  },
+  scroll: function (e) {
+    console.log(e)
+  },
+  tap: function (e) {
+    for (var i = 0; i < order.length; ++i) {
+      if (order[i] === this.data.toView) {
+        this.setData({
+          toView: order[i + 1]
+        })
+        break
+      }
+    }
+  },
+  tapMove: function (e) {
+    this.setData({
+      scrollTop: this.data.scrollTop + 10
+    })
   },
   //事件处理函数
   bindViewTap: function() {
@@ -20,7 +48,12 @@ Page({
       url: '../logs/logs'
     })
   },
+  
   onLoad: function () {
+    console.log('onLoad')
+    var that = this
+    //初始化的时候渲染wxSearchdata
+    WxSearch.init(that, 43, ['羊', '羊肉', '羊肉', '苏尼特', '蒙高丽亚']);
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -47,6 +80,43 @@ Page({
         }
       })
     }
+  },
+  wxSearchFn: function (e) {
+    var that = this
+    WxSearch.wxSearchAddHisKey(that);
+    console.log('点击搜索')
+  },
+  wxSearchInput: function(e){
+    var that = this
+    WxSearch.wxSearchInput(e,that);
+    console.log("输入")
+  },
+  wxSerchFocus: function (e) {
+    var that = this
+    WxSearch.wxSearchFocus(e, that,);
+    console.log('焦距输入框')
+  },
+  wxSearchBlur: function (e) {
+    var that = this
+    WxSearch.wxSearchBlur(e, that);
+    console.log('失去焦点')
+  },
+  wxSearchKeyTap: function (e) {
+    var that = this
+    WxSearch.wxSearchKeyTap(e, that);
+    console.log("点击列表")
+  },
+  wxSearchDeleteKey: function (e) {
+    var that = this
+    WxSearch.wxSearchDeleteKey(e, that);
+  },
+  wxSearchDeleteAll: function (e) {
+    var that = this;
+    WxSearch.wxSearchDeleteAll(that);
+  },
+  wxSearchTap: function (e) {
+    var that = this
+    WxSearch.wxSearchHiddenPancel(that);
   },
   getUserInfo: function(e) {
     console.log(e)

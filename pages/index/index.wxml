@@ -1,5 +1,14 @@
 <!--index.wxml-->
-<view class="container">
+<import src="/wxSearch/wxSearch.wxml"/>
+
+<view class="wxSearch-section">
+  <view class="wxSearch-pancel">
+    <input bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input" placeholder="请输入搜索内容" confirm-type="search" />
+    <button class="wxSearch-button" bindtap="wxSearchFn"  plain="true">搜索</button>
+  </view>
+</view>
+ <template is="wxSearch" data="{{wxSearchData}}"/> 
+<view style="z-index:10;" class="container">
   <view class="banner">
     <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true">  
       <block wx:for="{{movies}}" wx:for-index="index">  
@@ -30,7 +39,7 @@
   <view class="brand">
     <view class="brand-header">
       <text class="brand-header-text">丨推荐品牌</text>
-      <navigator class="brand-header-navigator">全部品牌 ></navigator>
+      <navigator class="brand-header-navigator" url="/pages/search/search">全部品牌 ></navigator>
     </view>
     <view class="brand-item">
       <view class="brand-item-list">
@@ -146,7 +155,7 @@
     <view class="cooperate-header">
       <text class="cooperate-header-text">丨合作平台</text>
     </view>
-    <view class="cooperate-item">
+    <scroll-view class="cooperate-item" scroll-x="true" style=" white-space: nowrap; display: flex" >
       <view class="cooperate-item-list">
         <image src="../image/0.jpeg"></image>
         <text>宝泉街</text>
@@ -167,20 +176,18 @@
         <image src="../image/0.jpeg"></image>
         <text>宝泉街</text>
       </view> 
-    </view>
+      <view class="cooperate-item-list">
+        <image src="../image/0.jpeg"></image>
+        <text>宝泉街</text>
+      </view> 
+      <view class="cooperate-item-list">
+        <image src="../image/0.jpeg"></image>
+        <text>宝泉街</text>
+      </view> 
+      <view class="cooperate-item-list">
+        <image src="../image/0.jpeg"></image>
+        <text>宝泉街</text>
+      </view> 
+    </scroll-view>
   </view>
-  <!-- <view class="footer">
-    <navigator>
-      <image src="../image/O2O.svg"></image>
-    </navigator>
-    <navigator>
-      <image src="../image/O2O.svg"></image>
-    </navigator>
-    <navigator>
-      <image src="../image/O2O.svg"></image>
-    </navigator>
-    <navigator url="/pages/me/me" hover-stop-propagation="true">
-      <image src="../image/O2O.svg"></image>
-    </navigator>
-  </view> -->
 </view>
