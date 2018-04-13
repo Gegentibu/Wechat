@@ -21,7 +21,15 @@
      <image src="../image/1.jpg"></image>
      <image src="../image/1.jpg"></image>
      <image src="../image/1.jpg"></image>
+  </view>  
+  <view class="data-icon">
+          <image src="../image/O2O.svg"></image>
+          <text>1234</text>
+          <image src="../image/O2O.svg"></image>
+          <text>2311</text>
   </view>
+</view>
+<view>
   <view class="data">
     <view class="data-head">
       <image src="../image/WechatIMG35.jpeg"></image>
@@ -43,7 +51,13 @@
      <image src="../image/1.jpg"></image>
      <image src="../image/1.jpg"></image>
      <image src="../image/1.jpg"></image>
-  </view>   
+  </view>  
+  <view class="data-icon">
+          <image src="../image/O2O.svg"></image>
+          <text>1234</text>
+          <image src="../image/O2O.svg"></image>
+          <text>2311</text>
+  </view>
 </view>
 
 <view class='release'>

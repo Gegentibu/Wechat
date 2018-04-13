@@ -6,6 +6,7 @@
     "pages/discover/supply/supply",
     "pages/discover/need/need",
     "pages/me/supplement/supplement",
+    "pages/me/identity/identity",
     "pages/brand/brand",
     "pages/pos/pos",
     "pages/product/product",        

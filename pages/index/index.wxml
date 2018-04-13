@@ -39,7 +39,7 @@
   <view class="brand">
     <view class="brand-header">
       <text class="brand-header-text">丨推荐品牌</text>
-      <navigator class="brand-header-navigator" url="/pages/search/search">全部品牌 ></navigator>
+      <navigator class="brand-header-navigator" url="../search/search">全部品牌 ></navigator>
     </view>
     <view class="brand-item">
       <view class="brand-item-list">
@@ -73,7 +73,7 @@
   <view class="product">
     <view class="product-header">
       <text class="product-header-text">丨产品报价</text>
-      <navigator class="product-header-navigator">更多报价 ></navigator>
+      <!-- <navigator class="product-header-navigator">更多报价 ></navigator> -->
     </view>
     <view class="product-item">
       <view class="product-item-list">
@@ -125,8 +125,8 @@
   </view>
   <view class="news">
     <view class="news-header">
-      <text class="news-header-text">丨行业资讯</text>
-      <navigator class="news-header-navigator">更多资讯 ></navigator>
+      <text class="news-header-text" >丨行业资讯</text>
+      <navigator class="news-header-navigator" url="../informationList/informationList">更多资讯 ></navigator>
     </view>
     <view class="news-item">
       <view class="news-item-left">
@@ -136,7 +136,7 @@
         </view>
       </view>
       <view class="news-item-right">
-        <image src="http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg"></image>
+        <image src="../image/timg.jpeg"></image>
       </view>
     </view>
     <view class="news-item">
@@ -147,7 +147,7 @@
         </view>
       </view>
       <view class="news-item-right">
-        <image src="http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg"></image>
+        <image src="../image/timg.jpeg"></image>
       </view>
     </view>
   </view>

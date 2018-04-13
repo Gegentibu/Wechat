@@ -7,26 +7,7 @@ App({
     wx.setStorageSync('logs', logs)
 
     // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log(res.code)
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: 'https://api.mongoliaci.com/api/wechat/key/',
-            // method:'POST',
-            data: {
-              code: res.code
-            }, success(res) {
-              console.log(res.data)
-            }
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
+   
     // 获取用户信息
     // wx.getSetting({
     //   success: res => {
@@ -58,6 +39,55 @@ App({
         var province = userInfo.province
         var city = userInfo.city
         var country = userInfo.country
+        wx.login({
+          success: res => {
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+            console.log(res.code)
+            if (res.code) {
+              //发起网络请求
+              wx.request({
+                url: 'https://api.mongoliaci.com/api/wechat/key/',
+                // method:'POST',
+                data: {
+                  code: res.code
+                }, success(res) {
+                  console.log(res.data.openid)
+                  wx.setStorage({
+                    key: "openid",
+                    data: res.data.openid
+                  })
+                  wx.getStorage({
+                    key: 'openid',
+                    success: function (res) {
+                      console.log(res.data)
+                      wx.request({
+                        url: 'https://api.mongoliaci.com/api/wechat/info/', //仅为示例，并非真实的接口地址
+                        data: {
+                          userInfo: userInfo,
+                          nickName: nickName,
+                          avatarUrl: avatarUrl,
+                          gender: gender,
+                          province: province,
+                          city: city,
+                          country: country,
+                          openid: res.data
+                        },
+                        header: {
+                          'content-type': 'application/json' // 默认值
+                        },
+                        success: function (res) {
+                          console.log(res.data)
+                        }
+                      })
+                    }
+                  })
+                }
+              })
+            } else {
+              console.log('登录失败！' + res.errMsg)
+            }
+          }
+        })
       }
     })
     

@@ -1,54 +1,35 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
 Page({
-  data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
-})
+ data: {
+         dates: [
+           { "data_name": "30", "name": "十三", "state": 0 },
+           { "data_name": "1", "name": "十四", "state": 0 },
+           { "data_name": "2", "name": "十五", "state": 0 },
+           { "data_name": "3", "name": "十六", "state": 0 },
+           { "data_name": "4", "name": "十七", "state": 0 },
+           { "data_name": "5", "name": "十八", "state": 0 },
+           { "data_name": "6", "name": "十九", "state": 0 },
+           { "data_name": "7", "name": "二十", "state": 0 },
+           { "data_name": "8", "name": "廿一", "state": 0 },
+           { "data_name": "9", "name": "廿二", "state": 0 },
+           { "data_name": "10", "name": "廿三", "state": 0 },
+           { "data_name": "11", "name": "廿四", "state": 0 },
+           { "data_name": "12", "name": "廿五", "state": 0 },
+           { "data_name": "13", "name": "廿六", "state": 0 },
+           { "data_name": "14", "name": "廿七", "state": 0 }
+     ]
+       },
+  select_date: function (e) {
+ var index = e.currentTarget.dataset.key;
+ console.log(index)
+if (this.data.dates[index].state == 1) {
+   this.data.dates[index].state = 0;
+  
+} else if (this.data.dates[index].state == 0) {
+   this.data.dates[index].state = 1;
+  
+}
+ this.setData({
+         dates: this.data.dates,
+       });
+   },
+ })

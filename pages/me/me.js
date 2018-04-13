@@ -6,7 +6,38 @@ Page({
   data: {
 
   },
-
+  toNews:function(){
+    wx.navigateTo({
+      url: '../news/news',
+      success: function () { },
+      fail: function () { },
+      complete: function () { }
+    })
+  },
+  toPublish: function () {
+    wx.navigateTo({
+      url: '../publish/publish',
+      success: function () { },
+      fail: function () { },
+      complete: function () { }
+    })
+  },
+  toSupplement: function () {
+    wx.navigateTo({
+      url: 'supplement/supplement',
+      success: function () { },
+      fail: function () { },
+      complete: function () { }
+    })
+  },
+  toIdentity: function () {
+    wx.navigateTo({
+      url: 'identity/identity',
+      success: function () { },
+      fail: function () { },
+      complete: function () { }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

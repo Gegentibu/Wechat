@@ -18,6 +18,20 @@ page{
   width: 90rpx;
   height: 90rpx;
 }
+.data-icon{
+  display: flex;
+  align-items: center;
+  margin-left: 450rpx;
+}
+.data-icon text{
+  display: inline-block;
+  min-width: 90rpx;
+}
+
+.data-icon image{
+  width: 40rpx;
+  height: 40rpx;
+}
 .data-revise{
   margin-top: 50rpx;
 }

@@ -1,8 +1,8 @@
 <!--pages/me/supplement/supplement.wxml-->
-<view class="supplement">
+<!-- <view class="supplement">
     <image src="../../image/help.svg"></image>
     <text>选择身份</text>
-</view>
+</view> -->
 <view style='padding:0 30rpx;'>
     <view>
       <block wx:for="{{add_img}}" wx:key="{{index}}">
@@ -21,14 +21,14 @@
       <image src='../../image/+.png'></image>
     </view>
   </view>
-<input placeholder="请输入手机号码" placeholder-style="color:#b0b0b0;" type='number' style='background-color:#fff;padding:30rpx 30rpx;margin:20rpx 0;'></input>
+<!-- <input placeholder="请输入手机号码" placeholder-style="color:#b0b0b0;" type='number' style='background-color:#fff;padding:30rpx 30rpx;margin:20rpx 0;'></input>
 <view style='display:inline-flex;align-items: center;margin-bottom:50rpx;'>
   <input placeholder="请输入验证码" placeholder-style="color:#b0b0b0;" type='number' style='background-color:#fff;padding:30rpx 30rpx;margin:20rpx 0;width:400rpx;display:inline-block;'></input>
   <button class='CAPTCHA' disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode">
 {{time}}
   </button>
-</view>
-<view style='text-align:center;'> 
+</view> -->
+<view style='text-align:center;margin-top:50rpx;'> 
   <button class="submit" hover-class="other-button-hover" >确定</button>
 </view>
 </view>

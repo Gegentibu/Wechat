@@ -3,7 +3,7 @@
     <view class="news-header">
       <text class="news-header-text">丨行业资讯</text>
     </view>
-    <view class="news-item">
+    <view class="news-item" bindtap='navigateTo'>
       <view class="news-item-left">
         <text class="news-item-left-article">为什么内蒙古呼伦贝尔羊好</text>
         <view class="news-item-left-concern">
@@ -11,7 +11,7 @@
         </view>
       </view>
       <view class="news-item-right">
-        <image src="http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg"></image>
+        <image src="../image/timg.jpeg"></image>
       </view>
     </view>
     <view class="news-item">
@@ -22,7 +22,7 @@
         </view>
       </view>
       <view class="news-item-right">
-        <image src="http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg"></image>
+        <image src="../image/timg.jpeg"></image>
       </view>
     </view>
     <view class="news-item">
@@ -33,7 +33,7 @@
         </view>
       </view>
       <view class="news-item-right">
-        <image src="http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg"></image>
+        <image src="../image/timg.jpeg"></image>
       </view>
     </view>
     <view class="news-item">
@@ -44,7 +44,7 @@
         </view>
       </view>
       <view class="news-item-right">
-        <image src="http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg"></image>
+        <image src="../image/timg.jpeg"></image>
       </view>
     </view>
   </view>
