@@ -1,0 +1,72 @@
+<!--logs.wxml-->
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view style="margin:20rpx 0;" class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                      <view class="product">
+                        <view class="product-head">
+                          <image src="../../image/1.jpg"></image>
+                        </view>
+                        <view class="product-text">
+                          <view style='display: flex;'>
+                            <text class="product-text-recommend">推荐</text>
+                            <text class="product-text-name">这是标题这是标题这是标题这是标题这是标题</text>
+                          </view>
+                          <text class="product-text-date">这是内容这是内容这是内容是内容这是内容是内容这是内容是内容这是内容是内容这是内容这是内容这是内容这是内容</text>
+                          <view class='product-text-sort'>
+                            <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
+                          </view>
+                          <text class="product-text-price">￥34斤</text>
+                          <view style=' display: flex;align-items: center;'>
+                            <text class="product-text-address">呼和浩特</text>
+                            <text class="product-text-thesale">售多地</text>
+                          </view>
+                        </view>
+                      </view>
+                      <view class="product">
+                        <view class="product-head">
+                          <image src="../../image/1.jpg"></image>
+                        </view>
+                        <view class="product-text">
+                          <view style='display: flex;'>
+                            <text class="product-text-recommend">推荐</text>
+                            <text class="product-text-name">这是标题这是标题这是标题这是标题这是标题</text>
+                          </view>
+                          <text class="product-text-date">这是内容这是内容这是内容是内容这是内容是内容这是内容是内容这是内容是内容这是内容这是内容这是内容这是内容</text>
+                          <view class='product-text-sort'>
+                            <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
+                          </view>
+                          <text class="product-text-price">￥34斤</text>
+                          <view style=' display: flex;align-items: center;'>
+                            <text class="product-text-address">呼和浩特</text>
+                            <text class="product-text-thesale">售多地</text>
+                          </view>
+                        </view>
+                      </view>
+
+                </view>
+                <view style="margin:20rpx 0;" class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                    <view class="search-car"  bindtap="showRequire">
+                      <image src="../../image/1.jpg"></image>蒙高丽亚
+                    </view>
+                    <view class="search-car"  bindtap="showRequire">
+                      <image src="../../image/1.jpg"></image>蒙高丽亚
+                    </view>
+                    <view class="search-car"  bindtap="showRequire">
+                      <image src="../../image/1.jpg"></image>蒙高丽亚
+                    </view>
+                </view>
+                    
+            </view>
+        </view>
+    </view  >
+</view>

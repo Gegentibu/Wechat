@@ -1,6 +1,10 @@
 page{
   background-color: #fafafa;
 }
+ input{
+  width: 300rpx;
+  padding: 10rpx;
+} 
 .data{
   display: flex;
   flex-direction: row;
@@ -18,11 +22,18 @@ page{
   height: 150rpx;
 }
 .data-revise{
-  margin-top: 50rpx;
+  margin-top: 42rpx;
+}
+.data-define{
+  margin-top: 40rpx;
 }
 .data-revise image{
-  width: 40rpx;
-  height: 40rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+.data-define image{
+  width: 60rpx;
+  height: 60rpx;
 }
 .data-text{
   width: 450rpx;

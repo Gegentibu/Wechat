@@ -51,7 +51,7 @@ App({
                 data: {
                   code: res.code
                 }, success(res) {
-                  console.log(res.data.openid)
+                  console.log(res.data)
                   wx.setStorage({
                     key: "openid",
                     data: res.data.openid
@@ -59,7 +59,7 @@ App({
                   wx.getStorage({
                     key: 'openid',
                     success: function (res) {
-                      console.log(res.data)
+                      console.log(avatarUrl)
                       wx.request({
                         url: 'https://api.mongoliaci.com/api/wechat/info/', //仅为示例，并非真实的接口地址
                         data: {
@@ -76,7 +76,12 @@ App({
                           'content-type': 'application/json' // 默认值
                         },
                         success: function (res) {
-                          console.log(res.data)
+                          console.log(res.data.uid)
+                          // console.log(res.data.uid)
+                          // wx.setStorage({
+                          //   key: "uid",
+                          //   data: res.data.openid
+                          // })
                         }
                       })
                     }

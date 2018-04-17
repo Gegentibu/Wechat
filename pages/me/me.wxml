@@ -4,11 +4,15 @@
       <image src="../image/WechatIMG35.jpeg"></image>
     </view>
     <view class="data-text">
-      <text class="data-text-name">白丽丽</text>
-      <text class="data-text-verification" bindtap='toIdentity'>验证身份</text>
+      <text class="data-text-name" style='display:{{nameDisplay == 1 ? "none": "block"}}'>{{name}}</text>
+      <input class="data-text-name" style='display:{{nameDisplay == 0 ? "none": "block"}};background-color:#fafafa;' value='{{name}}' focus="{{focus}}" auto-focus bindinput="bindKeyInput"></input>
+      <text class="data-text-verification" style='display:{{nameDisplay == 1 ? "none": "inline-block"}}' bindtap='toIdentity'>验证身份</text>
     </view>
-    <view class="data-revise">
+    <view class="data-revise" bindtap='revise' style='display:{{nameDisplay == 1 ? "none": "block"}}'>
       <image src="../image/编辑.svg"></image>
+    </view> 
+    <view class="data-define" bindtap='define' style='display:{{nameDisplay == 0 ? "none": "block"}}'>
+      <image src="../image/填充选项框(确定).svg"></image>
     </view> 
   </view>
 
@@ -28,13 +32,13 @@
       <image src="../image/help.svg"></image>
       <text>我的发布</text>
     </view>
-    <view class="action-item">
+    <view class="action-item" bindtap='toCollect'>
       <image src="../image/help.svg"></image>
       <text>我的收藏</text>
     </view>
-    <view class="action-item">
+    <view class="action-item" bindtap='toHelp'>
       <image src="../image/help.svg"></image>
-      <text>帮助</text>
+      <text>关于我们</text>
     </view>    
   </view>
   <view class="title">

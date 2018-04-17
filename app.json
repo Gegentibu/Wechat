@@ -1,9 +1,14 @@
 {
   "pages":[
-    "pages/index/index",  
+    
+          "pages/discover/discover",
+        "pages/index/index",
+      "pages/me/help/help",   
+    "pages/me/collect/collect",      
+    "pages/discover/supply/supply",
+    "pages/me/me", 
     "pages/login/login",
     "pages/search/search", 
-    "pages/discover/supply/supply",
     "pages/discover/need/need",
     "pages/me/supplement/supplement",
     "pages/me/identity/identity",
@@ -15,11 +20,10 @@
     "pages/informationList/informationList",
     "pages/news/news",
     "pages/publish/publish",
-    "pages/findmeat/findmeat",
-    "pages/discover/discover",
+    "pages/findmeat/findmeat"
 
     
-    "pages/me/me"    
+    
     ],
   "window":{
     "backgroundTextStyle":"light",

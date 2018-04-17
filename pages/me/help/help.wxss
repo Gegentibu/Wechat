@@ -1,0 +1,18 @@
+/* pages/me/help/help.wxss */
+.page{
+  padding: 30rpx;
+}
+text{
+  font-size: 24rpx;
+  display: block;
+}
+.margin{
+  margin-top: 30rpx;
+}
+.title{
+  display: block;
+  font-size: 38rpx;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin: 20rpx 0;
+}

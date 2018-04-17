@@ -21,7 +21,13 @@ page{
 .data-icon{
   display: flex;
   align-items: center;
+  justify-content:center;
   margin-left: 450rpx;
+}
+.data-icon-style{
+  display: flex;
+  align-items: center;
+  justify-content:center;
 }
 .data-icon text{
   display: inline-block;
@@ -102,4 +108,23 @@ page{
   border: solid 2rpx #2581ff;
   border-radius: 0 40rpx 40rpx 0;
   background-color: #fff; 
+}
+.answer{
+  width: 70%;
+  position: fixed;
+  top: 400rpx;
+  left: 50%;
+  margin-left: -300rpx;
+  background-color: #fff;
+  z-index: 2;
+  padding: 30rpx;
+  border: 1rpx solid #b0b0b0;
+}
+textarea{
+  border: 1rpx solid #b0b0b0;
+  width: 100%;
+}
+.answerBtn{
+  background-color: #2581ff;
+  color: #fff;
 }

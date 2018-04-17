@@ -4,9 +4,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    focus: true,
+    name:'白丽丽',
+    nameDisplay:'',
+    reviseImg: "../image/编辑.svg"
   },
-  toNews:function(){
+  revise: function(){
+    var name = this.data.name;
+    this.setData({
+      nameDisplay:1
+    })
+  },
+  bindKeyInput:function(e){
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  define:function() {
+    var name = this.data.name;
+    if (name==''){
+      wx.showModal({
+        title: '提示',
+        content: '内容不能为空',
+        showCancel:false
+        
+      })
+    }else{
+      this.setData({
+        nameDisplay: 0
+      })
+    }
+  },
+    toNews:function(){
     wx.navigateTo({
       url: '../news/news',
       success: function () { },
@@ -38,10 +67,33 @@ Page({
       complete: function () { }
     })
   },
+  toCollect: function () {
+    wx.navigateTo({
+      url: 'collect/collect',
+      success: function () { },
+      fail: function () { },
+      complete: function () { }
+    })
+  },
+  toHelp: function () {
+    wx.navigateTo({
+      url: 'help/help',
+      success: function () { },
+      fail: function () { },
+      complete: function () { }
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    if (options.name!==undefined){
+      this.setData({
+        name: options.name
+      })
+    }
 
   },
 
@@ -56,7 +108,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

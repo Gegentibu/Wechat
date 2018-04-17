@@ -6,8 +6,21 @@ Page({
    */
   data: {
     display:"none",
-    change:"+"
+    change:"+",
+    Commentary:"none",
+    data:[]
 
+  },
+
+  answer:function(){
+    this.setData({
+      Commentary:"block"
+    })
+  },
+  close: function () {
+    this.setData({
+      Commentary: "none"
+    })
   },
   bindChage:function(){
     if(this.data.display == "none"){
@@ -23,14 +36,27 @@ Page({
     }
 
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-  },
+    var that = this;
+    wx.request({
+      url: 'https://api.mongoliaci.com/api/discover/index/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
 
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          data:res.data
+        })
+      }
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

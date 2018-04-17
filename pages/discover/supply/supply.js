@@ -8,8 +8,10 @@ Page({
     add_img: [],
     textarea: '',
     input:'',
-    img:[]
+    img:[],
+    uid:""
   },
+  
   bindInputBlur:function (e){
     this.setData({
       input: e.detail.value
@@ -38,7 +40,8 @@ Page({
           wx.uploadFile({
             url: 'https://api.mongoliaci.com/api/wechat/image', //开发者服务器 url
             filePath: filePath[i],//要上传文件资源的路径
-            name: 'file[]', //文件对应的 key , 开发者在服务器端通过这个 key 可以获取到文件二进制内容
+            name: 'file[]',   
+                    
             formData: { //HTTP 请求中其他额外的 form data
               'user': 'test'
             },
@@ -46,7 +49,7 @@ Page({
               // var data = res.data
               var data = JSON.parse(res.data);
               //do something
-              console.log(data.name[0])
+              console.log(res.data)
               that.data.img.push(data.name[0])
             }
           })
@@ -81,14 +84,18 @@ Page({
     })
   },
   uploadImg:function(e){
- 
-      var that = this;
+    var that = this;
+  
+      
+      console.log(that.data.uid)
       wx.request({
         url: 'https://api.mongoliaci.com/api/wechat/image', //仅为示例，并非真实的接口地址
         data: {
           content: that.data.textarea,
           num: that.data.input,
-          image: that.data.img
+          image: that.data.img,
+          uid:that.data.uid,
+          category: '1',
         },
         method:'POST',
         header: {
@@ -104,7 +111,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.getStorage({
+      key: 'openid',
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          uid: res.data
+        })
+      }
+    })
   },
 
   /**
