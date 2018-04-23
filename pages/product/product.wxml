@@ -1,22 +1,22 @@
 <!--pages/product/product.wxml-->
 <view style='background-color:#fff;padding-bottom:30rpx;'>
-  <view class='classify'>
+  <!-- <view class='classify'>
     <text>产品</text>
     <text bindtap='pos_scrolltop'>销售点</text>
     <text bindtap='introduce_scrolltop'>产品介绍</text>    
-  </view>
+  </view> -->
   <view class='product-image'>
-    <image src='http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg'></image>
+    <image src='https://api.mongoliaci.com/{{product.atlas1}}'></image>
   </view>
   <view>
     <view class='product-text'>
         <view style='display:flex;justify-content:space-between;'>
           <view style='display: flex;align-items:center;'>
             <text class='product-recommend'>推荐</text>
-            <text class='product-name'>蒙高丽亚-脊骨切块</text>
+            <text class='product-name'>{{product.name}}</text>
           </view>
           <view>
-            <text class='product-price'>￥34/斤</text>
+            <text class='product-price'>￥{{product.price}}/{{product.specifications == 1 ? '件' : '' }}{{product.specifications == 2 ? '袋' : '' }}{{product.specifications == 3 ? '条' : '' }}{{product.specifications == 4 ? '盒' : '' }}{{product.specifications == 5 ? '箱' : '' }}{{product.specifications == 6 ? '块' : '' }}{{product.specifications == 7 ? '个' : '' }}{{product.specifications == 8 ? '吨' : '' }}{{product.specifications == 9 ? '卷' : '' }}{{product.specifications == 10 ? '斤' : '' }}{{product.specifications == 11 ? '公斤' : '' }}{{product.specifications == 12 ? 'g' : '' }}{{product.specifications == 13 ? 'kg' : '' }}</text>
           </view>
         </view>
         <view style='display: flex;margin:20rpx 0;'>
@@ -24,11 +24,11 @@
         </view>
         <view style='font-size: 20rpx;color:#b0b0b0;display:flex;justify-content:space-between;'>
           <view>
-            <text class='product-address'>呼和浩特海拉尔东路</text>
+            <text class='product-address'>{{product.Country_of_origin}}</text>
             <text class='product-thesale'>售多地</text>
           </view>
           <view>
-            <text class='product-amount'>（共有12个产品）</text>
+            <text class='product-amount'></text>
           </view>
         </view>
     </view>
@@ -39,8 +39,8 @@
       <image src="../image/0.jpeg"></image>
     </view>
     <view class="data-text">
-      <text class="data-text-name">蒙高丽亚</text>
-      <!-- <text class="data-text-date">锡林郭勒盟蒙高丽亚农牧业发展有限公司</text> -->
+      <text class="data-text-name">{{product.brand_name}}</text>
+       <text class="data-text-date">{{}}</text> 
       <view class='brand-text-sort'>
         <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
       </view>
@@ -49,50 +49,51 @@
       <text style='font-size:24rpx;color:#b0b0b0;'>></text>
     </view>
 </view>
-<view class='pos'>
-  <view class="pos-header">
-    <text class="pos-header-text">丨销售点</text>
-    <navigator class="pos-header-navigator">所有推荐></navigator>
+<view class="page_">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view style="margin:20rpx 0;min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                  <view class='introduce'>
+  <view>
+  
   </view>
-  <view class='pos-shop'>
+  <view>
+    <image src='https://api.mongoliaci.com/{{product.atlas1}}'></image>
+  </view>
+  <view>
+    <image src='https://api.mongoliaci.com/{{product.atlas2}}'></image>
+  </view>
+  <view>
+    <image src='https://api.mongoliaci.com/{{product.atlas3}}'></image>
+  </view>
+</view>
+                </view>
+                <view style="margin:20rpx 0;min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 1}}">
+  <view class='pos-shop' data-id="{{store.store_id}}">
     <view class='pos-shop-text'>
       <view style='display: inline-flex;'>
         <text class='pos-shop-recommend'>推荐</text>
-        <text class='pos-shop-name'>蒙高丽亚（展东路店）</text>
+        <text class='pos-shop-name'>{{store.store_name}}</text>
       </view>
       <view style='display: flex;margin:20rpx 0;'>
-        <text class='pos-shop-direct'>直营店</text>
+        <text class='pos-shop-direct'>直营店</text><text class='pos-shop-direct' style='margin-left:20rpx;' data-phone="{{item.store_phone}}" bindtap='makePhone'>☎ {{store.store_phone}}</text>
       </view>
       <view style='font-size: 20rpx;color:#b0b0b0;display:flex;justify-content:space-between;'>
         <view>
-          <text class='pos-shop-address'>呼和浩特海拉尔东路</text>
-          <text class='pos-shop-thesale'>售多地</text>
+          <text class='pos-shop-address'>{{store.store_address}}</text>
+          <text class='pos-shop-thesale'>{{store.store_more1 == 1 ? '售多地':''	}}{{store.store_more1 == 2 ? '售本地':''	}}</text>
         </view>
         <view>
-          <text class='pos-shop-amount'>（共有12个产品）</text>
-        </view>
-      </view>
-    </view>
-    <view class='pos-shop-image'>
-      <image src='../image/0.jpeg'></image>
-    </view>    
-  </view>
-  <view class='pos-shop'>
-    <view class='pos-shop-text'>
-      <view style='display: inline-flex;'>
-        <text class='pos-shop-recommend'>推荐</text>
-        <text class='pos-shop-name'>蒙高丽亚（展东路店）</text>
-      </view>
-      <view style='display: flex;margin:20rpx 0;'>
-        <text class='pos-shop-direct'>直营店</text>
-      </view>
-      <view style='font-size: 20rpx;color:#b0b0b0;display:flex;justify-content:space-between;'>
-        <view>
-          <text class='pos-shop-address'>呼和浩特海拉尔东路</text>
-          <text class='pos-shop-thesale'>售多地</text>
-        </view>
-        <view>
-          <text class='pos-shop-amount'>（共有12个产品）</text>
+          <text class='pos-shop-amount'></text>
         </view>
       </view>
     </view>
@@ -100,25 +101,63 @@
       <image src='../image/1.jpg'></image>
     </view>    
   </view>
+
+                </view>
+                <view style="margin:20rpx 0;min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                  <view>
+                    <view class='parameter'>
+                      <text class='left_name'>产品信息</text><text class='right_content'></text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>品牌</text><text class='right_content'>{{product.brand_name}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>肉种</text><text class='right_content'>{{product.species == 1 ? "其他":""}}{{product.species == 2 ? "羊肉":""}}{{product.species == 3 ? "牛肉":""}}{{product.species == 4 ? "驼肉":""}}{{product.species == 5 ? "猪肉":""}}{{product.species == 6 ? "鸡肉":""}}{{product.species == 7 ? "鸭肉":""}}{{product.species == 8 ? "鹅肉":""}}{{product.species == 9 ? "鱼肉":""}}{{product.species == 10 ? "驴肉":""}}{{product.species == 11 ? "马肉":""}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>原产地</text><text class='right_content'>{{product.Country_of_origin}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>售卖方式</text><text class='right_content'>{{product.Selling_way == 1 ? "零售":"批发"}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>是否清真</text><text class='right_content'>{{product.halal == 1 ? "是":"否"}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>等级</text><text class='right_content'>{{product.level == 1 ? "普通":""}}{{product.level == 2 ? "绿色":""}}{{product.level == 3 ? "有机":""}}{{product.level == 4 ? "无公害":""}}{{product.level == 5 ? "原生态":""}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>品种</text><text class='right_content'>{{product.varieties}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>保质期</text><text class='right_content'>{{product.Shelf_life
+}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>储藏方式</text><text class='right_content'>{{product.Storage_way}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>储藏温度</text><text class='right_content'>{{product.temperature}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>配送信息</text><text class='right_content'></text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>仓库地址</text><text class='right_content'>{{product.warehouse_address}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>运送方式</text><text class='right_content'>{{product.cold == 1 ? "冷链":""}}{{product.empty == 2 ? "空运":""}}{{product.courier == 3 ? "快递":""}}</text>
+                    </view>
+                    <view class='parameter'>
+                      <text class='left_name'>运送机构</text><text class='right_content'>{{product.Shipping_agency}}</text>
+                    </view>
+                  </view>
+                </view>                    
+            </view>
+        </view>
+    </view  >
 </view>
-<view class='introduce'>
-  <view class="introduce-header">
-    <text class="introduce-header-text">丨产品介绍</text>
-    <!-- <navigator class="introduce-header-navigator">所有推荐></navigator> -->
-  </view>
-  <view>
-  
-  </view>
-  <view>
-    <image src='http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg'></image>
-  </view>
-  <view>
-    <image src='http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg'></image>
-  </view>
-  <view>
-    <image src='http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg'></image>
-  </view>
-</view>
+
 <view class="contact" style='display:flex;justify-content:space-between;height:98rpx;padding:10rpx 0;'>
   <view bindtap='calling'>
     <image src='../image/all.png'></image>

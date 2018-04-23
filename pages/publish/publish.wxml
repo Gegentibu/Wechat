@@ -21,7 +21,7 @@
         </view>
       </view>
     </view>
-    <view style='width:594rpx;display:inline-flex;'>
+    <!-- <view style='width:594rpx;display:inline-flex;'>
       <view class='picture'>
         <image src="../image/1.jpg"></image>
         <image src="../image/1.jpg"></image>
@@ -35,10 +35,10 @@
           <image src='../image/O2O.svg'></image><text>1235</text>       
         </view>
       </view>
-    </view>
+    </view> -->
   </view>  
 </view>
-<view class='data'>
+<!-- <view class='data'>
   <view class='date'>
     <text class='day'>13</text>
     <text class='month'>1月</text>
@@ -75,8 +75,8 @@
       </view>
     </view>
   </view>  
-</view>
-<view class='data'>
+</view> -->
+<!-- <view class='data'>
   <view class='year'>2017年</view>
   <view class='date'>
     <text class='day'>18</text>
@@ -114,8 +114,8 @@
       </view>
     </view>
   </view>  
-</view>
-<view class='data'>
+</view> -->
+<!-- <view class='data'>
   <view class='date'>
     <text class='day'>13</text>
     <text class='month'>1月</text>
@@ -152,5 +152,5 @@
       </view>
     </view>
   </view>  
-</view>
+</view> -->
 

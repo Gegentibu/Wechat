@@ -8,12 +8,12 @@
   </view>
 </view>
 <view class="category" style='display:{{whether}}'>
-    <block wx:for="{{['羊肉','牛肉','猪肉','羊肉','羊肉','羊肉','羊肉','羊肉','羊肉','羊肉']}}" wx:key="id" wx:for-index="i">
+    <block wx:for="{{['羊肉','牛肉','猪肉','鸡肉','鸭肉','鱼肉','驼肉','驴肉','马肉','其他']}}" wx:key="id" wx:for-index="i">
       <view class="tags-item {{current==i?'active-tag':''}}" data-id="{{i}}" data-key="{{item}}" bindtap="tagChoose">{{item}}</view>
     </block>
 </view>
 <view class="attestation" style='display:{{pron}}'>
-    <block wx:for="{{['有机','绿色','天然','进口','羊肉','羊肉','羊肉','羊肉','羊肉','羊肉']}}" wx:key="id" wx:for-index="i">
+    <block wx:for="{{['有机','绿色','天然','无害','生态']}}" wx:key="id" wx:for-index="i">
       <view class="tags-item {{currentItem==i?'active-tag':''}}" data-id="{{i}}" data-key="{{item}}" bindtap="Choose">{{item}}</view>
     </block>
 </view>

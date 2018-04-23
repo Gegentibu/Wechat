@@ -8,13 +8,21 @@ Page({
     display:"none",
     change:"+",
     Commentary:"none",
-    data:[]
+    data:[],
+    textarea:"",
+    key:''
 
   },
-
-  answer:function(){
+  bindTextAreaBlur: function (e) {
     this.setData({
-      Commentary:"block"
+      textarea: e.detail.value
+    })
+  },
+  answer:function(e){
+    // console.log(e.currentTarget.dataset.key)
+    this.setData({
+      Commentary:"block",
+      key:e.currentTarget.dataset.key
     })
   },
   close: function () {
@@ -36,7 +44,35 @@ Page({
     }
 
   },
-  
+  answerBtn:function(){
+    var that= this;
+    wx.getStorage({
+      key: 'openid',
+      success: function (res) {
+        console.log(res.data)
+        wx.request({
+          url: 'https://api.mongoliaci.com/api/discover/reply/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+          data: {
+            uid: res.data,
+            d_id: that.data.key,
+            content: that.data.textarea
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success: function (res) {
+            console.log(res.data.data)
+            // that.setData({
+            //   data: res.data
+            // })
+          }
+        })
+      }
+    })
+    console.log(that.data.textarea)
+    
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -49,7 +85,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        console.log(res.data)
+        console.log(res.data.data)
         that.setData({
           data:res.data
         })

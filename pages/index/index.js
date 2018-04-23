@@ -10,13 +10,16 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     movies: [
-      { url: '../image/timg.jpeg' },
+      { url: 'https://assets.meathome.com.cn/FiXq1JJ0EA_OBfb67aZnf1T9WQ9I' },
       { url: '../image/timg.jpeg' },
       { url: '../image/timg.jpeg' }
     ],
     what:'',
     toView: 'red',
-    scrollTop: 100
+    scrollTop: 100,
+    brand:[],
+    article:[]
+
   },
   upper: function (e) {
     console.log(e)
@@ -52,6 +55,31 @@ Page({
   onLoad: function () {
     console.log('onLoad')
     var that = this
+    wx.request({
+      url: 'https://api.mongoliaci.com/api/brand/index/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data.data)
+        that.setData({
+          brand:res.data.data
+        })
+      }
+    })
+    wx.request({
+      url: 'https://api.mongoliaci.com/api/article/index/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+           article: res.data.data
+        })
+      }
+    })
+
     //初始化的时候渲染wxSearchdata
     WxSearch.init(that, 43, ['羊', '羊肉', '羊肉', '苏尼特', '蒙高丽亚']);
     if (app.globalData.userInfo) {
@@ -124,6 +152,13 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  toBrand:function(e){
+    console.log(e.currentTarget.dataset.id)
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../brand/brand?id='+id,
     })
   }
 })

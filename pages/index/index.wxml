@@ -43,30 +43,10 @@
     </view>
     <view class="brand-item">
       <view class="brand-item-list">
-        <view class="brand-item-list-image">
-          <image src="../image/0.jpeg"></image>
+        <view class="brand-item-list-image" wx:for="{{brand}}">
+          <image src="https://api.mongoliaci.com/{{item.logo}}" data-id="{{item.id}}" bindtap='toBrand'></image>
         </view>
-        <view class="brand-item-list-image">
-          <image src="../image/0.jpeg"></image>
-        </view>
-        <view class="brand-item-list-image">
-          <image src="../image/0.jpeg"></image>
-        </view>
-        <view class="brand-item-list-image">
-          <image src="../image/0.jpeg"></image>
-        </view>
-        <view class="brand-item-list-image">
-          <image src="../image/0.jpeg"></image>
-        </view>
-        <view class="brand-item-list-image">
-          <image src="../image/0.jpeg"></image>
-        </view>
-        <view class="brand-item-list-image">
-          <image src="../image/0.jpeg"></image>
-        </view>
-        <view class="brand-item-list-image">
-          <image src="../image/0.jpeg"></image>
-        </view>
+
       </view>
     </view>
   </view>
@@ -128,28 +108,20 @@
       <text class="news-header-text" >丨行业资讯</text>
       <navigator class="news-header-navigator" url="../informationList/informationList">更多资讯 ></navigator>
     </view>
-    <view class="news-item">
-      <view class="news-item-left">
-        <text class="news-item-left-article">为什么内蒙古呼伦贝尔羊好</text>
-        <view class="news-item-left-concern">
-          <image src="../image/O2O.svg"></image>1234<image src="../image/O2O.svg"></image><text>2311</text>
+    <view wx:for="{{article}}">
+      <view class="news-item" data-id="{{item.id}}">
+        <view class="news-item-left">
+          <text class="news-item-left-article">{{item.title}}</text>
+          <view class="news-item-left-concern">
+            <image src="../image/O2O.svg"></image>1234<image src="../image/O2O.svg"></image><text>{{item.view_count}}</text>
+          </view>
+        </view>
+        <view class="news-item-right">
+          <image src="https://api.mongoliaci.com/{{item.thumb}}"></image>
         </view>
       </view>
-      <view class="news-item-right">
-        <image src="../image/timg.jpeg"></image>
-      </view>
     </view>
-    <view class="news-item">
-      <view class="news-item-left">
-        <text class="news-item-left-article">为什么内蒙古呼伦贝尔羊好</text>
-        <view class="news-item-left-concern">
-          <image src="../image/O2O.svg"></image>1234<image src="../image/O2O.svg"></image><text>2311</text>
-        </view>
-      </view>
-      <view class="news-item-right">
-        <image src="../image/timg.jpeg"></image>
-      </view>
-    </view>
+    
   </view>
   <view class="cooperate">
     <view class="cooperate-header">

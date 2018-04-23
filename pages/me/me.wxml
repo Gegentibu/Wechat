@@ -5,7 +5,7 @@
     </view>
     <view class="data-text">
       <text class="data-text-name" style='display:{{nameDisplay == 1 ? "none": "block"}}'>{{name}}</text>
-      <input class="data-text-name" style='display:{{nameDisplay == 0 ? "none": "block"}};background-color:#fafafa;' value='{{name}}' focus="{{focus}}" auto-focus bindinput="bindKeyInput"></input>
+      <input class="data-text-name" style='display:{{nameDisplay == 0 ? "none": "block"}};background-color:#fafafa;' value='{{name}}'  bindinput="bindKeyInput"></input>
       <text class="data-text-verification" style='display:{{nameDisplay == 1 ? "none": "inline-block"}}' bindtap='toIdentity'>验证身份</text>
     </view>
     <view class="data-revise" bindtap='revise' style='display:{{nameDisplay == 1 ? "none": "block"}}'>

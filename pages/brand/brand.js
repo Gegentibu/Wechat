@@ -1,17 +1,22 @@
 // pages/brand/brand.js
+var sliderWidth = 78; // 需要设置slider的宽度，用于计算中间位置
 const app = getApp()
 
 Page({
   data: {
+    tabs: ["品牌介绍", "销售店铺", "产品列表"],
+    activeIndex: "0",
+    sliderOffset: 0,
+    sliderLeft: 0,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    movies: [
-      { url: 'http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg' },
-      { url: 'http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg' },
-      { url: 'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg' }
-    ]
+    movies: [],
+    brand:[],
+    product:[],
+    store:[]
+
   },
   //事件处理函数
   bindViewTap: function () {
@@ -19,7 +24,35 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: function (options) {
+    console.log(options.id)
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2
+        });
+      }
+    });
+    wx.request({
+      url: 'https://api.mongoliaci.com/api/brand/detail/37fb591be38db52dd1d5f04b689008f6?id='+options.id, //仅为示例，并非真实的接口地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          brand:res.data.brand[0],
+          product: res.data.product,
+          store: res.data.store,
+          movies: [
+            { url: 'https://api.mongoliaci.com/' + res.data.brand[0].atlas1 },
+            { url: 'https://api.mongoliaci.com/' + res.data.brand[0].atlas2 },
+            { url: 'https://api.mongoliaci.com/' + res.data.brand[0].atlas3}
+          ]
+        })
+      }
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -50,6 +83,7 @@ Page({
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
+    
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
@@ -64,6 +98,52 @@ Page({
       fail: function () {
         console.log("拨打电话失败！")
       }
+    })
+  },
+  tabClick: function (e) {
+    this.setData({
+      sliderOffset: e.currentTarget.offsetLeft,
+      activeIndex: e.currentTarget.id
+    });
+  },
+  toProduct: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../product/product?id='+id,
+    })
+  },
+  makePhone:function(e){
+    console.log(e.currentTarget.dataset.phone)
+    var phone = e.currentTarget.dataset.phone;
+    wx.makePhoneCall({
+      phoneNumber: phone 
+    })
+  },
+  Collect:function(e){
+    console.log(e.currentTarget.dataset.id)
+    var id = e.currentTarget.dataset.id;
+    var that = this;
+    wx.getStorage({
+      key: 'openid',
+      success: function (res) {
+        console.log(res.data)
+        wx.request({
+          url: 'https://api.mongoliaci.com/api/brand/collect/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+          data: {
+            uid: res.data,
+            brand_id: id
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success: function (res) {
+            console.log(res.data)
+          }
+        })
+      },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   }  
 })

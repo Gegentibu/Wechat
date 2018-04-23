@@ -12,7 +12,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that =this;
+    wx.getStorage({
+      key: 'openid',
+      success: function(res) {
+        console.log(res.data)
+        wx.request({
+          url: 'https://api.mongoliaci.com/api/my/discover/index/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+          data: {
+            uid: res.data
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success: function (res) {
+            console.log(res.data)
+          }
+        })
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+
   },
 
   /**

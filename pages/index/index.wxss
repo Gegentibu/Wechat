@@ -185,8 +185,14 @@ page{
   padding-left: 30rpx;
 }
 .news-item-left-article{
+  font-size: 28rpx;
   display: block;
   height: 120rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .news-item-left-concern{
   display: flex;

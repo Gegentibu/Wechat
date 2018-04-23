@@ -59,7 +59,7 @@ page{
   display: inline-block;
 }
 .data-talk {
-  margin: 0 30rpx;
+  margin: 10rpx 30rpx;
   font-size: 30rpx;
 }
 .data-image{

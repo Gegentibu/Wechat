@@ -2,50 +2,46 @@
    <view class='answer' style='display:{{Commentary}}'>
     <view style='answer-box'>
       <text>撰写评论</text><text style='float:right' bindtap='close'>X</text>
-       <form>
-        <textarea fixed="true" placeholder="请输入内容"></textarea>
-        <button class='answerBtn'>提交</button>
+       <form bindsubmit="answerBtn">
+        <textarea fixed="true" placeholder="请输入内容" bindblur="bindTextAreaBlur" value='{{textarea}}'></textarea>
+        <button class='answerBtn' form-type="submit">提交</button>
       </form>
     </view>   
   </view>
 <view style='position: fixed;top:0;width:100%;height:25000rpx;background-color:#000;opacity:0.2;display:{{Commentary}}'></view> 
 
-<view wx:for="{{data}}"  wx:for-index="idx" wx:for-item="itemName">
-    <view>
-  <view class="data">
-    <view class="data-head">
-      <image src="{{data.data[0].avatarUrl}}"></image>
+<!-- <view  wx:for="{{data.data}}"> -->
+  <view wx:for="{{data.data}}" >
+
+    <view class="data" >
+      <view class="data-head">
+        <image src="{{data.data[0].avatarUrl}}"></image>
+      </view>
+      <view class="data-text">
+        <text class="data-text-name">{{item.nickName}}</text>
+        <text class="data-text-date">{{item.created_at}}</text>
+      </view>
     </view>
-    <view class="data-text">
-      <text class="data-text-name">肉之家</text>
-      <text class="data-text-date">2月24号</text>
+    <view class="data-talk">  <text>{{item.content}}</text>
+    </view>
+    <view class="data-image">
+      <view style='display:inline-block;' wx:for="{{item.image}}">
+        <image src="https://api.mongoliaci.com/backend/uploads/supply/{{item}}"></image>   
+       </view>  
+    </view> 
+    <view class="data-icon">
+            <view class='data-icon-style'>
+              <image src="../image/O2O.svg"></image>
+              <text>{{item.view_count}}</text>
+            </view>          
+            <view class='data-icon-style' bindtap='answer' data-key="{{item.id}}">
+              <image src="../image/O2O.svg"></image>
+              <text>2311</text>
+            </view>
+            
     </view>
   </view>
-  <view class="data-talk">  <text>谦卑(Humility)、诚实(Honesty)、怜悯(Compassion)、英勇(Valor)、公正(Justice)、牺牲(Sacrifice)、荣誉(Honor)、灵魂(Spirituality)</text>
-  </view>
-  <view class="data-image">
-     <image src="../image/1.jpg"></image>
-     <image src="../image/1.jpg"></image>
-     <image src="../image/1.jpg"></image>
-     <image src="../image/1.jpg"></image>
-     <image src="../image/1.jpg"></image>
-     <image src="../image/1.jpg"></image>
-     <image src="../image/1.jpg"></image>
-     <image src="../image/1.jpg"></image>
-     <image src="../image/1.jpg"></image>
-  </view>  
-  <view class="data-icon">
-          <view class='data-icon-style'>
-            <image src="../image/O2O.svg"></image>
-            <text>1234</text>
-          </view>          
-          <view class='data-icon-style' bindtap='answer'>
-            <image src="../image/O2O.svg"></image>
-            <text>2311</text>
-          </view>
-          
-  </view>
-</view>
+<!-- </view> -->
 
 <view class='release'>
   <view class="release-button" bindtap='bindChage'>{{change}}</view>
@@ -53,6 +49,4 @@
     <navigator url="../discover/supply/supply" hover-class="navigator-hover" class='release-supply'>发布供应</navigator>
     <navigator url="../discover/need/need" hover-class="navigator-hover" class='release-need'>发布需求</navigator>
   </view>
-</view>
-
 </view>

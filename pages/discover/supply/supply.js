@@ -47,6 +47,7 @@ Page({
             },
             success: function (res) {
               // var data = res.data
+              console.log(res.data)
               var data = JSON.parse(res.data);
               //do something
               console.log(res.data)
@@ -77,7 +78,7 @@ Page({
   },
   preview_img: function (e) {
     var cur_num = e.currentTarget.dataset.num;
-    var img_list = this.data.add_img
+    var img_list = this.data.add_img;
     wx.previewImage({
       current: img_list[cur_num],
       urls: this.data.add_img
@@ -85,9 +86,11 @@ Page({
   },
   uploadImg:function(e){
     var that = this;
-  
-      
-      console.log(that.data.uid)
+    var a = "{'image':'"+that.data.img+"'}";
+    console.log(a)
+    // var image = {};
+    // image.push("")
+      console.log(that.data.img)
       wx.request({
         url: 'https://api.mongoliaci.com/api/wechat/image', //仅为示例，并非真实的接口地址
         data: {
