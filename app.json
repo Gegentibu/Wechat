@@ -1,6 +1,7 @@
 {
   "pages":[
-    "pages/index/index",
+        "pages/index/index",
+        "pages/findmeat/findmeat",
     "pages/product/product",
     "pages/brand/brand",
     "pages/discover/comment/comment",
@@ -18,8 +19,7 @@
     "pages/information/information",
     "pages/informationList/informationList",
     "pages/news/news",
-    "pages/publish/publish",
-    "pages/findmeat/findmeat" 
+    "pages/publish/publish"
     
     ],
   "window":{
@@ -35,26 +35,26 @@
     "borderStyle": "white",
     "list": [
       {
-        "selectedIconPath": "pages/image/all.png",
-        "iconPath": "pages/image/scanning.png",
+        "selectedIconPath": "pages/image/index_selected.png",
+        "iconPath": "pages/image/index.png",
         "pagePath": "pages/index/index",
         "text": ""
       },
       {
-        "selectedIconPath": "pages/image/all.png",
-        "iconPath": "pages/image/scanning.png",
+        "selectedIconPath": "pages/image/findmeat_selected.png",
+        "iconPath": "pages/image/findmeat.png",
         "pagePath": "pages/findmeat/findmeat",
         "text": ""
       },
       {
-        "selectedIconPath": "pages/image/all.png",
-        "iconPath": "pages/image/scanning.png",
+        "selectedIconPath": "pages/image/discover_selected.png",
+        "iconPath": "pages/image/discover.png",
         "pagePath": "pages/discover/discover",
         "text": ""
       },
       {
-        "selectedIconPath": "pages/image/all.png",
-        "iconPath": "pages/image/scanning.png",
+        "selectedIconPath": "pages/image/me_selected.png",
+        "iconPath": "pages/image/me.png",
         "pagePath": "pages/me/me",
         "text": ""
       }

@@ -20,20 +20,20 @@
   </view>
   <view class="service">
     <view class="service-item">
-      <image src="../image/O2O.svg"></image>
+      <image src="../image/报价.svg"></image>
       <text class="service-item-text">实盘报价</text>
     </view>
     <view class="service-item">
       <image src="../image/O2O.svg"></image>
-      <text class="service-item-text">实盘报价</text>
+      <text class="service-item-text">连锁超市</text>
     </view>
     <view class="service-item">
-      <image src="../image/O2O.svg"></image>
-      <text class="service-item-text">实盘报价</text>
+      <image src="../image/物流.svg"></image>
+      <text class="service-item-text">冷链物流</text>
     </view>
     <view class="service-item">
-      <image src="../image/O2O.svg"></image>
-      <text class="service-item-text">实盘报价</text>
+      <image src="../image/供应链金融.svg"></image>
+      <text class="service-item-text">供应链金融</text>
     </view>
   </view> 
   <view class="brand">
@@ -44,7 +44,7 @@
     <view class="brand-item">
       <view class="brand-item-list">
         <view class="brand-item-list-image" wx:for="{{brand}}">
-          <image src="https://api.mongoliaci.com/{{item.logo}}" data-id="{{item.id}}" bindtap='toBrand'></image>
+          <image src="{{item.logo}}" data-id="{{item.id}}" bindtap='toBrand'></image>
         </view>
 
       </view>
@@ -55,8 +55,9 @@
       <text class="product-header-text">丨产品报价</text>
       <!-- <navigator class="product-header-navigator">更多报价 ></navigator> -->
     </view>
-    <view class="product-item">
-      <view class="product-item-list">
+    <image src='https://images.mongoliaci.com/backend/uploads/chart.jpg'></image>
+    <!-- <view class="product-item"> -->
+      <!-- <view class="product-item-list">
         <view class="product-item-list-left">
           <text class="product-item-list-left-product">羊腿</text>
           <text class="product-item-list-left-brand">蒙高丽亚</text>
@@ -100,8 +101,9 @@
         <view class="product-item-list-right">
           <text class="product-item-list-right-price">￥261 ↑</text>
         </view>
-      </view>
-    </view>
+      </view> -->
+      
+    <!-- </view> -->
   </view>
   <view class="news">
     <view class="news-header">
@@ -113,7 +115,8 @@
         <view class="news-item-left">
           <text class="news-item-left-article">{{item.title}}</text>
           <view class="news-item-left-concern">
-            <image src="../image/O2O.svg"></image>1234<image src="../image/O2O.svg"></image><text>{{item.view_count}}</text>
+            <image src="../image/浏览数.svg"></image>
+            <text style='margin-left:20rpx;'>{{item.view_count}}</text>
           </view>
         </view>
         <view class="news-item-right">

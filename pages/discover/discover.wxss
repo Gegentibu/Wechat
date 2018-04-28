@@ -10,6 +10,7 @@ page{
   box-sizing: border-box;
    flex-wrap:center; 
   background-color: #fff;
+  padding: 20rpx 0;
 }
 .data-head{
   margin: 0 20rpx;
@@ -59,7 +60,7 @@ page{
   display: inline-block;
 }
 .data-talk {
-  margin: 10rpx 30rpx;
+  margin: 20rpx 30rpx;
   font-size: 30rpx;
 }
 .data-image{
@@ -72,7 +73,7 @@ page{
 }
 .release{
   position: fixed;
-  right: 30rpx;
+  right: 50rpx;
   bottom: 30rpx;
 }
 .release-button{

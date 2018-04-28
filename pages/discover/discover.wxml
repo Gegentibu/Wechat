@@ -24,19 +24,19 @@
     </view>
     <view class="data-talk">  <text>{{item.content}}</text>
     </view>
-    <view class="data-image">
+    <view class="data-image" >
       <view style='display:inline-block;' wx:for="{{item.image}}">
-        <image src="https://api.mongoliaci.com/backend/uploads/supply/{{item}}"></image>   
+        <image style='display:{{item == "" ? "none":""}}' src="https://api.mongoliaci.com/backend/uploads/supply/{{item}}"></image>   
        </view>  
     </view> 
     <view class="data-icon">
             <view class='data-icon-style'>
-              <image src="../image/O2O.svg"></image>
-              <text>{{item.view_count}}</text>
+              <image src="../image/浏览数.svg"></image>
+              <text style='margin-left:10rpx;'>{{item.view_count}}</text>
             </view>          
             <view class='data-icon-style' bindtap='answer' data-key="{{item.id}}">
-              <image src="../image/O2O.svg"></image>
-              <text>2311</text>
+              <image src="../image/phone.jpg" data-phone="{{item.num}}"></image>
+              <!-- <text style='margin-left:10rpx;'>2311</text> -->
             </view>
             
     </view>

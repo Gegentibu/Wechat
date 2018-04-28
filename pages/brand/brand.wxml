@@ -10,7 +10,7 @@
 </view>
 <view class="data">
     <view class="data-head">
-      <image src="https://api.mongoliaci.com/{{brand.logo}}"></image>
+      <image src="{{brand.logo}}"></image>
     </view>
     <view class="data-text">
       <text class="data-text-name">{{brand.name}}</text>
@@ -132,17 +132,17 @@
   
   </view>
   <view>
-    <image src='https://api.mongoliaci.com/{{brand.atlas1}}'></image>
+    <image src='{{brand.atlas1}}'></image>
   </view>
   <view>
-    <image src='https://api.mongoliaci.com/{{brand.atlas2}}'></image>
+    <image src='{{brand.atlas2}}'></image>
   </view>
   <view>
-    <image src='https://api.mongoliaci.com/{{brand.atlas3}}'></image>
+    <image src='{{brand.atlas3}}'></image>
   </view>
 </view>
                 </view>
-                <view style="margin:20rpx 0; min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                <view style="margin:20rpx 0 100rpx 20rpx; min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 1}}">
   <view class='pos-shop' wx:for="{{store}}">  
     <view class='pos-shop-text' data-id="{{item.store_id}}">
       <view style='display: inline-flex;'>
@@ -168,15 +168,15 @@
   </view>
 
                 </view>
-                <view style="margin:20rpx 0; min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                <view style="margin:20rpx 0 100rpx 20rpx; min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 2}}">
                   <view>
                        <view class='recommend' wx:for="{{product}}">
-      <view class="product" data-id="{{item.product_id}}" bindtap='toProduct'>
+      <view class="product" data-id="{{item.product_id}}" data-brandId="{{item.brand_id}}"bindtap='toProduct'>
         <view class="product-head">
-          <image src="https://api.mongoliaci.com/{{item.product_thumb}}"></image>
+          <image src="{{item.product_thumb}}"></image>
         </view>
         <view class="product-text_">
-          <view style='display: flex;justify-content:flex-start;'>
+          <view style='display: flex;justify-content:flex-start;height:54rpx;'>
             <text class="product-text-recommend" style="display:{{item.product_recommended == 1 ? 'block' : 'none'}}">推荐</text>
             <text class="product-text-name">{{item.product_name}}</text>
           </view>
@@ -184,7 +184,7 @@
           <view class='product-text-sort'>
             <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
           </view>
-          <text class="product-text-price">￥{{item.product_price}}/{{item.product_specifications == 1 ? '件' : '' }}{{item.product_specifications == 2 ? '袋' : '' }}{{item.product_specifications == 3 ? '条' : '' }}{{item.product_specifications == 4 ? '盒' : '' }}{{item.product_specifications == 5 ? '箱' : '' }}{{item.product_specifications == 6 ? '块' : '' }}{{item.product_specifications == 7 ? '个' : '' }}{{item.product_specifications == 8 ? '吨' : '' }}{{item.product_specifications == 9 ? '卷' : '' }}{{item.product_specifications == 10 ? '斤' : '' }}{{item.product_specifications == 11 ? '公斤' : '' }}{{item.product_specifications == 12 ? 'g' : '' }}{{item.product_specifications == 13 ? 'kg' : '' }}</text>
+          <text class="product-text-price">￥{{item.product_price}}元/{{item.product_specifications == 1 ? '件' : '' }}{{item.product_specifications == 2 ? '袋' : '' }}{{item.product_specifications == 3 ? '条' : '' }}{{item.product_specifications == 4 ? '盒' : '' }}{{item.product_specifications == 5 ? '箱' : '' }}{{item.product_specifications == 6 ? '块' : '' }}{{item.product_specifications == 7 ? '个' : '' }}{{item.product_specifications == 8 ? '吨' : '' }}{{item.product_specifications == 9 ? '卷' : '' }}{{item.product_specifications == 10 ? '斤' : '' }}{{item.product_specifications == 11 ? '公斤' : '' }}{{item.product_specifications == 12 ? 'g' : '' }}{{item.product_specifications == 13 ? 'kg' : '' }}</text>
           <view style=' display: flex;align-items: center;'>
             <text class="product-text-address">呼和浩特</text>
             <text class="product-text-thesale">售多地</text>
@@ -199,13 +199,13 @@
         </view>
     </view  >
 </view>
-<view class="contact" style='display:flex;justify-content:space-between;height:98rpx;padding:10rpx 0;' >
+<view class="contact" >
   <view bindtap='calling'>
-    <image src='../image/all.png'></image>
+    <image src='../image/phone.svg'></image>
     <text>电话</text>
   </view>
   <view bindtap='Collect' data-id="{{brand.id}}">
-    <image src='../image/all.png'></image>
+    <image src='../image/{{status == 0 ? "取消收藏":"star"}}.svg'></image>
     <text>收藏</text>
   </view>
 </view>

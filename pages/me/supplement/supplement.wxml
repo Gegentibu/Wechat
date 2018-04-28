@@ -29,6 +29,6 @@
   </button>
 </view> -->
 <view style='text-align:center;margin-top:50rpx;'> 
-  <button class="submit" hover-class="other-button-hover" >确定</button>
+  <button class="submit" hover-class="other-button-hover" bindtap='submit'>确定</button>
 </view>
 </view>

@@ -19,7 +19,7 @@
 <!-- <radio-group style="display:inline-block" class="radio-group" bindchange="radioChange"><radio checked="{{checked}}"></radio></radio-group> -->
 </view>
 <view style='text-align:center;'>
-  <text style='color:#2581ff;font-size:25rpx;'>///肉之家团队帮您找肉///</text>
+  <!-- <text style='color:#2581ff;font-size:25rpx;'>///肉之家团队帮您找肉///</text> -->
   <button class="button" hover-class="other-button-hover"  form-type="submit">发布供应</button>
 </view>
 

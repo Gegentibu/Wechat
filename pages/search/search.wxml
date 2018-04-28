@@ -1,179 +1,208 @@
-<view class='sort'>
-  <view class='sort-category'>
-    <text bindtap='category'>种类 ▴</text><text bindtap='attestation'>认证 ▿</text>
+<view class='box'>
+  <view class='sort'>
+    <view class='sort-category'>
+      <text bindtap='category'>种类 ▴</text><text bindtap='attestation'>认证 ▿</text>
+    </view>
+    <view class='sort-attestation'>
+      <image src='../image/重置.svg'></image>
+      <text>重置</text>
+    </view>
   </view>
-  <view class='sort-attestation'>
-    <image src='chebiao01.jpg'></image>
-    <text>重置</text>
+  <view class="category" style='display:{{whether}}'>
+      <block wx:for="{{dates}}" wx:key="id" wx:for-index="i">
+        <view class="tags-item {{current==i?'active-tag':''}}" data-sort="{{item.sort}}" data-key="{{i}}" data-state="{{item.state}}"  bindtap="tagChoose">{{item.name}}</view>
+      </block>
+  </view>
+  <view class="attestation" style='display:{{pron}}'>
+      <block wx:for="{{['普通','绿色','有机','无害','生态']}}" wx:key="id" wx:for-index="i">
+        <view class="tags-item {{currentItem==i?'active-tag':''}}" data-id="{{i}}" data-key="{{item}}" bindtap="Choose">{{item}}</view>
+      </block>
   </view>
 </view>
-<view class="category" style='display:{{whether}}'>
-    <block wx:for="{{['羊肉','牛肉','猪肉','鸡肉','鸭肉','鱼肉','驼肉','驴肉','马肉','其他']}}" wx:key="id" wx:for-index="i">
-      <view class="tags-item {{current==i?'active-tag':''}}" data-id="{{i}}" data-key="{{item}}" bindtap="tagChoose">{{item}}</view>
-    </block>
-</view>
-<view class="attestation" style='display:{{pron}}'>
-    <block wx:for="{{['有机','绿色','天然','无害','生态']}}" wx:key="id" wx:for-index="i">
-      <view class="tags-item {{currentItem==i?'active-tag':''}}" data-id="{{i}}" data-key="{{item}}" bindtap="Choose">{{item}}</view>
-    </block>
-</view>
-<scroll-view scroll-y="true" style="height:{{windowHeight}}px;"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
-  <view class="search-english" id="a">
+<scroll-view scroll-y="true" style="margin-top:100rpx;height:{{windowHeight}}px;display:{{Brand}};"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <view class="search-english" id="a" style='display:{{sort.A == undefind ? "none":""}}'>
     A
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="b">
+  <view class="search-car" wx:for="{{sort.A}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="b" style='display:{{sort.B == undefind ? "none":""}}'>
     B
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="c">
+  <view class="search-car" wx:for="{{sort.B}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="c" style='display:{{sort.C == undefind ? "none":""}}'>
     C
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="d">
+  <view class="search-car" wx:for="{{sort.C}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="d" style='display:{{sort.D == undefind ? "none":""}}'>
     D
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="e">
+  <view class="search-car" wx:for="{{sort.D}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="e" style='display:{{sort.E == undefind ? "none":""}}'>
     E
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="f">
+  <view class="search-car" wx:for="{{sort.E}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="f" style='display:{{sort.F == undefind ? "none":""}}'>
     F
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="g">
+  <view class="search-car" wx:for="{{sort.F}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="g" style='display:{{sort.G == undefind ? "none":""}}'>
     G
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="h">
+  <view class="search-car" wx:for="{{sort.G}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="h" style='display:{{sort.H == undefind ? "none":""}}'>
     H
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="i">
+  <view class="search-car" wx:for="{{sort.H}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="i" style='display:{{sort.I == undefind ? "none":""}}'>
     I
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="j">
+  <view class="search-car" wx:for="{{sort.I}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="j" style='display:{{sort.J == undefind ? "none":""}}'>
     J
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="k">
+  <view class="search-car" wx:for="{{sort.J}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="k" style='display:{{sort.K == undefind ? "none":""}}'>
     K
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="l">
+  <view class="search-car" wx:for="{{sort.K}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="l" style='display:{{sort.L == undefind ? "none":""}}'>
     L
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="m">
+  <view class="search-car" wx:for="{{sort.L}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="m" style='display:{{sort.M == undefind ? "none":""}}'>
     M
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
+  <view class="search-car" wx:for="{{sort.M}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>
   </view>
-  <view class="search-english" id="n">
+  <view class="search-english" id="n" style='display:{{sort.N == undefind ? "none":""}}'>
     N
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="o">
+  <view class="search-car" wx:for="{{sort.N}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="o" style='display:{{sort.O == undefind ? "none":""}}'>
     O
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="p">
+  <view class="search-car" wx:for="{{sort.O}}" bindtap="showRequire">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="p" style='display:{{sort.P == undefind ? "none":""}}'>
     P
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="q">
+  <view class="search-car" wx:for="{{sort.P}}" bindtap="showRequire">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="q" style='display:{{sort.Q == undefind ? "none":""}}'>
     Q
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="r">
+  <view class="search-car" wx:for="{{sort.Q}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="r" style='display:{{sort.R == undefind ? "none":""}}'>
     R
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="s">
+  <view class="search-car" wx:for="{{sort.R}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="s" style='display:{{sort.S == undefind ? "none":""}}'>
     S
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="t">
+  <view class="search-car" wx:for="{{sort.S}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="t" style='display:{{sort.T == undefind ? "none":""}}'>
     T
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="u">
+  <view class="search-car" wx:for="{{sort.T}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="u" style='display:{{sort.U == undefind ? "none":""}}'>
     U
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="v">
+  <view class="search-car" wx:for="{{sort.U}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="v" style='display:{{sort.V == undefind ? "none":""}}'>
     V
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="w">
+  <view class="search-car" wx:for="{{sort.V}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="w" style='display:{{sort.W == undefind ? "none":""}}'>
     W
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="x">
+  <view class="search-car" wx:for="{{sort.W}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="x" style='display:{{sort.X == undefind ? "none":""}}'>
     X
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="y">
+  <view class="search-car" wx:for="{{sort.X}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="y" style='display:{{sort.Y == undefind ? "none":""}}'>
     Y
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
-  <view class="search-english" id="z">
+  <view class="search-car" wx:for="{{sort.Y}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="z" style='display:{{sort.Z == undefind ? "none":""}}'>
     Z
   </view>
-  <view class="search-car" wx:for="{{userInfo}}" bindtap="showRequire">
-    <image src="chebiao01.jpg"></image>{{index}}: {{userInfo}}
-  </view>
+  <view class="search-car" wx:for="{{sort.Z}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
 </scroll-view>
 <view class="index-english" style="top:{{indexTop}}px">
   <view wx:for="{{arrId}}" wx:for-item="i" id="{{i}}" catchtouchstart="touchstart" catchtouchmove="touchmove" catchtouchend="touchend">{{i}}</view>

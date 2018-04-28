@@ -19,15 +19,18 @@ Page({
     })
   },
   answer:function(e){
-    // console.log(e.currentTarget.dataset.key)
-    this.setData({
-      Commentary:"block",
-      key:e.currentTarget.dataset.key
-    })
-  },
-  close: function () {
-    this.setData({
-      Commentary: "none"
+    console.log(e.target.dataset.phone)
+  //   this.setData({
+  //     Commentary:"block",
+  //     key:e.currentTarget.dataset.key
+  //   })
+  // },
+  // close: function () {
+  //   this.setData({
+  //     Commentary: "none"
+  //   })
+    wx.makePhoneCall({
+      phoneNumber: e.target.dataset.phone //仅为示例，并非真实的电话号码
     })
   },
   bindChage:function(){

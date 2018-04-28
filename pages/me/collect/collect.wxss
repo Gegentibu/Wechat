@@ -1037,3 +1037,8 @@ icon {
   color: #09BB07;
   white-space: nowrap;
 }
+ .product-text{
+  width: 420rpx;
+  padding: 0 10rpx;
+  justify-content:flex-start;
+} 

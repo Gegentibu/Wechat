@@ -34,7 +34,22 @@ Page({
     userInfo:"这个数据要细分",
     className:"",
     whether:"none",
-    pron:"none"
+    pron:"none",
+    sort:[],
+    dates: [
+      { "data_name": "0", "name": "羊肉", "state": 0, "sort": "sheep" },
+      { "data_name": "1", "name": "牛肉", "state": 0, "sort": "cow" },
+      { "data_name": "2", "name": "驼肉", "state": 0, "sort": "camel" },
+      { "data_name": "3", "name": "猪肉", "state": 0, "sort": "pig" },
+      { "data_name": "4", "name": "鸡肉", "state": 0, "sort": "chicken" },
+      { "data_name": "5", "name": "鸭肉", "state": 0, "sort": "duck" },
+      { "data_name": "6", "name": "鹅肉", "state": 0, "sort": "goose" },
+      { "data_name": "7", "name": "鱼肉", "state": 0, "sort": "fish" },
+      { "data_name": "8", "name": "驴肉", "state": 0, "sort": "donkey" },
+      { "data_name": "9", "name": "马肉", "state": 0, "sort": "horse" }
+    ],
+    kind:'',
+    level:''
   },
   category: function (e) {
     var _key = '';
@@ -72,13 +87,30 @@ Page({
     console.log(id)
     //设置当前样式
     that.setData({
-      'currentItem': id
+      'currentItem': id,
+      level:id+1
     })
     setTimeout(function () {
       that.setData({
         pron: "none"
       })
+      wx.request({
+        url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6?' + that.data.kind + '=1&level' + that.data.level + '=' + that.data.level, //仅为示例，并非真实的接口地址
+        // data: {
+        //   id:1
+        // },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success: function (res) {
+          console.log(res.data)
+          that.setData({
+            sort: res.data.sort
+          });
+        }
+      })
     }, 500)
+    
 
   },
   touchstart:function(e){
@@ -105,6 +137,40 @@ Page({
       indexShow:false
     })
   },
+  tagChoose: function (e) {
+    var that = this
+    var id = e.target.dataset.sort;
+    console.log(e.target.dataset.sort)
+    //设置当前样式
+    that.setData({
+      'current': id,
+      // species: id + 2,
+      kind: e.target.dataset.sort
+
+    })
+    setTimeout(function () {
+      that.setData({
+        whether: "none"
+      })
+    }, 500)
+    wx.request({
+      url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6?' + that.data.kind + '=1&level' + that.data.level + '=' + that.data.level,  //仅为示例，并非真实的接口地址
+      // data: {
+      //   id:1
+      // },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          sort: res.data.sort
+        });
+      }
+    })
+
+
+  },
   onLoad:function(options){
     var that = this;
     wx.getSystemInfo({
@@ -115,6 +181,28 @@ Page({
         });
       }
     })
+    wx.request({
+      url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      data: {
+
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data.sort)
+        that.setData({
+          sort: res.data.sort
+        });
+      }
+    })
+  },
+  showRequire:function(e){
+    console.log(e.target.dataset.id)
+    var id = e.target.dataset.id;
+      wx.navigateTo({
+        url: '../brand/brand?id=' + id,
+      })    
   },
   onReady:function(){
     // 页面渲染完成

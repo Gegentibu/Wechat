@@ -10,7 +10,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     movies: [
-      { url: 'https://assets.meathome.com.cn/FiXq1JJ0EA_OBfb67aZnf1T9WQ9I' },
+      { url: '../image/timg.jpeg' },
       { url: '../image/timg.jpeg' },
       { url: '../image/timg.jpeg' }
     ],
@@ -61,7 +61,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        console.log(res.data.data)
+        console.log(res.data)
         that.setData({
           brand:res.data.data
         })

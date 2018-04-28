@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    publish:[]
   },
 
   /**
@@ -27,6 +27,9 @@ Page({
           },
           success: function (res) {
             console.log(res.data)
+            that.setData({
+              publish: res.data.data
+            })
           }
         })
       },

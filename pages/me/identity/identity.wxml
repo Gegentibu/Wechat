@@ -5,17 +5,17 @@
   </view>
 <view class="category">
     <block wx:for="{{dates}}" wx:key="id" wx:for-index="i">
-      <view class="identity {{item.state==1?'active-tag':''}}" data-id="{{i}}" data-key="{{i}}" bindtap="tagChoose">{{item.name}}</view>
+      <view class="identity {{item.state==1?'active-tag':''}}" data-sort="{{item.sort}}" data-key="{{i}}" data-state="{{item.state}}" bindtap="tagChoose">{{item.name}}</view>
     </block>
 </view>
- <input placeholder="请输入手机号码" placeholder-style="color:#b0b0b0;" type='number' style='background-color:#fff;padding:30rpx 30rpx;margin:20rpx 0;'></input>
+ <input placeholder="请输入手机号码" placeholder-style="color:#b0b0b0;" type='number' style='background-color:#fff;padding:30rpx 30rpx;margin:20rpx 0;'bindinput="getPhoneNub" value='{{phoneNub}}'></input>
 <view style='display:inline-flex;align-items: center;margin-bottom:50rpx;'>
-  <input placeholder="请输入验证码" placeholder-style="color:#b0b0b0;" type='number' style='background-color:#fff;padding:30rpx 30rpx;margin:20rpx 0;width:400rpx;display:inline-block;'></input>
+  <input placeholder="请输入验证码" placeholder-style="color:#b0b0b0;" type='number' style='background-color:#fff;padding:30rpx 30rpx;margin:20rpx 0;width:400rpx;display:inline-block;' bindinput="getCodeNub" value='{{codeNub}}'></input>
   <button class='CAPTCHA' disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode">
 {{time}}
   </button>
 </view> 
 <view style='text-align:center;margin-top:50rpx;'> 
-  <button class="submit" hover-class="other-button-hover" >确定</button>
+  <button class="submit" hover-class="other-button-hover" bindtap='submit'>确定</button>
 </view>
 </view>

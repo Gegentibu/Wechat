@@ -8,7 +8,7 @@ Page({
     add_img: [],
     textarea: '',
     input:'',
-    img:[],
+    img:"",
     uid:""
   },
   
@@ -36,9 +36,9 @@ Page({
         })
         var filePath = that.data.add_img;
         console.log(filePath)
-        for (var i = 0, h = filePath.length; i < h; i++) {
+        for (let i = 0, h = filePath.length; i < h; i++) {
           wx.uploadFile({
-            url: 'https://api.mongoliaci.com/api/wechat/image', //开发者服务器 url
+            url: 'https://api.mongoliaci.com/api/wechat/image/37fb591be38db52dd1d5f04b689008f6', //开发者服务器 url
             filePath: filePath[i],//要上传文件资源的路径
             name: 'file[]',   
                     
@@ -47,11 +47,23 @@ Page({
             },
             success: function (res) {
               // var data = res.data
+              console.log(res)
               console.log(res.data)
-              var data = JSON.parse(res.data);
+              // var data = JSON.parse(res.data);
               //do something
-              console.log(res.data)
-              that.data.img.push(data.name[0])
+              
+              console.log(i)
+              // that.data.img.push(data.name[0])
+              if (that.data.img == ""){
+                console.log(i)
+                that.setData({
+                  img: res.data
+                })
+              }else{
+                that.setData({
+                  img: that.data.img + ',' + res.data
+                })
+              }
             }
           })
         }
@@ -86,28 +98,70 @@ Page({
   },
   uploadImg:function(e){
     var that = this;
-    var a = "{'image':'"+that.data.img+"'}";
-    console.log(a)
+    // var a = "{'image':'"+that.data.img+"'}";
+    // var a = "'" + that.data.img + "'";
+    // console.log(a)
     // var image = {};
     // image.push("")
+    // console.log(a)
       console.log(that.data.img)
-      wx.request({
-        url: 'https://api.mongoliaci.com/api/wechat/image', //仅为示例，并非真实的接口地址
-        data: {
-          content: that.data.textarea,
-          num: that.data.input,
-          image: that.data.img,
-          uid:that.data.uid,
-          category: '1',
-        },
-        method:'POST',
-        header: {
-          'content-type': 'application/x-www-form-urlencoded' // 默认值
-        },
-        success: function (res) {
-          console.log(res.data)
-        }
-      })
+      if (that.data.input !== undefined && that.data.textarea !== undefined && that.data.input !== "" && that.data.textarea !== ""){
+        wx.request({
+          url: 'https://api.mongoliaci.com/api/create/discover/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+          data: {
+            content: that.data.textarea,
+            num: that.data.input,
+            image: that.data.img,
+            uid: that.data.uid,
+            category: '1',
+          },
+          // method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded' // 默认值
+          },
+          success: function (res) {
+            console.log(res.data)
+            if (res.data.data == true) {
+              wx.showToast({
+                title: '成功',
+                icon: 'success',
+                duration: 2000
+              })
+              setTimeout(function () {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 2000)
+            } else {
+              wx.showModal({
+                title: '网络错误',
+                content: '请稍后再试',
+                success: function (res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              })
+            }
+
+          }
+        })
+      }else{
+        wx.showModal({
+          title: '提示',
+          content: '请输入内容，联系方式。',
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }
+      
     
   },
   /**

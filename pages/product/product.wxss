@@ -172,6 +172,13 @@ page{
   width: 690rpx;
   height: 388rpx;
 }
+.contact{
+  display:flex;
+  position: fixed;
+  bottom: 0;
+  justify-content:space-between;
+  height:110rpx;
+  }
 .contact view{
   width: 375rpx;
   text-align: center;

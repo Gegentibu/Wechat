@@ -74,7 +74,7 @@ image{
     margin: 10rpx;
 }
 .index-english{
-    position: absolute;
+    position: fixed;
     width: 30rpx;
     height: auto;
     right: 0;
@@ -96,3 +96,10 @@ image{
     background-color: rgba(0, 0, 0, 0.4);
     line-height: 100px;
 }
+ .box{
+  width: 100%;
+  position: fixed;
+  top:0;
+  z-index: 10;
+  background: #fff;
+} 

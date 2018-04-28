@@ -51,8 +51,8 @@ page{
    margin: 0 30rpx; 
 }
 .service-item image{
-  width: 80rpx;
-  height: 80rpx;
+  width: 70rpx;
+  height: 70rpx;
 }
 .service-item-text{
   display: block;
@@ -98,7 +98,7 @@ page{
 }
 .product{
   width: 100%;
-  height: 685rpx;
+  /* height: 685rpx; */
   background-color: #fff;
   margin-bottom: 20rpx;
 }
@@ -120,6 +120,9 @@ page{
   height: 120rpx;
   line-height: 120rpx;
   padding-left: 30rpx;
+}
+.product image{
+  width: 100%;
 }
 .product-item-list{
   width: 100%;
@@ -208,8 +211,8 @@ page{
   line-height: 40rpx;
 }
 .news-item-left-concern image{
-  width: 40rpx;
-  height: 40rpx;
+  width: 30rpx;
+  height: 30rpx;
 }
 .news-item-right{
   margin-right: 30rpx;

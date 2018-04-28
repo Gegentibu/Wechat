@@ -1,2 +1,26 @@
-<!--pages/discover/need/need.wxml-->
-<text>pages/discover/need/need.wxml</text>
+
+<form bindsubmit="uploadImg">
+<view style='padding:0 30rpx;background-color:#fff;'>
+  <textarea placeholder="请输入内容..."  bindblur="bindTextAreaBlur" placeholder-style="color:#b0b0b0;" style='background-color:#fff;width:100%;' value="{{textarea}}"></textarea>
+</view>
+  <view class='img_box'>
+    <block wx:for="{{add_img}}" wx:key="{{index}}">
+      <view class='have_img'>
+        <image src='{{item}}' class='sug_picture' data-num="{{index}}" catchtap='preview_img'></image>
+        <image src='../../image/delete_img.jpg' style='width:24rpx;height:24rpx;' data-num="{{index}}" class='delete_img' catchtap='delete_th'></image>
+      </view> 
+    </block>
+    <view class='no_img' bindtap="gotoShow">
+      <image src='../../image/添加图片.svg'></image>
+    </view>
+  </view>
+<input placeholder="请输入联系电话" bindblur="bindInputBlur" placeholder-style="color:#b0b0b0;"  value="{{input}}" type='number' style='background-color:#fff;padding:30rpx 30rpx;margin:20rpx 0;'></input>
+<view style='color:#b0b0b0;padding: 0 30rpx 200rpx 30rpx;'>发布即视为同意<text style='color:#2581ff;'>《相关条款》</text>
+<!-- <radio-group style="display:inline-block" class="radio-group" bindchange="radioChange"><radio checked="{{checked}}"></radio></radio-group> -->
+</view>
+<view style='text-align:center;'>
+  <text style='color:#2581ff;font-size:25rpx;'>///肉之家团队帮您找肉///</text>
+  <button class="button" hover-class="other-button-hover"  form-type="submit">发布需求</button>
+</view>
+
+</form>

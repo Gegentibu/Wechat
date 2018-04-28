@@ -1,7 +1,7 @@
 <view>
   <view class="data">
     <view class="data-head">
-      <image src="../image/WechatIMG35.jpeg"></image>
+      <image src="{{reviseImg}}"></image>
     </view>
     <view class="data-text">
       <text class="data-text-name" style='display:{{nameDisplay == 1 ? "none": "block"}}'>{{name}}</text>

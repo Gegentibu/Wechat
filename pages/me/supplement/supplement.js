@@ -5,21 +5,75 @@ Page({
     fun_id: 2,
     time: '获取验证码', //倒计时 
     currentTime: 61,
-    add_img: []
+    add_img: [],
+    img: []
   },
   gotoShow: function () {
+    console.log("添加图片")
     var that = this;
     wx.chooseImage({
+      count:1,
       success: function (res) {
-        // console.log(res.tempFilePaths)
+        // console.log(res)
         var src = res.tempFilePaths;
         var aa = that.data.add_img.concat(src)
         // console.log(aa)
         that.setData({
           add_img: aa
         })
+        var filePath = that.data.add_img;
+        console.log(filePath)
+        for (var i = 0, h = filePath.length; i < h; i++) {
+          wx.uploadFile({
+            url: 'https://api.mongoliaci.com/api/business/licensee/37fb591be38db52dd1d5f04b689008f6', //开发者服务器 url
+            filePath: filePath[i],//要上传文件资源的路径
+            name: 'file[]',
+
+            formData: { //HTTP 请求中其他额外的 form data
+              'user': 'test'
+            },
+            success: function (res) {
+              // var data = res.data
+              console.log(res)
+              var data = JSON.parse(res.data);
+              //do something
+              // console.log(res.data)
+              that.data.img.push(data.name)
+            }
+          })
+        }
       },
     })
+  },
+  submit: function (e) {
+    var that = this;
+    var a = "{'image':'" + that.data.img + "'}";
+    console.log(a)
+    // var image = {};
+    // image.push("")
+    console.log(that.data.img[0])
+      wx.getStorage({
+        key: 'openid',
+        success: function(res) {
+          wx.request({
+            url: 'https://api.mongoliaci.com/api/completion/certification/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+            data: {
+              filepath: that.data.img[0],
+              uid: res.data
+            },
+            // method: 'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded' // 默认值
+            },
+            success: function (res) {
+              console.log(res.data)
+            }
+          })
+
+        },
+      })
+      
+
   },
   delete_th: function (e) {
     var num = e.currentTarget.dataset.num;

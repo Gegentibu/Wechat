@@ -1,18 +1,248 @@
+<view class='box'>
+  <view class='filter' style='display:{{Brand}};display:{{clear}}'>
+    <view>
+      <image src="{{Selected1}}"></image>
+      <image src="{{Selected2}}"></image>
+      <image src="{{Selected3}}"></image>
+    </view>
+    <view>
+      <image src="../image/取消选择.jpg" bindtap='Clear'></image>
+      <image src="../image/确定.jpg" bindtap='defineBrand'></image>
+    </view> 
+  </view>
 
- 
-<!-- white-space
- normal: 正常无变化(默认处理方式.文本自动处理换行.假如抵达容器边界内容会转到下一行)
- pre: 保持HTML源代码的空格与换行,等同与pre标签
- nowrap: 强制文本在一行,除非遇到br换行标签
- pre-wrap: 同pre属性,但是遇到超出容器范围的时候会自动换行
- pre-line: 同pre属性,但是遇到连续空格会被看作一个空格
- inherit: 继承
--->
-<!--水平滚动-->
-<scroll-view scroll-x="true" style=" white-space: nowrap; display: flex" >
-<!-- display: inline-block-->
- <view style="background: red; width: 200px; height: 100px; display: inline-block" ></view>
- <view style="background: green; width: 200px; height: 100px; display: inline-block"></view>
- <view style="background: blue; width: 200px; height: 100px; display: inline-block"></view>
- <view style="background: yellow; width: 200px; height: 100px; display: inline-block"></view>
+</view>
+<scroll-view scroll-y="true" style="margin-top:100rpx;height:{{windowHeight}}px;display:{{Brand}};"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <view class="search-english" id="a" style='display:{{sort.A == undefind ? "none":""}}'>
+    A
+  </view>
+  <view class="search-car" wx:for="{{sort.A}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="b" style='display:{{sort.B == undefind ? "none":""}}'>
+    B
+  </view>
+  <view class="search-car" wx:for="{{sort.B}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="c" style='display:{{sort.C == undefind ? "none":""}}'>
+    C
+  </view>
+  <view class="search-car" wx:for="{{sort.C}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="d" style='display:{{sort.D == undefind ? "none":""}}'>
+    D
+  </view>
+  <view class="search-car" wx:for="{{sort.D}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="e" style='display:{{sort.E == undefind ? "none":""}}'>
+    E
+  </view>
+  <view class="search-car" wx:for="{{sort.E}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="f" style='display:{{sort.F == undefind ? "none":""}}'>
+    F
+  </view>
+  <view class="search-car" wx:for="{{sort.F}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="g" style='display:{{sort.G == undefind ? "none":""}}'>
+    G
+  </view>
+  <view class="search-car" wx:for="{{sort.G}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="h" style='display:{{sort.H == undefind ? "none":""}}'>
+    H
+  </view>
+  <view class="search-car" wx:for="{{sort.H}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="i" style='display:{{sort.I == undefind ? "none":""}}'>
+    I
+  </view>
+  <view class="search-car" wx:for="{{sort.I}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="j" style='display:{{sort.J == undefind ? "none":""}}'>
+    J
+  </view>
+  <view class="search-car" wx:for="{{sort.J}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="k" style='display:{{sort.K == undefind ? "none":""}}'>
+    K
+  </view>
+  <view class="search-car" wx:for="{{sort.K}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="l" style='display:{{sort.L == undefind ? "none":""}}'>
+    L
+  </view>
+  <view class="search-car" wx:for="{{sort.L}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="m" style='display:{{sort.M == undefind ? "none":""}}'>
+    M
+  </view>
+  <view class="search-car" wx:for="{{sort.M}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>
+  </view>
+  <view class="search-english" id="n" style='display:{{sort.N == undefind ? "none":""}}'>
+    N
+  </view>
+  <view class="search-car" wx:for="{{sort.N}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="o" style='display:{{sort.O == undefind ? "none":""}}'>
+    O
+  </view>
+  <view class="search-car" wx:for="{{sort.O}}" bindtap="showRequire">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="p" style='display:{{sort.P == undefind ? "none":""}}'>
+    P
+  </view>
+  <view class="search-car" wx:for="{{sort.P}}" bindtap="showRequire">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="q" style='display:{{sort.Q == undefind ? "none":""}}'>
+    Q
+  </view>
+  <view class="search-car" wx:for="{{sort.Q}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="r" style='display:{{sort.R == undefind ? "none":""}}'>
+    R
+  </view>
+  <view class="search-car" wx:for="{{sort.R}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="s" style='display:{{sort.S == undefind ? "none":""}}'>
+    S
+  </view>
+  <view class="search-car" wx:for="{{sort.S}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="t" style='display:{{sort.T == undefind ? "none":""}}'>
+    T
+  </view>
+  <view class="search-car" wx:for="{{sort.T}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="u" style='display:{{sort.U == undefind ? "none":""}}'>
+    U
+  </view>
+  <view class="search-car" wx:for="{{sort.U}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="v" style='display:{{sort.V == undefind ? "none":""}}'>
+    V
+  </view>
+  <view class="search-car" wx:for="{{sort.V}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="w" style='display:{{sort.W == undefind ? "none":""}}'>
+    W
+  </view>
+  <view class="search-car" wx:for="{{sort.W}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="x" style='display:{{sort.X == undefind ? "none":""}}'>
+    X
+  </view>
+  <view class="search-car" wx:for="{{sort.X}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="y" style='display:{{sort.Y == undefind ? "none":""}}'>
+    Y
+  </view>
+  <view class="search-car" wx:for="{{sort.Y}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
+  <view class="search-english" id="z" style='display:{{sort.Z == undefind ? "none":""}}'>
+    Z
+  </view>
+  <view class="search-car" wx:for="{{sort.Z}}">
+    <view class="{{_num == index ?'Selected':''}}" data-img="{{item.logo}}" data-id="{{item.id}}" bindtap="showRequire">
+      <image src="{{item.logo}}"></image>{{item.name}}
+    </view>  </view>
 </scroll-view>
+<view class="index-english" style="top:{{indexTop}}px;display:{{Brand}}">
+  <view wx:for="{{arrId}}" wx:for-item="i" id="{{i}}" catchtouchstart="touchstart" catchtouchmove="touchmove" catchtouchend="touchend">{{i}}</view>
+</view>
+<view class="index-name" wx:if="{{indexShow}}" >{{indexEnglish}}</view>
+<view class='sort' style='display:{{Cilick}}'>
+  <view class='sort-category'>
+    <text bindtap='Brand' style='border-bottom: 1rpx solid #e6e6e6;'>品牌 ▿</text><text bindtap='category' style='border-bottom: 1rpx solid #e6e6e6;'>种类 ▿</text><text bindtap='attestation' style='border-bottom: 1rpx solid #e6e6e6;'>认证 ▿</text>
+    <text bindtap='Units' >{{Units}} ▿</text><text bindtap='Price'>价格 {{ico}}</text><text bindtap='Recommend'>推荐 {{ico}}</text>
+  </view>
+  <view class='sort-attestation'>
+    <image src='../image/重置.svg'></image>
+    <text>重置</text>
+  </view>
+</view>
+
+<view class="category" style='display:{{whether}}'>
+    <block wx:for="{{['羊肉','牛肉','驼肉','猪肉','鸡肉','鸭肉','鹅肉','鱼肉','驴肉','马肉']}}" wx:key="id" wx:for-index="i">
+      <view class="tags-item {{current==i?'active-tag':''}}" data-id="{{i}}" data-key="{{item}}" bindtap="tagChoose">{{item}}</view>
+    </block>
+</view>
+<view class="attestation" style='display:{{pron}}'>
+    <block wx:for="{{['普通','绿色','有机','无害','生态']}}" wx:key="id" wx:for-index="i">
+      <view class="tags-item {{currentItem==i?'active-tag':''}}" data-id="{{i}}" data-key="{{item}}" bindtap="Choose">{{item}}</view>
+    </block>
+</view>
+<view style='display:{{handover}}'>
+  <view wx:for="{{products}}">
+      <view class="product" data-id="{{item.id}}" bindtap='toProduct'>
+        <view class="product-head">
+          <image src="{{item.thumb}}"></image>
+        </view>
+        <view class="product-text_">
+          <view style='display: flex;justify-content:flex-start;height:54rpx;'>
+            <text class="product-text-recommend" style="display:{{item.recommended == 1 ? 'block' : 'none'}};">推荐</text>
+            <text class="product-text-name">{{item.name}}</text>
+          </view>
+          <text class="product-text-date">{{item.describe}}</text>
+          <view class='product-text-sort'>
+            <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
+          </view>
+          <text class="product-text-price">￥{{item.price}}元/{{item.specifications == 1 ? '件' : '' }}{{item.specifications == 2 ? '袋' : '' }}{{item.specifications == 3 ? '条' : '' }}{{item.specifications == 4 ? '盒' : '' }}{{item.specifications == 5 ? '箱' : '' }}{{item.specifications == 6 ? '块' : '' }}{{item.specifications == 7 ? '个' : '' }}{{item.specifications == 8 ? '吨' : '' }}{{item.specifications == 9 ? '卷' : '' }}{{item.specifications == 10 ? '斤' : '' }}{{item.specifications == 11 ? '公斤' : '' }}{{item.specifications == 12 ? 'g' : '' }}{{item.specifications == 13 ? 'kg' : '' }}</text>
+          <view style=' display: flex;align-items: center;'>
+            <text class="product-text-address">呼和浩特</text>
+            <text class="product-text-thesale">售多地</text>
+          </view>
+        </view>
+      </view>
+</view>
+</view>

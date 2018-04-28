@@ -1,1 +1,33 @@
-/* pages/discover/need/need.wxss */
+ page{
+  width:100%;overflow: hidden;
+  background-color:#fafafa;  
+}
+.img_box{
+  padding: 0 30rpx;
+  background-color:#fff;   
+}
+.have_img{
+  display: inline-block;
+}
+.no_img{
+  display: inline-block;
+}
+.delete_img{
+  width: 10rpx;
+  height: 10rpx;
+  margin-bottom: 150rpx;
+}
+image{
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.button{
+  width: 550rpx;
+  height: 88rpx;
+  background-color: #2581ff;
+  color: #fff;
+}
+.other-button-hover{
+  background-color: skyblue;
+} 

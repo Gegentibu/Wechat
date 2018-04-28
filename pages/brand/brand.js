@@ -15,7 +15,9 @@ Page({
     movies: [],
     brand:[],
     product:[],
-    store:[]
+    store:[],
+    status:"",
+    // Collect_id:""
 
   },
   //事件处理函数
@@ -34,25 +36,33 @@ Page({
         });
       }
     });
-    wx.request({
-      url: 'https://api.mongoliaci.com/api/brand/detail/37fb591be38db52dd1d5f04b689008f6?id='+options.id, //仅为示例，并非真实的接口地址
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          brand:res.data.brand[0],
-          product: res.data.product,
-          store: res.data.store,
-          movies: [
-            { url: 'https://api.mongoliaci.com/' + res.data.brand[0].atlas1 },
-            { url: 'https://api.mongoliaci.com/' + res.data.brand[0].atlas2 },
-            { url: 'https://api.mongoliaci.com/' + res.data.brand[0].atlas3}
-          ]
+    wx.getStorage({
+      key: 'openid',
+      success: function(res) {
+        wx.request({
+          url: 'https://api.mongoliaci.com/api/brand/detail/37fb591be38db52dd1d5f04b689008f6?id=' + options.id + '&uid='+res.data, //仅为示例，并非真实的接口地址
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success: function (res) {
+            console.log(res.data)
+            that.setData({
+              brand: res.data.brand[0],
+              product: res.data.product,
+              store: res.data.store,
+              movies: [
+                { url: res.data.brand[0].atlas1 },
+                { url: res.data.brand[0].atlas2 },
+                { url: res.data.brand[0].atlas3 }
+              ],
+              status: res.data.status.status,
+              // Collect_id: res.data.Collect_id.id
+            })
+          }
         })
-      }
+      },
     })
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -107,10 +117,11 @@ Page({
     });
   },
   toProduct: function (e) {
-    console.log(e.currentTarget.dataset.id)
+    console.log(e)
     var id = e.currentTarget.dataset.id;
+    var brandId = e.currentTarget.dataset.brandid;
     wx.navigateTo({
-      url: '../product/product?id='+id,
+      url: '../product/product?id=' + id + '&brandId=' + brandId,
     })
   },
   makePhone:function(e){
@@ -121,29 +132,67 @@ Page({
     })
   },
   Collect:function(e){
-    console.log(e.currentTarget.dataset.id)
     var id = e.currentTarget.dataset.id;
     var that = this;
-    wx.getStorage({
-      key: 'openid',
-      success: function (res) {
-        console.log(res.data)
-        wx.request({
-          url: 'https://api.mongoliaci.com/api/brand/collect/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
-          data: {
-            uid: res.data,
-            brand_id: id
-          },
-          header: {
-            'content-type': 'application/json' // 默认值
-          },
-          success: function (res) {
-            console.log(res.data)
-          }
-        })
-      },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    console.log(that.data.status)
+    console.log(id)
+    if (that.data.status == 0){
+      wx.getStorage({
+        key: 'openid',
+        success: function (res) {
+          console.log(id)
+          wx.request({
+            url: 'https://api.mongoliaci.com/api/brand/collect/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+            data: {
+              uid: res.data,
+              brand_id: id,
+              status:1
+            },
+            header: {
+              'content-type': 'application/json' // 默认值
+            },
+            success: function (res) {
+              console.log(res.data)
+              that.setData({
+                  status: 1,
+                  // collect_id:res.data.BrandCollect.id
+              })
+            }            
+          })
+        },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }else{
+      wx.getStorage({
+        key: 'openid',
+        success: function (res) {
+          console.log(res.data)
+          // console.log(that.data.Collect_id)
+          wx.request({
+            url: 'https://api.mongoliaci.com/api/brand/collect/cancel/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+            data: {
+              uid: res.data,
+              // collect_id: that.data.Collect_id
+              brand_id: id
+            },
+            header: {
+              'content-type': 'application/json' // 默认值
+            },
+            success: function (res) {
+              console.log(res.data)
+              // if(res.data.data == true){
+                that.setData({
+                  status:0
+                })
+              // }
+            }
+          })
+        },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+    
   }  
 })
