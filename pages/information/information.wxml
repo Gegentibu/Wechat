@@ -6,7 +6,7 @@
   <view style='display:flex;align-items:center'>
     <text class='company'>蒙高丽亚</text>
     <text class='date'>2018年2月28日</text>
-    <image class='count-image' src='../image/O2O.svg'></image>
+    <image class='count-image' src='../image/浏览数.svg'></image>
     <text class='count-text'>2028</text>
   </view>
 </view>

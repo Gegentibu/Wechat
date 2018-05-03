@@ -58,6 +58,9 @@ page{
   width: 40rpx;
   height: 40rpx;
 }
+.news-item-left-concern text{
+  margin-left: 20rpx;
+}
 .news-item-right{
   margin-right: 30rpx;
 }

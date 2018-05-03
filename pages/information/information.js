@@ -15,7 +15,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'https://www.mongoliaci.com/wechat/info', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/wechat/info', //仅为示例，并非真实的接口地址
       data: {
         x: '',
         y: ''
