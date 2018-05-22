@@ -1,7 +1,7 @@
 
 <view style='padding:0 30rpx;'>
   <view class="title">
-    <text>丨选择身份</text>
+    <text><text style='color:#2581ff;'>▍</text>选择身份</text>
   </view>
 <view class="category">
     <block wx:for="{{dates}}" wx:key="id" wx:for-index="i">

@@ -1,0 +1,4 @@
+/* pages/terms/terms.wxss */
+button{
+  width: 200rpx;
+}

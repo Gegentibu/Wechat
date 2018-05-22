@@ -11,7 +11,30 @@ Page({
     img: [],
     uid: ""
   },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
 
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/discover/discover',
+      success: function (res) {
+
+      },
+      fail: function (res) {
+
+      }
+    }
+  },
+  Toterms: function () {
+    wx: wx.navigateTo({
+      url: '../../terms/terms',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  }, 
   bindInputBlur: function (e) {
     this.setData({
       input: e.detail.value
@@ -36,22 +59,34 @@ Page({
         })
         var filePath = that.data.add_img;
         console.log(filePath)
-        for (var i = 0, h = filePath.length; i < h; i++) {
+        for (let i = 0, h = filePath.length; i < h; i++) {
           wx.uploadFile({
-            url: 'https://api.mongoliaci.com/api/wechat/image', //开发者服务器 url
-            filePath: filePath[i],//要上传文件资源的路径
+            url: 'https://api.mongoliaci.com/api/wechat/image/37fb591be38db52dd1d5f04b689008f6', 
+            filePath: filePath[i],
             name: 'file[]',
 
-            formData: { //HTTP 请求中其他额外的 form data
+            formData: { 
               'user': 'test'
             },
             success: function (res) {
               // var data = res.data
+              console.log(res)
               console.log(res.data)
-              var data = JSON.parse(res.data);
+              // var data = JSON.parse(res.data);
               //do something
-              console.log(res.data)
-              that.data.img.push(data.name[0])
+
+              console.log(i)
+              // that.data.img.push(data.name[0])
+              if (that.data.img == "") {
+                console.log(i)
+                that.setData({
+                  img: res.data
+                })
+              } else {
+                that.setData({
+                  img: that.data.img + ',' + res.data
+                })
+              }
             }
           })
         }
@@ -86,14 +121,16 @@ Page({
   },
   uploadImg: function (e) {
     var that = this;
-    var a = "{'image':'" + that.data.img + "'}";
-    console.log(a)
+    // var a = "{'image':'"+that.data.img+"'}";
+    // var a = "'" + that.data.img + "'";
+    // console.log(a)
     // var image = {};
     // image.push("")
+    // console.log(a)
     console.log(that.data.img)
     if (that.data.input !== undefined && that.data.textarea !== undefined && that.data.input !== "" && that.data.textarea !== "") {
       wx.request({
-        url: 'https://api.mongoliaci.com/api/wechat/image', //仅为示例，并非真实的接口地址
+        url: 'https://api.mongoliaci.com/api/create/discover/37fb591be38db52dd1d5f04b689008f6', 
         data: {
           content: that.data.textarea,
           num: that.data.input,
@@ -101,12 +138,37 @@ Page({
           uid: that.data.uid,
           category: '2',
         },
-        method: 'POST',
+        // method: 'POST',
         header: {
-          'content-type': 'application/x-www-form-urlencoded' // 默认值
+          'content-type': 'application/x-www-form-urlencoded' 
         },
         success: function (res) {
           console.log(res.data)
+          if (res.data.data == true) {
+            wx.showToast({
+              title: '成功',
+              icon: 'success',
+              duration: 2000
+            })
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 2000)
+          } else {
+            wx.showModal({
+              title: '网络错误',
+              content: '请稍后再试',
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                } else if (res.cancel) {
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          }
+
         }
       })
     } else {
@@ -180,13 +242,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

@@ -1,5 +1,5 @@
 // pages/brand/brand.js
-var sliderWidth = 78; // 需要设置slider的宽度，用于计算中间位置
+var sliderWidth = 78; 
 const app = getApp()
 
 Page({
@@ -20,7 +20,19 @@ Page({
     // Collect_id:""
 
   },
-  //事件处理函数
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/index/index',
+      success: function (res) {
+      },
+      fail: function (res) {
+      }
+    }
+  },
   bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
@@ -40,9 +52,9 @@ Page({
       key: 'openid',
       success: function(res) {
         wx.request({
-          url: 'https://api.mongoliaci.com/api/brand/detail/37fb591be38db52dd1d5f04b689008f6?id=' + options.id + '&uid='+res.data, //仅为示例，并非真实的接口地址
+          url: 'https://api.mongoliaci.com/api/brand/detail/37fb591be38db52dd1d5f04b689008f6?id=' + options.id + '&uid='+res.data, 
           header: {
-            'content-type': 'application/json' // 默认值
+            'content-type': 'application/json'
           },
           success: function (res) {
             console.log(res.data)
@@ -142,14 +154,14 @@ Page({
         success: function (res) {
           console.log(id)
           wx.request({
-            url: 'https://api.mongoliaci.com/api/brand/collect/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+            url: 'https://api.mongoliaci.com/api/brand/collect/37fb591be38db52dd1d5f04b689008f6', 
             data: {
               uid: res.data,
               brand_id: id,
               status:1
             },
             header: {
-              'content-type': 'application/json' // 默认值
+              'content-type': 'application/json' 
             },
             success: function (res) {
               console.log(res.data)
@@ -170,14 +182,14 @@ Page({
           console.log(res.data)
           // console.log(that.data.Collect_id)
           wx.request({
-            url: 'https://api.mongoliaci.com/api/brand/collect/cancel/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+            url: 'https://api.mongoliaci.com/api/brand/collect/cancel/37fb591be38db52dd1d5f04b689008f6',
             data: {
               uid: res.data,
               // collect_id: that.data.Collect_id
               brand_id: id
             },
             header: {
-              'content-type': 'application/json' // 默认值
+              'content-type': 'application/json' 
             },
             success: function (res) {
               console.log(res.data)

@@ -1,7 +1,19 @@
-<!--pages/informationList/informationList.wxml-->
-<view class="news">
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view style="margin:20rpx 0;" class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                     <view class="news">
     <view class="news-header">
-      <text class="news-header-text">丨行业资讯</text>
+      <!-- <text class="news-header-text">丨行业资讯</text> -->
     </view>
     <view class="news-item" bindtap='navigateTo'>
       <view class="news-item-left">
@@ -48,3 +60,112 @@
       </view>
     </view>
   </view>
+
+                </view>
+                <view style="margin:20rpx 0;" class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                      <view class="news">
+    <view class="news-header">
+      <!-- <text class="news-header-text">丨行业资讯</text> -->
+    </view>
+    <view class="news-item" bindtap='navigateTo'>
+      <view class="news-item-left">
+        <text class="news-item-left-article">为什么内蒙古呼伦贝尔羊好</text>
+        <view class="news-item-left-concern">
+          <image src="../image/O2O.svg"></image><text>2311</text>
+        </view>
+      </view>
+      <view class="news-item-right">
+        <image src="../image/timg.jpeg"></image>
+      </view>
+    </view>
+    <view class="news-item">
+      <view class="news-item-left">
+        <text class="news-item-left-article">为什么内蒙古呼伦贝尔羊好</text>
+        <view class="news-item-left-concern">
+          <image src="../image/O2O.svg"></image><text>2311</text>
+        </view>
+      </view>
+      <view class="news-item-right">
+        <image src="../image/timg.jpeg"></image>
+      </view>
+    </view>
+    <view class="news-item">
+      <view class="news-item-left">
+        <text class="news-item-left-article">为什么内蒙古呼伦贝尔羊好</text>
+        <view class="news-item-left-concern">
+          <image src="../image/O2O.svg"></image><text>2311</text>
+        </view>
+      </view>
+      <view class="news-item-right">
+        <image src="../image/timg.jpeg"></image>
+      </view>
+    </view>
+    <view class="news-item">
+      <view class="news-item-left">
+        <text class="news-item-left-article">为什么内蒙古呼伦贝尔羊好</text>
+        <view class="news-item-left-concern">
+          <image src="../image/O2O.svg"></image><text>2311</text>
+        </view>
+      </view>
+      <view class="news-item-right">
+        <image src="../image/timg.jpeg"></image>
+      </view>
+    </view>
+  </view>
+
+                </view>
+                <view style="margin:20rpx 0;" class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                      <view class="news">
+    <view class="news-header">
+      <!-- <text class="news-header-text">丨行业资讯</text> -->
+    </view>
+    <view class="news-item" bindtap='navigateTo'>
+      <view class="news-item-left">
+        <text class="news-item-left-article">为什么内蒙古呼伦贝尔羊好</text>
+        <view class="news-item-left-concern">
+          <image src="../image/O2O.svg"></image><text>2311</text>
+        </view>
+      </view>
+      <view class="news-item-right">
+        <image src="../image/timg.jpeg"></image>
+      </view>
+    </view>
+    <view class="news-item">
+      <view class="news-item-left">
+        <text class="news-item-left-article">为什么内蒙古呼伦贝尔羊好</text>
+        <view class="news-item-left-concern">
+          <image src="../image/O2O.svg"></image><text>2311</text>
+        </view>
+      </view>
+      <view class="news-item-right">
+        <image src="../image/timg.jpeg"></image>
+      </view>
+    </view>
+  </view>
+
+                </view>
+                <view style="margin:20rpx 0;" class="weui-tab__content" hidden="{{activeIndex != 3}}">
+                    <view class="news">
+    <view class="news-header">
+      <!-- <text class="news-header-text">丨行业资讯</text> -->
+    </view>
+    <view class="news-item" bindtap='navigateTo'>
+      <view class="news-item-left">
+        <text class="news-item-left-article">为什么内蒙古呼伦贝尔羊好</text>
+        <view class="news-item-left-concern">
+          <image src="../image/浏览数.svg"></image><text>2311</text>
+        </view>
+      </view>
+      <view class="news-item-right">
+        <image src="../image/timg.jpeg"></image>
+      </view>
+    </view>
+  </view>
+                </view>
+                    
+            </view>
+        </view>
+    </view  >
+</view>
+
+

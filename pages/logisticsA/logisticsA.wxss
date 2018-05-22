@@ -1,0 +1,23 @@
+/* pages/logisticsA/logisticsA.wxss */
+page{
+  background-color: #fafafa;
+}
+.details{
+  padding: 30rpx 30rpx 80rpx 30rpx; 
+  background-color: #fff;
+}
+.details input{
+  font-size: 30rpx;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #d5d5d5;
+}
+.button{
+  width: 550rpx;
+  height: 88rpx;
+  background-color: #2581ff;
+  color: #fff;
+  margin-top:150rpx; 
+}
+.other-button-hover{
+  background-color: skyblue;
+} 

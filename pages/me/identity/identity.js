@@ -1,9 +1,9 @@
-var interval = null //倒计时函数
+var interval = null 
 Page({
   data: {
     date: '请选择日期',
     fun_id: 2,
-    time: '获取验证码', //倒计时 
+    time: '获取验证码',
     currentTime: 61,
     add_img: [],
     dates: [
@@ -18,15 +18,23 @@ Page({
     phoneNub:"",
     codeNub:""
   },
-  // tagChoose: function (e) {
-  //   var that = this
-  //   var id = e.currentTarget.dataset.id;
-  //   console.log(id)
-  //   //设置当前样式
-  //   that.setData({
-  //     'current': id
-  //   })
-  // },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/me/me',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
+
   getCode: function (options) {
     var that = this;
     var currentTime = that.data.currentTime
@@ -77,7 +85,7 @@ Page({
             mobile:that.data.phoneNub
           },
           header: {
-            'content-type': 'application/json' // 默认值
+            'content-type': 'application/json'
           },
           success: function (res) {
             console.log(res.data)
@@ -126,7 +134,7 @@ Page({
             Cold_chain_logistic: that.data.dates[6].state
           },
           header: {
-            'content-type': 'application/json' // 默认值
+            'content-type': 'application/json' 
           },
           success: function (res) {
             console.log(res.data)

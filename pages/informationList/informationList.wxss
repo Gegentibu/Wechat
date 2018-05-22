@@ -1,4 +1,6 @@
 /* pages/informationList/informationList.wxss */
+@import '../me/collect/collect.wxss';
+
 page{
     background-color: #f4f4f4;
 }
@@ -7,11 +9,11 @@ page{
   background-color: #fff;
   margin-bottom: 20rpx;
 }
-.news-header {
+/* .news-header {
   height: 80rpx;
   line-height: 80rpx;
   background-color: #f4f4f4;
-}
+} */
 .news-header-text {
   font-size: 30rpx;
   float: left;

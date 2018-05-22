@@ -1,17 +1,16 @@
-// pages/search/search.js
-//定义索引字母数组
+
 var indexArr = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var y = 0;
-//获取touchstart字母数组角标
+
 function getArrIndex(english){
-  // console.log(Page)
+
   for(var x = 0;x<indexArr.length;x++){
     if(english == indexArr[x]){
       return x;
     }
   }
 }
-//num 移动了多少位 index 当前字母,返回当前触摸位置节点的字母
+
 function getArrEnglish(num,index){
   var english = indexArr[index + num];
   if(!(1>num+index>26)){
@@ -51,6 +50,22 @@ Page({
     kind:'',
     level:''
   },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/search/search',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
   category: function (e) {
     var _key = '';
     this.data.whether == "none" ? _key = '-' : _key = "none" ;
@@ -81,10 +96,34 @@ Page({
       })},500)
     
   },
+  resetting:function(){
+    // console.log(0)
+    var that = this;
+    that.setData({
+      'current': "-",
+      'currentItem': "-",
+      whether: "none",
+      pron: "none",
+      level:"",
+      kind:""
+    })
+    wx.request({
+      url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6', 
+      header: {
+        'content-type': 'application/json' 
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          sort: res.data.sort
+        });
+      }
+    })
+  },
   Choose: function (e) {
     var that = this
     var id = e.currentTarget.dataset.id;
-    console.log(id)
+    console.log(id+1)
     //设置当前样式
     that.setData({
       'currentItem': id,
@@ -95,18 +134,23 @@ Page({
         pron: "none"
       })
       wx.request({
-        url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6?' + that.data.kind + '=1&level' + that.data.level + '=' + that.data.level, //仅为示例，并非真实的接口地址
-        // data: {
-        //   id:1
-        // },
+        url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6?' + that.data.kind + '=1&level' + that.data.level + '=' + that.data.level, 
         header: {
-          'content-type': 'application/json' // 默认值
+          'content-type': 'application/json' 
         },
         success: function (res) {
           console.log(res.data)
           that.setData({
             sort: res.data.sort
           });
+          if(res.data.sort == null ){
+            wx.showModal({
+              title: '提示',
+              content: '暂无数据',
+              showCancel: false              
+            })
+            that.resetting();
+          }
         }
       })
     }, 500)
@@ -139,8 +183,8 @@ Page({
   },
   tagChoose: function (e) {
     var that = this
-    var id = e.target.dataset.sort;
-    console.log(e.target.dataset.sort)
+    var id = e.target.dataset.key;
+    console.log(e.target.dataset)
     //设置当前样式
     that.setData({
       'current': id,
@@ -154,18 +198,23 @@ Page({
       })
     }, 500)
     wx.request({
-      url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6?' + that.data.kind + '=1&level' + that.data.level + '=' + that.data.level,  //仅为示例，并非真实的接口地址
-      // data: {
-      //   id:1
-      // },
+      url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6?' + that.data.kind + '=1&level' + that.data.level + '=' + that.data.level,  
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json' 
       },
       success: function (res) {
         console.log(res.data)
         that.setData({
           sort: res.data.sort
         });
+        if (res.data.sort == null) {
+          wx.showModal({
+            title: '提示',
+            content: '暂无数据',
+            showCancel: false
+          })
+          that.resetting();
+        }
       }
     })
 
@@ -177,17 +226,17 @@ Page({
       success: function(res) {
         that.setData({
           windowHeight: res.windowHeight,
-          indexTop:res.windowHeight/2 - 200
+          indexTop:res.windowHeight/2 - 280
         });
       }
     })
     wx.request({
-      url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6', 
       data: {
 
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json' 
       },
       success: function (res) {
         console.log(res.data.sort)

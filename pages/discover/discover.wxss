@@ -1,7 +1,7 @@
 /* pages/discover/discover.wxss */
-page{
+/* page{
   background-color: #fafafa;
-}
+} */
 .data{
   display: flex;
   flex-direction: row;
@@ -16,10 +16,12 @@ page{
   margin: 0 20rpx;
 }
 .data-head image{
-  width: 90rpx;
-  height: 90rpx;
+  width: 89rpx;
+  height: 89rpx;
+  border: 1rpx solid #f4f4f4;
 }
 .data-icon{
+  margin: 15rpx 0;
   display: flex;
   align-items: center;
   justify-content:center;
@@ -36,8 +38,8 @@ page{
 }
 
 .data-icon image{
-  width: 40rpx;
-  height: 40rpx;
+  width: 30rpx;
+  height: 30rpx;
 }
 .data-revise{
   margin-top: 50rpx;
@@ -52,6 +54,7 @@ page{
 .data-text-name{
   font-size: 34rpx;
   display: block;
+  color: #2581ff;
 }
 .data-text-date{
   color: #b0b0b0;
@@ -65,6 +68,8 @@ page{
 }
 .data-image{
   margin: 0 15rpx 0 20rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+  padding-bottom: 10rpx;
 }
 .data-image image{
   width: 220rpx;
@@ -85,7 +90,7 @@ page{
   /* font-family: bold; */
   text-align: center;
    line-height: 76rpx; 
-  font-size: 70rpx;
+  font-size: 60rpx;
 }
 .release-options{
   position: fixed;

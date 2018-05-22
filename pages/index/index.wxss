@@ -48,7 +48,7 @@ page{
   background-color: #fff;
 }
 .service-item{
-   margin: 0 30rpx; 
+   margin: 0 10rpx; 
 }
 .service-item image{
   width: 70rpx;
@@ -90,11 +90,12 @@ page{
   flex-wrap:wrap;
 }
 .brand-item-list-image{
-  margin: 0 10rpx;
+  /* margin: 0 10rpx; */
 }
 .brand-item-list-image image{
-  width: 130rpx;
-  height: 130rpx;
+  width: 128rpx;
+  height: 128rpx;
+  border: 1rpx solid #f4f4f4;
 }
 .product{
   width: 100%;
@@ -181,6 +182,7 @@ page{
   box-sizing: border-box;
   flex-wrap:wrap;
   border-top: 1rpx solid #f4f4f4;
+  padding-top:20rpx; 
 }
 .news-item-left{
   width: 480rpx;
@@ -244,6 +246,7 @@ page{
   justify-content: flex-start;
   box-sizing: border-box;
   flex-wrap:wrap;
+  font-size: 24rpx;
 }
 .cooperate-item-list{
   width: 130rpx;
@@ -254,11 +257,14 @@ page{
   box-sizing: border-box;
   flex-wrap:wrap;
   margin: 0 5rpx;
-  font-size: 30rpx;
 }
 .cooperate-item-list image{
-  width: 130rpx;
-  height: 130rpx; 
+  width: 128rpx;
+  height: 128rpx; 
+  border: 1rpx solid #f4f4f4;
+}
+.cooperate-item-list text{
+  margin-top: 10rpx;
 }
 /* .footer{
   width: 100%;

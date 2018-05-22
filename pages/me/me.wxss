@@ -28,8 +28,8 @@ page{
   margin-top: 40rpx;
 }
 .data-revise image{
-  width: 46rpx;
-  height: 46rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 .data-define image{
   width: 60rpx;
@@ -79,8 +79,8 @@ page{
   background-color: #fff;
 }
 .action-item{
-  width: 250rpx;
-  height: 250rpx;
+  width: 249rpx;
+  height: 249rpx;
   display: flex;
   align-content:center;
    align-items: center; 

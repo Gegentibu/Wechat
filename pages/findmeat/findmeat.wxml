@@ -201,12 +201,12 @@
   <view wx:for="{{arrId}}" wx:for-item="i" id="{{i}}" catchtouchstart="touchstart" catchtouchmove="touchmove" catchtouchend="touchend">{{i}}</view>
 </view>
 <view class="index-name" wx:if="{{indexShow}}" >{{indexEnglish}}</view>
-<view class='sort' style='display:{{Cilick}}'>
+<view class='sort_' style='display:{{Cilick}}'>
   <view class='sort-category'>
-    <text bindtap='Brand' style='border-bottom: 1rpx solid #e6e6e6;'>品牌 ▿</text><text bindtap='category' style='border-bottom: 1rpx solid #e6e6e6;'>种类 ▿</text><text bindtap='attestation' style='border-bottom: 1rpx solid #e6e6e6;'>认证 ▿</text>
-    <text bindtap='Units' >{{Units}} ▿</text><text bindtap='Price'>价格 {{ico}}</text><text bindtap='Recommend'>推荐 {{ico}}</text>
+    <view bindtap='Brand' style='border-bottom: 1rpx solid #e6e6e6;'>品牌<image src='../image/下箭头.svg'></image></view><view bindtap='category' style='border-bottom: 1rpx solid #e6e6e6;'>种类<image src='../image/下箭头.svg'></image></view><view bindtap='attestation' style='border-bottom: 1rpx solid #e6e6e6;'>等级<image src='../image/下箭头.svg'></image></view>
+    <view bindtap='Units' style='border-bottom: 1rpx solid #e6e6e6;'>{{Units}}<image src='../image/下箭头.svg'></image></view><view bindtap='Price'style='border-bottom: 1rpx solid #e6e6e6;'>价格<image src='{{priceImg}}'></image></view><view bindtap='Recommend' style='border-bottom: 1rpx solid #e6e6e6;'>推荐<image src='{{recommendImg}}'></image> </view>
   </view>
-  <view class='sort-attestation'>
+  <view bindtap='resetting' class='sort-attestation'>
     <image src='../image/重置.svg'></image>
     <text>重置</text>
   </view>
@@ -222,8 +222,8 @@
       <view class="tags-item {{currentItem==i?'active-tag':''}}" data-id="{{i}}" data-key="{{item}}" bindtap="Choose">{{item}}</view>
     </block>
 </view>
-<view style='display:{{handover}}'>
-  <view wx:for="{{products}}">
+<view style='display:{{handover}};'>
+  <view wx:for="{{products}}" class='recommend'>
       <view class="product" data-id="{{item.id}}" bindtap='toProduct'>
         <view class="product-head">
           <image src="{{item.thumb}}"></image>
@@ -235,12 +235,18 @@
           </view>
           <text class="product-text-date">{{item.describe}}</text>
           <view class='product-text-sort'>
-            <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
+            <text style='display:{{item.level == 2 ? "block":"none"}}'>绿色</text><text style='display:{{item.level == 3 ? "block":"none"}}'>有机</text><text style='display:{{item.level == 4 ? "block":"none"}}'>无公害</text><text style='display:{{item.level == 5 ? "block":"none"}}'>原生态</text>
           </view>
           <text class="product-text-price">￥{{item.price}}元/{{item.specifications == 1 ? '件' : '' }}{{item.specifications == 2 ? '袋' : '' }}{{item.specifications == 3 ? '条' : '' }}{{item.specifications == 4 ? '盒' : '' }}{{item.specifications == 5 ? '箱' : '' }}{{item.specifications == 6 ? '块' : '' }}{{item.specifications == 7 ? '个' : '' }}{{item.specifications == 8 ? '吨' : '' }}{{item.specifications == 9 ? '卷' : '' }}{{item.specifications == 10 ? '斤' : '' }}{{item.specifications == 11 ? '公斤' : '' }}{{item.specifications == 12 ? 'g' : '' }}{{item.specifications == 13 ? 'kg' : '' }}</text>
-          <view style=' display: flex;align-items: center;'>
-            <text class="product-text-address">呼和浩特</text>
-            <text class="product-text-thesale">售多地</text>
+          <view style=' display: flex;justify-content: space-between;'>
+          <view>
+            <text class="product-text-address">{{item.Country_of_origin}}</text>
+            <!-- <text class="product-text-thesale">售多地</text> -->
+          </view>
+            
+            <view>
+                <text bindtap='toBrand' class='brand_id' data-id="{{item.brand_id}}">{{item.brand_name}}></text>
+            </view>
           </view>
         </view>
       </view>

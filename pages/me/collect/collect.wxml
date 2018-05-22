@@ -12,32 +12,35 @@
             </view>
             <view class="weui-tab__panel">
                 <view style="margin:20rpx 0;" class="weui-tab__content" hidden="{{activeIndex != 0}}">
-                      <view class="product">
-                        <view class="product-head">
-                          <image src="../../image/1.jpg"></image>
+                      <view  wx:for="{{ProductList}}">
+                        <view bindtap='toProduct' class="product" data-id="{{item.product_id}}">
+                          <view class="product-head">
+                            <image src="{{item.thumb}}"></image>
+                          </view>
+                          <view class="product-text">
+                            <view style='display: flex;justify-content:flex-start;'>
+                              <!-- <text class="product-text-recommend">推荐</text> -->
+                              <text class="product-text-name">{{item.name}}</text>
+                            </view>
+                            <text class="product-text-date">{{item.describe}}</text>
+                            <view class='product-text-sort'>
+                              <text style='display:{{item.level == 2 ? "block":"none"}}'>绿色</text><text style='display:{{item.level == 3 ? "block":"none"}}'>有机</text><text style='display:{{item.level == 4 ? "block":"none"}}'>无公害</text><text style='display:{{item.level == 5 ? "block":"none"}}'>原生态</text>
+                            </view>
+                            <text class="product-text-price">￥{{item.price}}元/{{item.specifications == 1 ? '件' : '' }}{{item.specifications == 2 ? '袋' : '' }}{{item.product_specifications == 3 ? '条' : '' }}{{item.specifications == 4 ? '盒' : '' }}{{item.specifications == 5 ? '箱' : '' }}{{item.specifications == 6 ? '块' : '' }}{{item.specifications == 7 ? '个' : '' }}{{item.specifications == 8 ? '吨' : '' }}{{item.specifications == 9 ? '卷' : '' }}{{item.specifications == 10 ? '斤' : '' }}{{item.specifications == 11 ? '公斤' : '' }}{{item.specifications == 12 ? 'g' : '' }}{{item.specifications == 13 ? 'kg' : '' }}</text>
+                            <view style=' display: flex;align-items: center;'>
+                              <text class="product-text-address">{{item.Country_of_origin}}</text>
+                              <text class="product-text-thesale">{{}}</text>
+                            </view>
+                          </view>
                         </view>
-                        <view class="product-text">
-                          <view style='display: flex;justify-content:flex-start;'>
-                            <!-- <text class="product-text-recommend">推荐</text> -->
-                            <text class="product-text-name">这是标题这是标题这是标题这是标题这是标题</text>
-                          </view>
-                          <text class="product-text-date">这是内容这是内容这是内容是内容这是内容是内容这是内容是内容这是内容是内容这是内容这是内容这是内容这是内容</text>
-                          <view class='product-text-sort'>
-                            <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
-                          </view>
-                          <text class="product-text-price">￥34斤</text>
-                          <view style=' display: flex;align-items: center;'>
-                            <text class="product-text-address">呼和浩特</text>
-                            <text class="product-text-thesale">售多地</text>
-                          </view>
-                        </view>
-                      </view>
-
+                      </view>                
                 </view>
                 <view style="margin:20rpx 0;" class="weui-tab__content" hidden="{{activeIndex != 1}}">
-                    <view class="search-car"  bindtap="showRequire">
-                      <image src="../../image/1.jpg"></image>蒙高丽亚
-                    </view>
+                    <view wx:for="{{BrandList}}" >
+                        <view bindtap='toBrand' class="search-car"  data-id="{{item.brand_id}}">
+                          <image src="{{item.logo}}"></image>{{item.name}}
+                        </view>
+                    </view>                    
                 </view>
                     
             </view>

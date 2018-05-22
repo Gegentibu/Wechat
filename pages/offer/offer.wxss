@@ -1,0 +1,5 @@
+/* pages/offer/offer.wxss */
+image{
+  width: 750rpx;
+  height: 1414rpx;
+}

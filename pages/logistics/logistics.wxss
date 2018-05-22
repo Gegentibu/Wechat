@@ -1,0 +1,63 @@
+/* pages/logistics/logistics.wxss */
+ page{
+  background-color: #fafafa;
+
+} 
+.box{
+  padding-bottom: 30rpx;
+    background-color: #2581fb;
+  padding: 30rpx;
+  font-size: 30rpx;
+}
+.content{
+  display: flex;
+  justify-content: space-between;
+   padding: 30rpx 0; 
+  background-color: #2581fb;
+  color: #fff;
+}
+.content_time{
+   padding: 30rpx 0; 
+  background-color: #2581fb;
+   padding-bottom: 20rpx;
+     border-bottom: 1rpx solid #b0b0b0;
+
+  color: #fff;
+}
+.content view{
+  width: 280rpx;
+  border-bottom: 1rpx solid #b0b0b0;
+  padding-bottom: 20rpx;
+}
+.content image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.log {
+  display: flex;
+  justify-content: center;
+  padding: 20rpx;
+  margin: 20rpx 0; 
+  background-color: #fff;
+  font-size: 30rpx;
+}
+.dynamic {
+  padding: 30rpx;
+  font-size: 30rpx;
+  min-height: 300rpx;
+}
+.dynamic text{
+  display: block;
+  margin: 18rpx;
+  font-size: 28rpx;
+  color: #b0b0b0;
+}
+.button{
+  width: 550rpx;
+  height: 88rpx;
+  background-color: #2581ff;
+  color: #fff;
+}
+.other-button-hover{
+  background-color: skyblue;
+} 

@@ -16,7 +16,7 @@
       <text class="data-text-name">{{brand.name}}</text>
       <text class="data-text-date">{{brand.enterprise}}</text>
       <view class='brand-text-sort'>
-        <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
+        <text style='display:{{brand.level2 == 1 ? "block":"none"}}'>绿色</text><text style='display:{{brand.level3 == 1 ? "block":"none"}}'>有机</text><text style='display:{{brand.level4 == 1 ? "block":"none"}}'>无公害</text><text style='display:{{brand.level5 == 1 ? "block":"none"}}'>原生态</text>
       </view>
     </view>
 </view>
@@ -126,7 +126,7 @@
                 <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
             </view>
             <view class="weui-tab__panel">
-                <view style="margin:20rpx 0; min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                <view style="min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 0}}">
                   <view class='introduce'>
   <view>
   
@@ -142,7 +142,7 @@
   </view>
 </view>
                 </view>
-                <view style="margin:20rpx 0 100rpx 20rpx; min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                <view style="min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 1}}">
   <view class='pos-shop' wx:for="{{store}}">  
     <view class='pos-shop-text' data-id="{{item.store_id}}">
       <view style='display: inline-flex;'>
@@ -168,7 +168,7 @@
   </view>
 
                 </view>
-                <view style="margin:20rpx 0 100rpx 20rpx; min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                <view style="min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 2}}">
                   <view>
                        <view class='recommend' wx:for="{{product}}">
       <view class="product" data-id="{{item.product_id}}" data-brandId="{{item.brand_id}}"bindtap='toProduct'>
@@ -182,7 +182,7 @@
           </view>
           <text class="product-text-date">{{item.product_describe}}</text>
           <view class='product-text-sort'>
-            <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
+            <text style='display:{{item.product_level == 2 ? "block":"none"}}'>绿色</text><text style='display:{{item.product_level == 3 ? "block":"none"}}'>有机</text><text style='display:{{item.product_level == 4 ? "block":"none"}}'>无公害</text><text style='display:{{item.product_level == 5 ? "block":"none"}}'>原生态</text>
           </view>
           <text class="product-text-price">￥{{item.product_price}}元/{{item.product_specifications == 1 ? '件' : '' }}{{item.product_specifications == 2 ? '袋' : '' }}{{item.product_specifications == 3 ? '条' : '' }}{{item.product_specifications == 4 ? '盒' : '' }}{{item.product_specifications == 5 ? '箱' : '' }}{{item.product_specifications == 6 ? '块' : '' }}{{item.product_specifications == 7 ? '个' : '' }}{{item.product_specifications == 8 ? '吨' : '' }}{{item.product_specifications == 9 ? '卷' : '' }}{{item.product_specifications == 10 ? '斤' : '' }}{{item.product_specifications == 11 ? '公斤' : '' }}{{item.product_specifications == 12 ? 'g' : '' }}{{item.product_specifications == 13 ? 'kg' : '' }}</text>
           <view style=' display: flex;align-items: center;'>
@@ -200,7 +200,7 @@
     </view  >
 </view>
 <view class="contact" >
-  <view bindtap='calling'>
+  <view bindtap='calling' style='border-right:1rpx solid #f4f4f4;'>
     <image src='../image/phone.svg'></image>
     <text>电话</text>
   </view>

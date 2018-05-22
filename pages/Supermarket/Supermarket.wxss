@@ -1,0 +1,5 @@
+/* pages/Supermarket/Supermarket.wxss */
+image{
+  width: 750rpx;
+  height: 1918rpx;
+}

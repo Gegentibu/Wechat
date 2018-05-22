@@ -1,4 +1,4 @@
-var sliderWidth = 78; // 需要设置slider的宽度，用于计算中间位置
+var sliderWidth = 78; 
 Page({
   data: {
     tabs: ["产品介绍", "销售店铺", "产品参数"],
@@ -8,6 +8,22 @@ Page({
     product: [],
     store:[],
     status: "",
+  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/index/index',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
   onLoad: function (options) {
     console.log(options)
@@ -23,9 +39,9 @@ Page({
       key: 'openid',
       success: function(res) {
         wx.request({
-          url: 'https://api.mongoliaci.com/api/product/detail/37fb591be38db52dd1d5f04b689008f6?brand_id=' + options.brandId + '&product_id=' + options.id +'&uid='+res.data, //仅为示例，并非真实的接口地址
+          url: 'https://api.mongoliaci.com/api/product/detail/37fb591be38db52dd1d5f04b689008f6?brand_id=' + options.brandId + '&product_id=' + options.id +'&uid='+res.data, 
           header: {
-            'content-type': 'application/json' // 默认值
+            'content-type': 'application/json' 
           },
           success: function (res) {
             console.log(res.data)
@@ -40,6 +56,12 @@ Page({
     })
 
 
+  },  
+  toBrand:function (e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '../brand/brand?id=' + e.currentTarget.dataset.id,
+    })
   },
   tabClick: function (e) {
     this.setData({
@@ -64,14 +86,14 @@ Page({
         success: function (res) {
           console.log(id)
           wx.request({
-            url: 'https://api.mongoliaci.com/api/product/collect/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+            url: 'https://api.mongoliaci.com/api/product/collect/37fb591be38db52dd1d5f04b689008f6', 
             data: {
               uid: res.data,
               product_id: id,
               status: 1
             },
             header: {
-              'content-type': 'application/json' // 默认值
+              'content-type': 'application/json' 
             },
             success: function (res) {
               console.log(res.data)
@@ -92,10 +114,10 @@ Page({
           console.log(res.data)
           // console.log(that.data.Collect_id)
           wx.request({
-            url: 'https://api.mongoliaci.com/api/product/collect/cancel/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+            url: 'https://api.mongoliaci.com/api/product/collect/cancel/37fb591be38db52dd1d5f04b689008f6', 
             data: {
               uid: res.data,
-              // collect_id: that.data.Collect_id
+
               product_id: id
             },
             header: {

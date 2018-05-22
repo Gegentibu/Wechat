@@ -12,7 +12,7 @@
     <view class='product-text'>
         <view style='display:flex;justify-content:space-between;'>
           <view style='display: flex;align-items:center;'>
-            <text class='product-recommend'>推荐</text>
+            <text class='product-recommend' style='display:{{product.recommended == 1 ? "":"none"}}'>推荐</text>
             <text class='product-name'>{{product.name}}</text>
           </view>
           <view>
@@ -34,15 +34,15 @@
     </view>
   </view>
 </view>
-<view class="data">
+<view class="data" bindtap='toBrand' data-id="{{product.brand_id}}">
     <view class="data-head">
-      <image src="../image/0.jpeg"></image>
+      <image src="{{product.logo}}"></image>
     </view>
     <view class="data-text">
       <text class="data-text-name">{{product.brand_name}}</text>
        <text class="data-text-date">{{}}</text> 
       <view class='brand-text-sort'>
-        <text>绿色</text><text>有机</text><text>无公害</text><text>原生态</text>
+        <text style='display:{{product.level == 2 ? "block":"none"}}'>绿色</text><text style='display:{{product.level == 3 ? "block":"none"}}'>有机</text><text style='display:{{product.level == 4 ? "block":"none"}}'>无公害</text><text style='display:{{product.level == 5 ? "block":"none"}}'>原生态</text>
       </view>
     </view>
     <view style='display:flex;flex-direction:column;justify-content:center;'>
@@ -61,7 +61,7 @@
                 <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
             </view>
             <view class="weui-tab__panel">
-                <view style="margin:20rpx 0;min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                <view style="margin:20rpx 0;min-height: 500rpx;margin-bottom: 100rpx;" class="weui-tab__content" hidden="{{activeIndex != 0}}">
                   <view class='introduce'>
   <view>
   
@@ -77,7 +77,7 @@
   </view>
 </view>
                 </view>
-                <view style="margin:20rpx 0;min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                <view style="margin:20rpx 0;min-height: 500rpx;margin-bottom: 100rpx;" class="weui-tab__content" hidden="{{activeIndex != 1}}">
   <view class='pos-shop' data-id="{{store.store_id}}" style="display:{{store.store_name == undefined ?'none':''}}">
     <view class='pos-shop-text'>
       <view style='display: inline-flex;'>
@@ -103,7 +103,7 @@
   </view>
 
                 </view>
-                <view style="margin:20rpx 0;min-height: 500rpx;" class="weui-tab__content" hidden="{{activeIndex != 2}}">
+                <view style="margin:20rpx 0;min-height: 500rpx;margin-bottom: 100rpx;" class="weui-tab__content" hidden="{{activeIndex != 2}}">
                   <view>
                     <view class='parameter'>
                       <text class='left_name'>产品信息</text><text class='right_content'></text>
@@ -159,7 +159,7 @@
 </view>
 
 <view class="contact">
-  <view bindtap='calling'>
+  <view bindtap='calling'  style='border-right:1rpx solid #f4f4f4;'>
     <image src='../image/phone.svg'></image>
     <text>电话</text>
   </view>

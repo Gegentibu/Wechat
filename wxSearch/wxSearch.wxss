@@ -23,7 +23,8 @@
   flex: 8; 
   background-color: #eee;
   padding: 5px 10px;
-  border-radius: 10rpx;
+  border-radius: 30rpx;
+  font-size: 30rpx;
 }
 .wxSearch-button{
   flex: 1;
@@ -55,13 +56,13 @@
 }
 
 .wxSearchKeyItem{
-  flex: 0 0 20%;
+  flex: 0 0 25%;
   font-size: 14px;
   text-align: center;
   border: 1px solid #eee;
   margin: 5px;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 .wxSearchHistoryItem{
   padding: 10px 5px;

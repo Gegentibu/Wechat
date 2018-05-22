@@ -13,7 +13,7 @@
       </block>
     </view>
     <view style='font-size:30rpx;margin:20rpx 0;'>
-      <text>丨上传营业执照</text>
+      <text><text style='color:#2581ff;'>▍</text>上传营业执照</text>
     </view>
     <view class='img_box'>
 

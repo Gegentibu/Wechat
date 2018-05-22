@@ -18,6 +18,22 @@ Page({
            { "data_name": "14", "name": "廿七", "state": 0 }
      ]
        },
+ onShareAppMessage: function (res) {
+   if (res.from === 'button') {
+     // 来自页面内转发按钮
+     console.log(res.target)
+   }
+   return {
+     title: '肉行业的OMO共享平台',
+     path: 'pages/login/login',
+     success: function (res) {
+       // 转发成功
+     },
+     fail: function (res) {
+       // 转发失败
+     }
+   }
+ },
   select_date: function (e) {
  var index = e.currentTarget.dataset.key;
  console.log(index)

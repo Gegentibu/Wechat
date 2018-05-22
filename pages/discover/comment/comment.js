@@ -7,6 +7,22 @@ Page({
   data: {
   
   },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/discover/discover',
+      success: function (res) {
+
+      },
+      fail: function (res) {
+
+      }
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -57,10 +73,5 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+
 })

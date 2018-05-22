@@ -1,4 +1,6 @@
 <!--pages/discover/discover.wxml-->
+<scroll-view bindscrolltoupper="onPullDownRefresh">
+
    <view class='answer' style='display:{{Commentary}}'>
     <view style='answer-box'>
       <text>撰写评论</text><text style='float:right' bindtap='close'>X</text>
@@ -15,7 +17,7 @@
 
     <view class="data" >
       <view class="data-head">
-        <image src="{{data.data[0].avatarUrl}}"></image>
+        <image src="{{item.avatarUrl}}"></image>
       </view>
       <view class="data-text">
         <text class="data-text-name">{{item.nickName}}</text>
@@ -32,7 +34,7 @@
     <view class="data-icon">
             <view class='data-icon-style'>
               <image src="../image/浏览数.svg"></image>
-              <text style='margin-left:10rpx;'>{{item.view_count}}</text>
+              <text style='margin-left:10rpx;color:#d5d5d5; font-size:22rpx;'>{{item.view_count}}</text>
             </view>          
             <view class='data-icon-style' bindtap='answer' data-key="{{item.id}}">
               <image src="../image/phone.jpg" data-phone="{{item.num}}"></image>
@@ -40,6 +42,7 @@
             </view>
             
     </view>
+    <view style='background-color:#fafafa;height:20rpx;'></view>
   </view>
 <!-- </view> -->
 
@@ -50,3 +53,6 @@
     <navigator url="../discover/need/need" hover-class="navigator-hover" class='release-need'>发布需求</navigator>
   </view>
 </view>
+
+
+</scroll-view>

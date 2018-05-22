@@ -8,7 +8,7 @@ page{
 }
 .identity{
   display: inline-block;
-  width: 210rpx;
+  width: 205rpx;
   height: 70rpx;
   font-size: 28rpx;
   border: 1rpx solid #000;

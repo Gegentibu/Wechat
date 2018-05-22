@@ -7,6 +7,22 @@ Page({
   data: {
     publish:[]
   },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/publish/publish',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -18,7 +34,7 @@ Page({
       success: function(res) {
         console.log(res.data)
         wx.request({
-          url: 'https://api.mongoliaci.com/api/my/discover/index/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+          url: 'https://api.mongoliaci.com/api/my/discover/index/37fb591be38db52dd1d5f04b689008f6', 
           data: {
             uid: res.data
           },
@@ -78,13 +94,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
   
   }
 })

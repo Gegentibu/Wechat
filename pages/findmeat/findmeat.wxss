@@ -1,38 +1,42 @@
 /* pages/search/search.wxss */
 @import '../brand/brand.wxss';
-.sort{
+.sort_{
     display: inline-flex;
     border-top: 1rpx solid #e6e6e6;
-    border-bottom: 1rpx solid #e6e6e6;
+    /* border-bottom: 1rpx solid #e6e6e6; */
+    background-color: #fff;
+    font-size: 30rpx;
 }
 .sort-category{
     display: inline-flex;
     flex-wrap:wrap;
     width: 648rpx;
+    height: 140rpx;
     align-items:center;
     border-right: 1rpx solid #e6e6e6;
 }
-.sort-category text{
+.sort-category view{
     display: block;
-    width: 215rpx; 
-    height: 90rpx;
+    width: 214rpx; 
+    height: 70rpx;
     text-align: center;
-    line-height: 90rpx;
+    line-height: 70rpx;
     border-left: 1rpx solid #e6e6e6;
 }
 .sort-attestation{
     display: inline-flex;
     width: 100rpx;
-    height: 180rpx;
+    height: 140rpx;
     text-align: center;
     align-content:center;
     align-items: stretch;
     justify-content:center;
     flex-wrap:wrap;
+    border-bottom: 1rpx solid #e6e6e6;
 }
 .sort-attestation image{
-  width: 60rpx;
-  height: 60rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 .sort-attestation text{
     display: block;
@@ -43,6 +47,7 @@
   flex-wrap:wrap;
   width: 720rpx;
   padding: 15rpx;
+  background-color: #fff;
 }
 .category view,.attestation view{
   display: block;
@@ -57,16 +62,17 @@
   color:#2581ff;
 }
 .search-car{
-    height: 100rpx;
-    line-height: 100rpx;
+    height: 120rpx;
+    font-size: 34rpx;
+    line-height: 120rpx;
     /* background-color: #ffffff; */
     border-bottom: 1rpx solid #e6e6e6; 
 }
 
 .search-english{
-    height: 40rpx;
+    height: 60rpx;
     background-color: #f0f0f0;
-    line-height: 40rpx;
+    line-height: 60rpx;
     padding-left: 20rpx;
     font-size: 28rpx;
     color: #000000;
@@ -116,3 +122,8 @@ image{
   z-index: 10;
   background: #fff;
 } 
+.brand_id{
+  font-size: 22rpx;
+  color: #000;
+  text-align: right;
+}

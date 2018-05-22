@@ -1,35 +1,44 @@
 /* pages/search/search.wxss */
 .sort{
+  height: 70rpx;
     display: inline-flex;
-    border-top: 1rpx solid #e6e6e6;
-    border-bottom: 1rpx solid #e6e6e6;
+    border-top: 1rpx solid #f4f4f4;
+    border-bottom: 1rpx solid #f4f4f4;
+    font-size: 30rpx;
 }
 .sort-category{
     display: inline-flex;
     width: 649rpx;
     align-items:center;
-    border-right: 1rpx solid #e6e6e6;
+    border-right: 1rpx solid #f4f4f4;
 }
-.sort-category text{
+.sort-category view{
     display: block;
     width: 324rpx;
-    height: 90rpx;
+     height: 70rpx; 
     text-align: center;
-    line-height: 90rpx;
-    border-left: 1rpx solid #e6e6e6;
+     line-height: 70rpx; 
+    border-left: 1rpx solid #f4f4f4;
 }
+.sort-category image{
+  margin-left: 10rpx;
+  width: 20rpx;
+  height: 20rpx;
+}
+
 .sort-attestation{
     width: 100rpx;
-    height: 90rpx;
+    /* height: 90rpx; */
     text-align: center;
 }
 .sort-attestation image{
-  width: 40rpx;
-  height: 40rpx;
+  width: 30rpx;
+  height: 30rpx;
 }
 .sort-attestation text{
     display: block;
     font-size: 20rpx;
+    color: #b0b0b0;
 }
 .attestation,.category{
   display: flex;
@@ -42,7 +51,7 @@
   width: 100rpx;
   margin: 5rpx;
   padding: 10rpx 15rpx;
-   border: 1rpx solid #e6e6e6; 
+   border: 1rpx solid #f4f4f4; 
   text-align: center;
 }
 .attestation .active-tag,.category .active-tag{
@@ -50,15 +59,18 @@
   color:#2581ff;
 }
 .search-car{
-    height: 100rpx;
-    line-height: 100rpx;
+  font-size: 34rpx;
+    height: 120rpx;
+    line-height: 120rpx;
     background-color: #ffffff;
-    border-bottom: 1rpx solid #e6e6e6;
+    border-bottom: 1rpx solid #f4f4f4;
+    display: flex;
+    align-items: center;
 }
 .search-english{
-    height: 40rpx;
-    background-color: #f0f0f0;
-    line-height: 40rpx;
+    height: 60rpx;
+    background-color: #fafafa;
+    line-height: 60rpx;
     padding-left: 20rpx;
     font-size: 28rpx;
     color: #000000;
@@ -66,22 +78,25 @@
 scroll-view{
     z-index: 20;
 }
-image{
-    height: 75rpx;
-    width: 75rpx;
+.search-car image{
+    height: 100rpx;
+    width: 100rpx;
     display: inline-block;
     vertical-align: middle;
-    margin: 10rpx;
+    margin: 10rpx 20rpx 10rpx 30rpx; 
+    border: 1rpx solid #f4f4f4;
 }
 .index-english{
     position: fixed;
-    width: 30rpx;
+    width: 40rpx;
     height: auto;
     right: 0;
     font-size: 10px;
+    text-align: center;
+    border: 1rpx solid #f4f4f4;
 }
 .index-english view{
-    height: 18px;
+    height: 23px;
 }
 .index-name{
     text-align: center;

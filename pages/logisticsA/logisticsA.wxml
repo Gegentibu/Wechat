@@ -1,0 +1,13 @@
+<!--pages/logisticsA/logisticsA.wxml-->
+  <view style='padding:20rpx 0;'><text><text style='color:#2581ff;'>▍</text>装货地址</text></view>
+<view class='details'>
+  <view>
+      <input placeholder="联系人"></input>
+            <input placeholder="联系电话"></input>
+                  <input  placeholder="所在地区"></input>
+                        <input placeholder="详细地址"></input>
+  </view>
+</view>
+<view>
+  <button class='button' hover-class="other-button-hover">确定</button>
+</view>

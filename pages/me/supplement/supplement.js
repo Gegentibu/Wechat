@@ -1,12 +1,28 @@
-var interval = null //倒计时函数
+var interval = null 
 Page({
   data: {
     date: '请选择日期',
     fun_id: 2,
-    time: '获取验证码', //倒计时 
+    time: '获取验证码', 
     currentTime: 61,
     add_img: [],
     img: []
+  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/me/me',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
   gotoShow: function () {
     console.log("添加图片")
@@ -25,19 +41,18 @@ Page({
         console.log(filePath)
         for (var i = 0, h = filePath.length; i < h; i++) {
           wx.uploadFile({
-            url: 'https://api.mongoliaci.com/api/business/licensee/37fb591be38db52dd1d5f04b689008f6', //开发者服务器 url
-            filePath: filePath[i],//要上传文件资源的路径
+            url: 'https://api.mongoliaci.com/api/business/licensee/37fb591be38db52dd1d5f04b689008f6', 
+            filePath: filePath[i],
             name: 'file[]',
 
-            formData: { //HTTP 请求中其他额外的 form data
+            formData: { 
               'user': 'test'
             },
             success: function (res) {
-              // var data = res.data
+
               console.log(res)
               var data = JSON.parse(res.data);
-              //do something
-              // console.log(res.data)
+
               that.data.img.push(data.name)
             }
           })
@@ -49,21 +64,19 @@ Page({
     var that = this;
     var a = "{'image':'" + that.data.img + "'}";
     console.log(a)
-    // var image = {};
-    // image.push("")
+
     console.log(that.data.img[0])
       wx.getStorage({
         key: 'openid',
         success: function(res) {
           wx.request({
-            url: 'https://api.mongoliaci.com/api/completion/certification/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+            url: 'https://api.mongoliaci.com/api/completion/certification/37fb591be38db52dd1d5f04b689008f6', 
             data: {
               filepath: that.data.img[0],
               uid: res.data
             },
-            // method: 'POST',
             header: {
-              'content-type': 'application/x-www-form-urlencoded' // 默认值
+              'content-type': 'application/x-www-form-urlencoded' 
             },
             success: function (res) {
               console.log(res.data)

@@ -8,7 +8,7 @@
   </view>
 </view>
  <template is="wxSearch" data="{{wxSearchData}}"/> 
-<view style="z-index:10;" class="container">
+<view style="z-index:10;" class="container" style='display:{{areUok}}'>
   <view class="banner">
     <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true">  
       <block wx:for="{{movies}}" wx:for-index="index">  
@@ -19,26 +19,26 @@
     </swiper>
   </view>
   <view class="service">
-    <view class="service-item">
+    <view bindtap='finance' class="service-item">
       <image src="../image/报价.svg"></image>
-      <text class="service-item-text">实盘报价</text>
+      <text class="service-item-text">报价咨询</text>
     </view>
-    <view class="service-item">
+    <view bindtap='Supermarket' class="service-item">
       <image src="../image/O2O.svg"></image>
       <text class="service-item-text">连锁超市</text>
     </view>
-    <view class="service-item">
+    <view bindtap='logistics' class="service-item">
       <image src="../image/物流.svg"></image>
       <text class="service-item-text">冷链物流</text>
     </view>
-    <view class="service-item">
+    <view bindtap='offer' class="service-item">
       <image src="../image/供应链金融.svg"></image>
-      <text class="service-item-text">供应链金融</text>
+      <text class="service-item-text">共享工厂</text>
     </view>
   </view> 
   <view class="brand">
     <view class="brand-header">
-      <text class="brand-header-text">丨推荐品牌</text>
+      <text class="brand-header-text"><text style='color:#2581ff;'>▍</text>推荐品牌</text>
       <navigator class="brand-header-navigator" url="../search/search">全部品牌 ></navigator>
     </view>
     <view class="brand-item">
@@ -52,7 +52,7 @@
   </view>
   <view class="product">
     <view class="product-header">
-      <text class="product-header-text">丨产品报价</text>
+      <text class="product-header-text"><text style='color:#2581ff;'>▍</text>产品报价</text>
       <!-- <navigator class="product-header-navigator">更多报价 ></navigator> -->
     </view>
     <image src='https://images.mongoliaci.com/backend/uploads/chart.jpg'></image>
@@ -107,7 +107,7 @@
   </view>
   <view class="news">
     <view class="news-header">
-      <text class="news-header-text" >丨行业资讯</text>
+      <text class="news-header-text" ><text style='color:#2581ff;'>▍</text>行业资讯</text>
       <navigator class="news-header-navigator" url="../informationList/informationList">更多资讯 ></navigator>
     </view>
     <view wx:for="{{article}}">
@@ -128,40 +128,28 @@
   </view>
   <view class="cooperate">
     <view class="cooperate-header">
-      <text class="cooperate-header-text">丨合作平台</text>
+      <text class="cooperate-header-text"><text style='color:#2581ff;'>▍</text>合作平台</text>
     </view>
     <scroll-view class="cooperate-item" scroll-x="true" style=" white-space: nowrap; display: flex" >
       <view class="cooperate-item-list">
-        <image src="../image/0.jpeg"></image>
-        <text>宝泉街</text>
+        <image src="../image/安井.jpg"></image>
+        <text>安井</text>
       </view>    
       <view class="cooperate-item-list">
-        <image src="../image/0.jpeg"></image>
-        <text>宝泉街</text>
+        <image src="../image/科尔沁.jpg"></image>
+        <text>科尔沁</text>
       </view> 
       <view class="cooperate-item-list">
-        <image src="../image/0.jpeg"></image>
-        <text>宝泉街</text>
+        <image src="../image/蒙高.jpg"></image>
+        <text>蒙高丽亚</text>
       </view> 
       <view class="cooperate-item-list">
-        <image src="../image/0.jpeg"></image>
-        <text>宝泉街</text>
+        <image src="../image/牧业.jpg"></image>
+        <text style='font-size:20rpx;margin-top:16rpx;'>牧区资源商会</text>
       </view> 
       <view class="cooperate-item-list">
-        <image src="../image/0.jpeg"></image>
-        <text>宝泉街</text>
-      </view> 
-      <view class="cooperate-item-list">
-        <image src="../image/0.jpeg"></image>
-        <text>宝泉街</text>
-      </view> 
-      <view class="cooperate-item-list">
-        <image src="../image/0.jpeg"></image>
-        <text>宝泉街</text>
-      </view> 
-      <view class="cooperate-item-list">
-        <image src="../image/0.jpeg"></image>
-        <text>宝泉街</text>
+        <image src="../image/双汇.jpg"></image>
+        <text>双汇</text>
       </view> 
     </scroll-view>
   </view>

@@ -1,7 +1,14 @@
 {
-  "pages":[
-        "pages/index/index",
-        "pages/findmeat/findmeat",
+  "pages":[          
+    "pages/index/index",
+    "pages/offer/offer",
+    "pages/Supermarket/Supermarket",
+    "pages/finance/finance",
+    "pages/logistics/logistics",
+    "pages/logisticsA/logisticsA",
+    "pages/logisticsB/logisticsB",
+    "pages/logisticsC/logisticsC",
+    "pages/findmeat/findmeat",
     "pages/product/product",
     "pages/brand/brand",
     "pages/discover/comment/comment",
@@ -19,13 +26,14 @@
     "pages/information/information",
     "pages/informationList/informationList",
     "pages/news/news",
-    "pages/publish/publish"
+    "pages/publish/publish",
+    "pages/terms/terms"
     
     ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "肉之家",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {

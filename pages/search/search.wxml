@@ -1,9 +1,9 @@
 <view class='box'>
   <view class='sort'>
     <view class='sort-category'>
-      <text bindtap='category'>种类 ▴</text><text bindtap='attestation'>认证 ▿</text>
+      <view bindtap='category'>种类<image src='../image/下箭头.svg'></image></view><view bindtap='attestation'>认证<image src='../image/下箭头.svg'></image></view>
     </view>
-    <view class='sort-attestation'>
+    <view bindtap='resetting' class='sort-attestation'>
       <image src='../image/重置.svg'></image>
       <text>重置</text>
     </view>
@@ -19,7 +19,7 @@
       </block>
   </view>
 </view>
-<scroll-view scroll-y="true" style="margin-top:100rpx;height:{{windowHeight}}px;display:{{Brand}};"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+<scroll-view scroll-y="true" style="margin-top:70rpx;height:{{windowHeight}}px;display:{{Brand}};"  scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
   <view class="search-english" id="a" style='display:{{sort.A == undefind ? "none":""}}'>
     A
   </view>

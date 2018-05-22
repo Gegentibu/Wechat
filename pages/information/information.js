@@ -7,7 +7,21 @@ Page({
   data: {
     id:""
   },
-   
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/information/information',
+      success: function (res) {
+
+      },
+      fail: function (res) {
+
+      }
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -15,7 +29,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'https://api.mongoliaci.com/wechat/info', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/wechat/info', 
       data: {
         x: '',
         y: ''
@@ -74,10 +88,4 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

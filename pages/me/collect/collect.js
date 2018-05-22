@@ -1,10 +1,47 @@
-var sliderWidth = 78; // 需要设置slider的宽度，用于计算中间位置
+var sliderWidth = 78; 
 Page({
   data: {
     tabs: ["产品", "厂商"],
     activeIndex: "0",
     sliderOffset: 0,
-    sliderLeft: 0
+    sliderLeft: 0,
+    BrandList:[],
+    ProductList: []
+
+  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/me/me',
+      success: function (res) {
+
+      },
+      fail: function (res) {
+
+      }
+    }
+  },
+  toProduct:function(e){
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../../product/product?id=' + e.currentTarget.dataset.id,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  toBrand:function(e) {
+    console.log(e.currentTarget.dataset.id)
+     wx.navigateTo({
+      url: '../../brand/brand?id=' + e.currentTarget.dataset.id,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
   onLoad: function () {
     var that = this;
@@ -22,20 +59,18 @@ Page({
           url: 'https://api.mongoliaci.com/api/brand/collect/list/37fb591be38db52dd1d5f04b689008f6?uid='+res.data,
           success: function (res) {
             console.log(res.data)
-            // that.setData({
-            //   status: 1,
-            //   // collect_id:res.data.BrandCollect.id
-            // })
+            that.setData({
+              BrandList: res.data.CollectList
+            })
           } 
         })
         wx.request({
           url: 'https://api.mongoliaci.com/api/product/collect/list/37fb591be38db52dd1d5f04b689008f6?uid=' + res.data,
           success: function (res) {
             console.log(res.data)
-            // that.setData({
-            //   status: 1,
-            //   // collect_id:res.data.BrandCollect.id
-            // })
+            that.setData({
+              ProductList: res.data.CollectList
+            })
           }
         })
       },

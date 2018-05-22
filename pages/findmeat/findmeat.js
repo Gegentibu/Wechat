@@ -1,17 +1,12 @@
-// pages/search/search.js
-//定义索引字母数组
 var indexArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var y = 0;
-//获取touchstart字母数组角标
 function getArrIndex(english) {
-  // console.log(Page)
   for (var x = 0; x < indexArr.length; x++) {
     if (english == indexArr[x]) {
       return x;
     }
   }
 }
-//num 移动了多少位 index 当前字母,返回当前触摸位置节点的字母
 function getArrEnglish(num, index) {
   var english = indexArr[index + num];
   if (!(1 > num + index > 26)) {
@@ -51,12 +46,23 @@ Page({
     species: "",
     level: "",
     Selling_way: "1",
-    price: "1",
-    species: "",
-    species: "",
+    price: "",
     Units:"零售",
     recommend: "1", 
-    ico:"⇅"
+    priceImg:"../image/下箭头.svg",
+    recommendImg: "../image/下箭头.svg"
+  },
+  toProduct: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../product/product?id=' + e.currentTarget.dataset.id,
+    })
+  },
+  toBrand:function(e){
+    console.log(e.target.dataset.id)
+    wx.navigateTo({
+      url: '../brand/brand?id=' + e.target.dataset.id,
+    })
   },
   category: function (e) {
     var _key = '';
@@ -74,11 +80,68 @@ Page({
       whether: "none",
     })
   },
+  resetting:function(){
+    var that = this;
+    that.setData({
+      'current': "-",
+      'currentItem': "-",
+      whether: "none",
+      pron: "none",
+      Selling_way: '1',
+      Units: "零售",
+      species:"",
+      recommend:"1",
+      price:"1",
+      level:"",
+      id1: "",
+      id2: "",
+      id3: "",
+      priceImg: "../image/下箭头.svg",
+      recommendImg: "../image/下箭头.svg"
+    })
+    wx.request({
+      url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6', 
+      data: {
+
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data.sort)
+        that.setData({
+          sort: res.data.sort
+        });
+      }
+    })
+    wx.request({
+      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', 
+      data: {
+
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          products: res.data.products
+        });
+        if(res.data.products == null ){
+          wx.showModal({
+            title: '提示',
+            content: '暂无数据',
+            showCancel:false
+          })
+          
+        }
+      }
+    })
+  },
   tagChoose: function (e) {
     var that = this
     var id = e.currentTarget.dataset.id;
     console.log(id)
-    //设置当前样式
     that.setData({
       'current': id,
       species: id + 2
@@ -89,7 +152,7 @@ Page({
       })
     }, 500)
     wx.request({
-      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6',
       data: {
         brand1: that.data.id1,
         brand2: that.data.id2,
@@ -101,13 +164,21 @@ Page({
         recommended: that.data.recommend
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json' 
       },
       success: function (res) {
         console.log(res.data)
         that.setData({
           products: res.data.products
         });
+        if (res.data.products == null) {
+          wx.showModal({
+            title: '提示',
+            content: '暂无数据',
+            showCancel: false
+          })
+          that.resetting();
+        }
       }
     })
 
@@ -117,7 +188,6 @@ Page({
     var that = this
     var id = e.currentTarget.dataset.id;
     console.log(id)
-    //设置当前样式
     that.setData({
       'currentItem': id,
       level: id + 1
@@ -129,7 +199,7 @@ Page({
     }, 500)
 
     wx.request({
-      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', 
       data: {
         brand1: that.data.id1,
         brand2: that.data.id2,
@@ -141,21 +211,27 @@ Page({
         recommended: that.data.recommend
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json' 
       },
       success: function (res) {
         console.log(res.data)
         that.setData({
           products: res.data.products
         });
+        if (res.data.products == null) {
+          wx.showModal({
+            title: '提示',
+            content: '暂无数据',
+            showCancel: false
+          })
+          that.resetting();
+        }
       }
     })
 
   },
   Units: function () {
     var that = this
-
-    //设置当前样式
     if (that.data.Selling_way == "1" && that.data.Units == "零售"){
       that.setData({
         Selling_way: '2',
@@ -169,7 +245,7 @@ Page({
     }
     console.log(that.data.Selling_way)
     wx.request({
-      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', 
       data: {
         brand1: that.data.id1,
         brand2: that.data.id2,
@@ -181,32 +257,40 @@ Page({
         recommended: that.data.recommend
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json'
       },
       success: function (res) {
         console.log(res.data)
         that.setData({
           products: res.data.products
         });
+        if (res.data.products == null) {
+          wx.showModal({
+            title: '提示',
+            content: '暂无数据',
+            showCancel: false
+          })
+          that.resetting();
+        }
       }
     })
 
   },
   Price: function () {
     var that = this
-    // console.log()
-    //设置当前样式
-    if (that.data.price == "1"){
+    if (that.data.price == ""){
       that.setData({
-        price:""
+        price:"1",
+        priceImg:"../image/上箭头.svg"
       })
     }else{
       that.setData({
-        price: "1"
+        price: "",
+        priceImg: "../image/下箭头.svg"
       })
     }
     wx.request({
-      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', 
       data: {
         brand1: that.data.id1,
         brand2: that.data.id2,
@@ -219,13 +303,24 @@ Page({
 
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json' 
       },
       success: function (res) {
         console.log(res.data)
         that.setData({
           products: res.data.products
         });
+        if (res.data.products == null) {
+          wx.showModal({
+            title: '提示',
+            content: '暂无数据',
+            showCancel: false
+          })
+          that.resetting();
+          that.setData({
+            priceImg: "../image/下箭头.svg"
+          })
+        }
       }
     })
 
@@ -316,6 +411,13 @@ Page({
         that.setData({
           products: res.data.products
         });
+        if (res.data.products == null) {
+          wx.showModal({
+            title: '提示',
+            content: '暂无数据',
+          })
+          that.resetting();
+        }
       }
     })
   },
@@ -326,9 +428,23 @@ Page({
       Selected3: "",
       id1: "",
       id2: "",
-      id3: "",
-      // clear:"none"
+      id3: ""
     })
+  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/findmeat/findmeat',
+      success: function (res) {
+
+      },
+      fail: function (res) {
+
+      }
+    }
   },
   onLoad: function (options) {
     var that = this;
@@ -340,13 +456,17 @@ Page({
         });
       }
     })
+    wx.showLoading({
+      title: '加载中',
+    })
+
     wx.request({
-      url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/api/brand/list/37fb591be38db52dd1d5f04b689008f6', 
       data: {
         
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json' 
       },
       success: function (res) {
         console.log(res.data.sort)
@@ -356,18 +476,27 @@ Page({
       }
     })
     wx.request({
-      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', 
       data: {
 
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json' 
       },
       success: function (res) {
+        wx.hideLoading()
         console.log(res.data)
         that.setData({
           products: res.data.products
         });
+        if (res.data.products == null) {
+          wx.showModal({
+            title: '提示',
+            content: '暂无数据',
+            showCancel: false
+          })
+          that.resetting();
+        }
       }
     })
   },
@@ -377,15 +506,17 @@ Page({
     //设置当前样式
     if (that.data.recommend == "1") {
       that.setData({
-        recommend: "2"
+        recommend: "2",
+        recommendImg:"../image/上箭头.svg"
       })
     } else {
       that.setData({
-        recommend: "1"
+        recommend: "1",
+        recommendImg: "../image/下箭头.svg"
       })
     }
     wx.request({
-      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/api/products/list/37fb591be38db52dd1d5f04b689008f6', 
       data: {
         brand1: that.data.id1,
         brand2: that.data.id2,
@@ -398,13 +529,24 @@ Page({
 
       },
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json' 
       },
       success: function (res) {
         console.log(res.data)
         that.setData({
           products: res.data.products
         });
+        if (res.data.products == null) {
+          wx.showModal({
+            title: '提示',
+            content: '暂无数据',
+            showCancel: false
+          })
+          that.resetting();
+          that.setData({
+            recommendImg: "../image/下箭头.svg"
+          })
+        }
       }
     })
 

@@ -12,7 +12,49 @@ Page({
     textarea:"",
     key:''
 
+  },  
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/discover/discover',
+      success: function (res) {
+
+      },
+      fail: function (res) {
+
+      }
+    }
   },
+  onPullDownRefresh: function () {
+
+    wx.showNavigationBarLoading()
+    console.log(1)
+    var that = this;
+    wx.request({
+      url: 'https://api.mongoliaci.com/api/discover/index/37fb591be38db52dd1d5f04b689008f6', 
+
+      header: {
+        'content-type': 'application/json' 
+      },
+      success: function (res) {
+        console.log(res.data.data)
+        that.setData({
+          data: res.data
+        })
+      }
+    })
+    setTimeout(function () {
+     
+      // complete
+      wx.hideNavigationBarLoading() 
+      wx.stopPullDownRefresh() 
+    }, 1500);
+    
+  },
+  
   bindTextAreaBlur: function (e) {
     this.setData({
       textarea: e.detail.value
@@ -20,24 +62,16 @@ Page({
   },
   answer:function(e){
     console.log(e.target.dataset.phone)
-  //   this.setData({
-  //     Commentary:"block",
-  //     key:e.currentTarget.dataset.key
-  //   })
-  // },
-  // close: function () {
-  //   this.setData({
-  //     Commentary: "none"
-  //   })
+
     wx.makePhoneCall({
-      phoneNumber: e.target.dataset.phone //仅为示例，并非真实的电话号码
+      phoneNumber: e.target.dataset.phone 
     })
   },
   bindChage:function(){
     if(this.data.display == "none"){
       this.setData({
         display: "block",
-        change: "x"
+        change: "×"
       })
     }else{
       this.setData({
@@ -54,20 +88,18 @@ Page({
       success: function (res) {
         console.log(res.data)
         wx.request({
-          url: 'https://api.mongoliaci.com/api/discover/reply/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+          url: 'https://api.mongoliaci.com/api/discover/reply/37fb591be38db52dd1d5f04b689008f6', 
           data: {
             uid: res.data,
             d_id: that.data.key,
             content: that.data.textarea
           },
           header: {
-            'content-type': 'application/json' // 默认值
+            'content-type': 'application/json' 
           },
           success: function (res) {
             console.log(res.data.data)
-            // that.setData({
-            //   data: res.data
-            // })
+
           }
         })
       }
@@ -82,10 +114,10 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'https://api.mongoliaci.com/api/discover/index/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/api/discover/index/37fb591be38db52dd1d5f04b689008f6', 
 
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json' 
       },
       success: function (res) {
         console.log(res.data.data)
@@ -127,21 +159,14 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  // onPullDownRefresh: function () {
   
-  },
+  // },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
   
   }
 })

@@ -1,0 +1,65 @@
+<!--pages/logisticsC/logisticsC.wxml-->
+  <view style='padding:20rpx 0;'><text><text style='color:#2581ff;'>▍</text>装货地址</text></view>
+  <view>
+    <view class='team'>
+      <view>
+         <view class='name_left'>
+            <text>乌日</text>
+         </view>
+         <view class='address'>
+            <text>北京</text><text>朝阳区</text><text>草房</text><text>库房</text>
+         </view>
+      </view>
+      <view>
+         <view  class='name_right'>
+            <text>乌日</text>
+         </view>
+         <view  class='address'>
+            <text>北京</text><text>朝阳区</text><text>草房</text><text>库房</text>
+         </view>
+      </view>
+    </view>
+  
+  </view>
+    <view>
+    <view class='team'>
+      <view>
+         <view class='name_left'>
+            <text>乌日</text>
+         </view>
+         <view class='address'>
+            <text>北京</text><text>朝阳区</text><text>草房</text><text>库房</text>
+         </view>
+      </view>
+      <view>
+         <view  class='name_right'>
+            <text>乌日</text>
+         </view>
+         <view  class='address'>
+            <text>北京</text><text>朝阳区</text><text>草房</text><text>库房</text>
+         </view>
+      </view>
+    </view>
+  
+  </view>
+    <view>
+    <view class='team'>
+      <view>
+         <view class='name_left'>
+            <text>乌日</text>
+         </view>
+         <view class='address'>
+            <text>北京</text><text>朝阳区</text><text>草房</text><text>库房</text>
+         </view>
+      </view>
+      <view>
+         <view  class='name_right'>
+            <text>乌日</text>
+         </view>
+         <view  class='address'>
+            <text>北京</text><text>朝阳区</text><text>草房</text><text>库房</text>
+         </view>
+      </view>
+    </view>
+  
+  </view>

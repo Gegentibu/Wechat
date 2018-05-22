@@ -1,0 +1,30 @@
+<!--pages/logistics/logistics.wxml-->
+<view>
+  <view class='box'>
+    <view class='content'>
+      <view bindtap='shipment'><text>装货地址</text></view>
+      <image src='../image/汽车.svg'></image>
+      <view bindtap='take' style='text-align:right'><text >收货地址</text></view>
+    </view >
+    <view class='content'>
+      <view><text>重量</text></view>
+        <image src=''></image>
+      <view style='text-align:right'><text >类别</text></view>
+    </view>
+    
+    <view class='content_time'><text>3月7日</text><text>明天</text></view>
+  </view>
+  <view bindtap='logaddress' class='log'><text>历史地址</text></view>
+  <view style='background-color:#fff;'>
+    <view style='border-bottom:1rpx solid #f4f4f4;padding:20rpx 0;'><text><text style='color:#2581ff;'>▍</text>物流动态</text></view>
+    <view class='dynamic'>
+      <text>今天 12:11从呼市发到北京8吨肉类已经装货</text>
+      <text>今天 12:11从呼市发到北京8吨肉类已经装货</text>
+      <text>今天 12:11从呼市发到北京8吨肉类已经装货</text>
+      <text>今天 12:11从呼市发到北京8吨肉类已经装货</text>
+      
+    </view>
+
+  </view>
+  <button class='button' hover-class="other-button-hover">快速下单</button>
+</view>

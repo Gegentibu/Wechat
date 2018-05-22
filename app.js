@@ -1,7 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
+
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
@@ -47,7 +47,7 @@ App({
               //发起网络请求
               wx.request({
                 url: 'https://api.mongoliaci.com/api/wechat/key/',
-                // method:'POST',
+
                 data: {
                   code: res.code
                 }, success(res) {
@@ -61,7 +61,7 @@ App({
                     success: function (res) {
                       console.log(avatarUrl)
                       wx.request({
-                        url: 'https://api.mongoliaci.com/api/wechat/info/', //仅为示例，并非真实的接口地址
+                        url: 'https://api.mongoliaci.com/api/wechat/info/', 
                         data: {
                           userInfo: userInfo,
                           nickName: nickName,
@@ -77,11 +77,7 @@ App({
                         },
                         success: function (res) {
                           console.log(res.data.uid)
-                          // console.log(res.data.uid)
-                          // wx.setStorage({
-                          //   key: "uid",
-                          //   data: res.data.openid
-                          // })
+
                         }
                       })
                     }

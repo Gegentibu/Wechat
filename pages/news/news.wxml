@@ -1,7 +1,7 @@
 <!--pages/news/news.wxml-->
 <view>
   <view class="news-header">
-    <text class="news-header-text">丨消息列表</text>
+    <text class="news-header-text"><text style='color:#2581ff;'>▍</text>消息列表</text>
   </view>
   <view class='newslist'>
     <view class='list'>

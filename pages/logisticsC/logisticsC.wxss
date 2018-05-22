@@ -1,0 +1,27 @@
+/* pages/logisticsC/logisticsC.wxss */
+page{
+  background-color: #fafafa;
+}
+.team{
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #fafafa;
+}
+.name_left{
+  margin: 10rpx;
+  font-size: 30rpx;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+.name_right{
+  margin: 10rpx;
+  text-align:right;
+  font-size: 30rpx;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+.address text{
+  font-size: 20rpx;
+  margin: 10rpx ;
+  color: #b0b0b0;
+}

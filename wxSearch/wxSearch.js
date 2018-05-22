@@ -160,8 +160,8 @@ function wxSearchKeyTap(e, that, callBack) {
     var temData = that.data.wxSearchData;
     // temData.view.isShow = true;
 
-    temData.value = e.target.dataset.key;
-    var what = e.target.dataset.key
+    temData.value = e.target.dataset.name;
+    var what = e.target.dataset.name
     console.log(what)
     that.setData({
       wxSearchData: temData
@@ -170,6 +170,9 @@ function wxSearchKeyTap(e, that, callBack) {
       callBack();
     } 
        ;},300)
+    wx.navigateTo({
+      url: '../product/product?id='+e.target.dataset.key,
+    })
   
 }
 function getHisKeys(that) {
@@ -228,11 +231,28 @@ function wxSearchAddHisKey(that) {
     wx.showModal({
       title: '提示',
       content: '请输入内容',
+      showCancel: false,
       success: function (res) {
         if (res.confirm) {
+          that.setData({
+            areUok:""
+          })
+          var temData = that.data.wxSearchData;
+          temData.view.isShow = false;
+          that.setData({
+            wxSearchData: temData
+          });
           console.log('用户点击确定')
         } else if (res.cancel) {
           console.log('用户点击取消')
+          that.setData({
+            areUok: ""
+          })
+          var temData = that.data.wxSearchData;
+          temData.view.isShow = false;
+          that.setData({
+            wxSearchData: temData
+          });
         }
       }
     })
@@ -248,10 +268,14 @@ function wxSearchAddHisKey(that) {
       'content-type': 'application/json' // 默认值
     },
     success: function (res) {
-      console.log(res.data)
+      var temData = that.data.wxSearchData;
+      temData.view.isShowSearchKey = false;
+      that.setData({
+        wxSearchData: temData
+      });
       // console.log((res.data.data.data).length)
       for (var i = 0; i < (res.data.data.data).length; i++) {
-        inits.push(res.data.data.data[i].name);
+        inits.push(res.data.data.data[i]);
         // console.log(res.data.data.data);
         // console.log(res.data.data.data[i].name);
         // console.log(inits);
@@ -270,11 +294,28 @@ function wxSearchAddHisKey(that) {
         wx.showModal({
           title: '提示',
           content: '暂无数据',
+          showCancel:false,
           success: function (res) {
             if (res.confirm) {
               console.log('用户点击确定')
+              that.setData({
+                areUok: ""
+              })
+              var temData = that.data.wxSearchData;
+              temData.view.isShow = false;
+              that.setData({
+                wxSearchData: temData
+              });
             } else if (res.cancel) {
               console.log('用户点击取消')
+              that.setData({
+                areUok: ""
+              })
+              var temData = that.data.wxSearchData;
+              temData.view.isShow = false;
+              that.setData({
+                wxSearchData: temData
+              });
             }
           }
         })

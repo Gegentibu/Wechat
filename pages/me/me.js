@@ -1,13 +1,32 @@
-Page({
+ Page({
 
   /**
    * 页面的初始数据
    */
   data: {
     focus: true,
-    name:'白丽丽',
+    name:'加载中',
     nameDisplay:'',
-    reviseImg: "../image/编辑.svg"
+    reviseImg: "../image/编辑.svg",
+    verification:"验证身份",
+    certification:"",
+    toIdentity:"toIdentity"
+  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/me/me',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
   revise: function(){
     var name = this.data.name;
@@ -110,6 +129,27 @@ Page({
         var country = userInfo.country
       }
     })
+    wx.getStorage({
+      key: 'openid',
+      success: function(res) {
+        console.log(res.data)
+        wx.request({
+          url: 'https://api.mongoliaci.com/api/my/certification/business_license/message/37fb591be38db52dd1d5f04b689008f6?uid='+res.data,
+          success:function(res) {
+            console.log(res.data.data.certification)
+            that.setData({
+              certification: res.data.data.certification
+            })
+            if (res.data.data.certification == 1){
+              that.setData({
+                verification: "已验证",
+                toIdentity:"-"
+              })
+            }
+          }
+        })
+      },
+    })
   },
 
   /**
@@ -151,13 +191,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

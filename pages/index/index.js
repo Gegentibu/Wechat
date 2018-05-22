@@ -1,5 +1,3 @@
-//index.js
-//获取应用实例
 var WxSearch = require('../../wxSearch/wxSearch.js')
 const app = getApp()
 
@@ -18,8 +16,42 @@ Page({
     toView: 'red',
     scrollTop: 100,
     brand:[],
-    article:[]
+    article:[],
+    areUok:""
 
+  },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      console.log(res.target)
+    }
+    return {
+      title: '肉行业的OMO共享平台',
+      path: 'pages/index/index',
+      success: function (res) {
+      },
+      fail: function (res) {
+      }
+    }
+  },
+  logistics:function(){
+    wx.navigateTo({
+      url: '../logistics/logistics',
+    })
+  },
+  offer: function () {
+    wx.navigateTo({
+      url: '../offer/offer',
+    })
+  },
+  finance: function () {
+    wx.navigateTo({
+      url: '../finance/finance',
+    })
+  },
+  Supermarket: function () {
+    wx.navigateTo({
+      url: '../Supermarket/Supermarket',
+    })
   },
   upper: function (e) {
     console.log(e)
@@ -45,7 +77,6 @@ Page({
       scrollTop: this.data.scrollTop + 10
     })
   },
-  //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
@@ -56,9 +87,9 @@ Page({
     console.log('onLoad')
     var that = this
     wx.request({
-      url: 'https://api.mongoliaci.com/api/brand/index/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/api/brand/index/37fb591be38db52dd1d5f04b689008f6', 
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json' 
       },
       success: function (res) {
         console.log(res.data)
@@ -68,9 +99,9 @@ Page({
       }
     })
     wx.request({
-      url: 'https://api.mongoliaci.com/api/article/index/37fb591be38db52dd1d5f04b689008f6', //仅为示例，并非真实的接口地址
+      url: 'https://api.mongoliaci.com/api/article/index/37fb591be38db52dd1d5f04b689008f6', 
       header: {
-        'content-type': 'application/json' // 默认值
+        'content-type': 'application/json' 
       },
       success: function (res) {
         console.log(res.data)
@@ -80,16 +111,17 @@ Page({
       }
     })
 
-    //初始化的时候渲染wxSearchdata
-    WxSearch.init(that, 43, ['羊', '羊肉', '羊肉', '苏尼特', '蒙高丽亚']);
+
+    WxSearch.init(that, 43, [{ id: "1", name: "羊白条" }, { id: "67", name: "整块鲜牛肉" }, { id: "243", name: "马肉" }, { id: "253", name: "腱子" }, { id: "97", name: "羊肉卷" }],
+
+    );
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
     } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
+     
       app.userInfoReadyCallback = res => {
         this.setData({
           userInfo: res.userInfo,
@@ -97,7 +129,7 @@ Page({
         })
       }
     } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
+
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
@@ -112,27 +144,39 @@ Page({
   wxSearchFn: function (e) {
     var that = this
     WxSearch.wxSearchAddHisKey(that);
-    console.log('点击搜索')
+    that.setData({
+      areUok:"none"
+    })
+
   },
   wxSearchInput: function(e){
     var that = this
     WxSearch.wxSearchInput(e,that);
-    console.log("输入")
+
   },
   wxSerchFocus: function (e) {
     var that = this
     WxSearch.wxSearchFocus(e, that,);
-    console.log('焦距输入框')
+
+    that.setData({
+      areUok: "none"
+    })
   },
   wxSearchBlur: function (e) {
     var that = this
     WxSearch.wxSearchBlur(e, that);
-    console.log('失去焦点')
+
+    that.setData({
+      areUok: ""
+    })
   },
   wxSearchKeyTap: function (e) {
     var that = this
     WxSearch.wxSearchKeyTap(e, that);
-    console.log("点击列表")
+
+    that.setData({
+      areUok: ""
+    })
   },
   wxSearchDeleteKey: function (e) {
     var that = this
